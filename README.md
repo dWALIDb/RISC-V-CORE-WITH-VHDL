@@ -108,7 +108,11 @@ In this case the program still does the same but the offset is different because
 --rest of subroutine--  
 
 *Comments* are used to better understand programs, the syntax is as follows:       ;this is a comment :)  
-
+**DATA WORDS:** if the programmer needs data words for debugging/prompting user it can be embedded witht the code using  
+/name: data,...  
+an example is  
+/data: $ff,1024,$10  
+it is pushed to the same unordered map that labels use, thus it can be used with immediate value fields, and it is going to be taken directly as the data address of the first element, all the values generated are going to be 4 bytes because the CPU architecture is 32 bits. 
 the following table organizes all the instructions:
 | INSTRUCTION | ASSEMBLY FORMAT | DESCRIPTION |
 |:-----------:|:---------------:|:-----------:|
@@ -174,9 +178,9 @@ the following table organizes all the instructions:
 
 **NOTES :** 
 - All register references must have lower case 'x' before them example register 0 is x0.  
-- All addresses and immediate values are referenced in decimal.
+- All addresses and immediate values are referenced in decimal UNLESS you precede them with $.
 - assemble(input_file_path,output_file_path) is the main method, it takes the assembly program and converts it to machine code to write in output file.
-- generate_byte_mif(output_file_path,mif_path,depth) generates byte addressable initialization of memory.
+
 
 *output_file_path:* is the file that has the machine code of the program that we want to assemble.
 
