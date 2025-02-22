@@ -120,7 +120,7 @@ the following table organizes all the instructions:
 |NO OPERANTION|NOP|ENCODED AS ADD x0,x0,x0|
 |JUMP AND LINK|JAL rd,20_bit_offset|rd=pc+4 , pc=pc+4+20_bit_OFFSET|
 |ADD UPPER IMMEDIATE TO pc|AUIPC rd,upper_20_bit_offset|rd=pc+upper_20_bit_offset|
-|LOAD UPPER IMMEDIATE|LUI rd,upper_20_bit_immediate|rd=upper_20_bit_immediate|
+|LOAD UPPER IMMEDIATE|LUI rd,upper_20_bit_immediate|rd=upper_20_bit_immediate  **NOTE:**give it full 32 bits and it handles the rest|
 |MOVE INT TO FLOAT|FMV.W.X rd,rs|MOVE rs int REGISTER ADDRESS TO rd fp REGISTER ADDRESS WITHOUT CONVERSION |
 |MOVE FLOAT TO INT|FMV.X.W rd,rs|MOVE rs fp REGISTER ADDRESS TO rd int REGISTER ADDRESS WITHOUT CONVERSION |
 |CONVERT FLOAT TO INT|FMV.W.S rd,rs|CONVERT rs fp REGISTER ADDRESS TO rd signed int REGISTER ADDRESS|
