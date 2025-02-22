@@ -120,7 +120,7 @@ the following table organizes all the instructions:
 |NO OPERANTION|NOP|ENCODED AS ADD x0,x0,x0|
 |JUMP AND LINK|JAL rd,20_bit_offset|rd=pc+4 , pc=pc+4+20_bit_OFFSET|
 |ADD UPPER IMMEDIATE TO pc|AUIPC rd,upper_20_bit_offset|rd=pc+upper_20_bit_offset|
-|LOAD UPPER IMMEDIATE|LUI rd,upper_20_bit_immediate|rd=upper_20_bit_immediate  **NOTE:**give it full 32 bits and it handles the rest this eliminates need for %hi and %lo directives|
+|LOAD UPPER IMMEDIATE|LUI rd,upper_20_bit_immediate|rd=upper_20_bit_immediate  **NOTE:**give it full 32 bits and it handles the rest, this eliminates need for %hi and %lo directives|
 |MOVE INT TO FLOAT|FMV.W.X rd,rs|MOVE rs int REGISTER ADDRESS TO rd fp REGISTER ADDRESS WITHOUT CONVERSION |
 |MOVE FLOAT TO INT|FMV.X.W rd,rs|MOVE rs fp REGISTER ADDRESS TO rd int REGISTER ADDRESS WITHOUT CONVERSION |
 |CONVERT FLOAT TO INT|FMV.W.S rd,rs|CONVERT rs fp REGISTER ADDRESS TO rd signed int REGISTER ADDRESS|
@@ -180,7 +180,7 @@ the following table organizes all the instructions:
 - All register references must have lower case 'x' before them example register 0 is x0.  
 - All addresses and immediate values are referenced in decimal UNLESS you precede them with $.
 - assemble(input_file_path,output_file_path) is the main method, it takes the assembly program and converts it to machine code to write in output file.
-
+- an example of lui:  lui x1,$2000 this puts 00002000 in register x1
 
 *output_file_path:* is the file that has the machine code of the program that we want to assemble.
 
