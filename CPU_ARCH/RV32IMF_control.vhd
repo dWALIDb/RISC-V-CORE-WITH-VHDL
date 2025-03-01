@@ -157,7 +157,7 @@ elsif(clk'event and clk='0') then
 		--IN_DATA:IO_IN USED TO INPUT TO RAM FROM USER just like the store word but for IO RS1 field is 0 and the others are the same
 		when"1110111"=>Wram_wd<='1';Wram_src<="000";WIO_IN<='1';Wram_src<="100";Waddress_calculate<='1';
 		--OUT_DATA:used to output data from ram to IO_regiser used like load instruction but for io alu has calculated address and RD is ZERO
-		when"0001000"=> Wram_rd<='1';Wint_srcB<="10";Wwriteback_op<='1';WIO_OUT<='1';
+		when"0001000"=> Wram_rd<='1';Wint_RD1<='1';Wint_srcB<="10";Wwriteback_op<='1';WIO_OUT<='1';
 		--NOTHING WILL BE DONE AND EVERY THING IS SET TO "0"
 		when others=>null;
 end case;
