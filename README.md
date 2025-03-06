@@ -108,11 +108,7 @@ In this case the program still does the same but the offset is different because
 --rest of subroutine--  
 
 *Comments* are used to better understand programs, the syntax is as follows:       ;this is a comment :)  
-**DATA WORDS:** if the programmer needs data words for debugging/prompting user it can be embedded witht the code using  
-/name: data,...  
-an example is  
-/data: $ff,1024,$10  
-it is pushed to the same unordered map that labels use, thus it can be used with immediate value fields, and it is going to be taken directly as the data address of the first element, all the values generated are going to be 4 bytes because the CPU architecture is 32 bits. 
+
 the following table organizes all the instructions:
 | INSTRUCTION | ASSEMBLY FORMAT | DESCRIPTION |
 |:-----------:|:---------------:|:-----------:|
@@ -120,11 +116,11 @@ the following table organizes all the instructions:
 |NO OPERANTION|NOP|ENCODED AS ADD x0,x0,x0|
 |JUMP AND LINK|JAL rd,20_bit_offset|rd=pc+4 , pc=pc+4+20_bit_OFFSET|
 |ADD UPPER IMMEDIATE TO pc|AUIPC rd,upper_20_bit_offset|rd=pc+upper_20_bit_offset|
-|LOAD UPPER IMMEDIATE|LUI rd,upper_20_bit_immediate|rd=upper_20_bit_immediate  **NOTE:**give it full 32 bits and it handles the rest, this eliminates need for %hi and %lo directives|
+|LOAD UPPER IMMEDIATE|LUI rd,upper_20_bit_immediate|rd=upper_20_bit_immediate|
 |MOVE INT TO FLOAT|FMV.W.X rd,rs|MOVE rs int REGISTER ADDRESS TO rd fp REGISTER ADDRESS WITHOUT CONVERSION |
 |MOVE FLOAT TO INT|FMV.X.W rd,rs|MOVE rs fp REGISTER ADDRESS TO rd int REGISTER ADDRESS WITHOUT CONVERSION |
-|CONVERT FLOAT TO INT|FMV.W.S rd,rs|CONVERT rs fp REGISTER ADDRESS TO rd signed int REGISTER ADDRESS|
-|CONVERT INT TO FLOAT|FMV.S.W rd,rs|CONVERT rs signed int REGISTER ADDRESS TO rd fp REGISTER ADDRESS|
+|CONVERT FLOAT TO INT|FCVT.W.S rd,rs|CONVERT rs fp REGISTER ADDRESS TO rd signed int REGISTER ADDRESS|
+|CONVERT INT TO FLOAT|FCVT.S.W rd,rs|CONVERT rs signed int REGISTER ADDRESS TO rd fp REGISTER ADDRESS|
 |MOVE fp VALUE|FMV rd,rs|MOVE FLOAT VALUE FROM rs FLOAT REGISTER ADDRESS to rd FLOAT REGISTER ADDRESS|
 |GET NEGATIVE OF fp register|FNEG rd,rs|NEGATIVE VALUE OF FLOAT rs AND PUT IN rd IF ALREADY NEGATIVE, IT DOESN'T AFFECT|
 |GET ABSOLUTE VALUE OF fp register|FABS rd,rs|ABSOLUTE VALUE OF FLOAT rs AND PUT IN rd|
@@ -178,9 +174,9 @@ the following table organizes all the instructions:
 
 **NOTES :** 
 - All register references must have lower case 'x' before them example register 0 is x0.  
-- All addresses and immediate values are referenced in decimal UNLESS you precede them with $.
+- All addresses and immediate values are referenced in decimal.
 - assemble(input_file_path,output_file_path) is the main method, it takes the assembly program and converts it to machine code to write in output file.
-- an example of lui:  lui x1,$2000 this puts 00002000 in register x1
+- generate_byte_mif(output_file_path,mif_path,depth) generates byte addressable initialization of memory.
 
 *output_file_path:* is the file that has the machine code of the program that we want to assemble.
 
