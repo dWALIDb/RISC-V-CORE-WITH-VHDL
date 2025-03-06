@@ -26,7 +26,7 @@ end RAM_simulation;
 
 architecture simulation of RAM_simulation is 
 
-signal ram_data: std_logic_vector_array(2**address_width-1 downto 0)(7 downto 0):=init_ram_withFile(simulation_file_directory,address_width);
+signal ram_data: std_logic_vector_array(2**address_width-1 downto 0)(31 downto 0):=init_ram_withFile32(simulation_file_directory,address_width);
 signal output:std_logic_vector(data_width-1 downto 0);
 
 begin 
@@ -34,9 +34,11 @@ begin
 WRITING_PROCESS:process(clk,wd,address)
 begin 
 if(clk'event and clk='1') then if(wd='1') then
-	for i in 0 to data_width/8 -1 loop 
-	ram_data(to_integer(unsigned(address)+i))<=D(data_width-1-(data_width/8-1-i)*8 downto (data_width-1-(data_width/8-1-i)*8-7));
-	end loop;
+	--for byte adressable
+	--for i in 0 to data_width/8 -1 loop 
+	--ram_data(to_integer(unsigned(address)+i))<=D(data_width-1-(data_width/8-1-i)*8 downto (data_width-1-(data_width/8-1-i)*8-7));
+	--end loop;
+	ram_data(to_integer(unsigned(address)))<=D;
 end if;end if;
 end process;
 
@@ -45,11 +47,12 @@ variable O:std_logic_vector(data_width-1 downto 0);
 begin
 O:=(others=>'0');
 if(RD='1') then 
-for i in 0 to data_width/8 -1 loop 
---shift the input in byte by byte 
-O:=O(data_width-1-8 downto 0)&ram_data(to_integer(unsigned(address)-i+data_width/8 -1));
-end loop;
-OUTPUT<=O;
+	--for byte adressable
+	--for i in 0 to data_width/8 -1 loop 
+	--shift the input in byte by byte 
+	--O:=O(data_width-1-8 downto 0)&ram_data(to_integer(unsigned(address)-i+data_width/8 -1));
+	--end loop;
+OUTPUT<=ram_data(to_integer(unsigned(address)));
 else output<=(others=>'0');
 end if;
 end process;
