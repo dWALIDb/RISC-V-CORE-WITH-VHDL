@@ -11,8 +11,6 @@ constant data_address: integer:=5;
 --instruction address for rams used for data and instruction memories
 constant memory_address_width: integer :=6;
 constant data_width: integer :=32;
-constant simulation_file_directory:string:="C:/Users/brazz/OneDrive/Bureau/FPGA/RV32IMF_sim/Text1.txt";
-constant synthesis_file_directory:string:="C:/Users/brazz/OneDrive/Bureau/FPGA/RV32IMF/data.mif";
 constant opcode_length:integer:=7;
 
 type std_logic_vector_array is array (integer range<>) of std_logic_vector;
@@ -20,6 +18,9 @@ type std_logic_vector_array is array (integer range<>) of std_logic_vector;
 impure function init_ram_withFile(file_directory: string;num_rows: integer) return std_logic_vector_array;
 
 procedure check_extention(file_directory:in string;extention:in string);
+
+impure function init_ram_withFile32(file_directory: string;num_rows: integer) return std_logic_vector_array;
+
 end package tools;
 
 package body tools is 
@@ -44,7 +45,7 @@ variable data_read: std_logic_vector_array(2**num_rows -1 downto 0)(7 downto 0);
 variable i: integer range 0 to 2**num_rows+4;
 
 begin 
-check_extention(file_directory,".txt" );
+--check_extention(file_directory,".txt" );
 while not endfile(data_file) loop
 
 for y in 0 to data_width/8 -1 loop
@@ -63,6 +64,44 @@ read(row,data_read(i+y));
 --read(row,data_read(i+3));
 
 if(i<2**num_rows-4)  then i:=i+4; 
+else exit; 
+end if;
+
+end loop;
+file_close(data_file);
+return data_read;
+end function;
+
+impure function init_ram_withFile32(file_directory: string;num_rows: integer) return std_logic_vector_array is 
+
+file data_file : text open read_mode is file_directory;
+variable row0 : line;
+variable row1 : line;
+variable row2 : line;
+variable row3 : line;
+variable S:string(1 to 8);
+--memory is byte addressable 
+variable data_read: std_logic_vector_array(2**num_rows -1 downto 0)(31 downto 0);
+variable i: integer range 0 to 2**num_rows;
+
+begin 
+--check_extention(file_directory,".txt" );
+while not endfile(data_file) loop
+
+readline(data_file,row0);--we read byte 1 then byte 2 and so on
+
+S:='0'&row0.all(2 to S'length);
+if(row0.all(1)='#')then i:=integer'value(S); 
+next;end if;
+read(row0,data_read(i)(7 downto 0));
+readline(data_file,row1);
+read(row1,data_read(i)(15 downto 8));
+readline(data_file,row2);
+read(row2,data_read(i)(23 downto 16));
+readline(data_file,row3);
+read(row3,data_read(i)(31 downto 24));
+
+if(i<2**num_rows-1)  then i:=i+1; 
 else exit; 
 end if;
 
