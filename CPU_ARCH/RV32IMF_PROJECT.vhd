@@ -8,39 +8,39 @@ entity RV32IMF_PROJECT is
 generic(
 data_width:integer:=32;
 address_width:integer:=5;
-instruction_memory_address_width:integer:=6;
-data_memory_address_width:integer:=6;
+instruction_memory_address_width:integer:=9;
+data_memory_address_width:integer:=11;
 
 instruction_simulation_file_directory:string:= 
-"C:\Users\DELL\Desktop\fpga\RISC-V-CORE-WITH-VHDL-main\RISC-V-CORE-WITH-VHDL-main\assembler\output_file.txt";
+"C:\Users\DELL\Desktop\riscvIDE\OUTPUT.txt";
 
 data_simulation_file_directory:string:= 
-"C:\Users\DELL\Desktop\fpga\RISC-V-CORE-WITH-VHDL-main\RISC-V-CORE-WITH-VHDL-main\assembler\data_init.txt";
+"C:\Users\DELL\Desktop\playTest\RISC-V-CORE-WITH-VHDL-main\CPU_ARCH\data_cnn.txt";
 
 data_synthesis_file_directory0:string:=
-"C:\Users\DELL\Desktop\playTest\RISC-V-CORE-WITH-VHDL-main\assembler\MIF0.mif";
+"C:\Users\DELL\Desktop\riscvIDE\OUTPUT_DATA_MIF0.mif";
 data_synthesis_file_directory1:string:=
-"C:\Users\DELL\Desktop\playTest\RISC-V-CORE-WITH-VHDL-main\assembler\MIF1.mif";
+"C:\Users\DELL\Desktop\riscvIDE\OUTPUT_DATA_MIF1.mif";
 data_synthesis_file_directory2:string:=
-"C:\Users\DELL\Desktop\playTest\RISC-V-CORE-WITH-VHDL-main\assembler\MIF2.mif";
+"C:\Users\DELL\Desktop\riscvIDE\OUTPUT_DATA_MIF2.mif";
 data_synthesis_file_directory3:string:=
-"C:\Users\DELL\Desktop\playTest\RISC-V-CORE-WITH-VHDL-main\assembler\MIF3.mif";
+"C:\Users\DELL\Desktop\riscvIDE\OUTPUT_DATA_MIF3.mif";
 
 instruction_synthesis_file_directory0:string:=
-"C:\Users\DELL\Desktop\playTest\RISC-V-CORE-WITH-VHDL-main\assembler\MIF0.mif";
+"C:\Users\DELL\Desktop\riscvIDE\OUTPUT_MIF0.mif";
 instruction_synthesis_file_directory1:string:=                          
-"C:\Users\DELL\Desktop\playTest\RISC-V-CORE-WITH-VHDL-main\assembler\MIF1.mif";
+"C:\Users\DELL\Desktop\riscvIDE\OUTPUT_MIF1.mif";
 instruction_synthesis_file_directory2:string:=                          
-"C:\Users\DELL\Desktop\playTest\RISC-V-CORE-WITH-VHDL-main\assembler\MIF2.mif";
+"C:\Users\DELL\Desktop\riscvIDE\OUTPUT_MIF2.mif";
 instruction_synthesis_file_directory3:string:=                          
-"C:\Users\DELL\Desktop\playTest\RISC-V-CORE-WITH-VHDL-main\assembler\MIF3.mif"
+"C:\Users\DELL\Desktop\riscvIDE\OUTPUT_MIF3.mif"
 
 );
 port (
 --"rd" must be '1' and "wd" must be '0'
 	clk,rst,int:in std_logic;
 	IN_DATA:in std_logic_vector(31 downto 0);
-	OUT_DATA:out std_logic_vector(31 downto 0);
+	OUT_DATA,instruction_address:out std_logic_vector(31 downto 0);
 	sev_seg1,sev_seg2,sev_seg3,sev_seg4,sev_seg5,sev_seg6,sev_seg7,sev_seg8:out std_logic_vector(6 downto 0)--MSB iS a
 );end RV32IMF_PROJECT;
 architecture arch of RV32IMF_PROJECT is 
@@ -107,13 +107,13 @@ signal CPU_output,current_instruction,data_toread,data_towrite,data_pointer,inst
 signal RD,WD:std_logic;
 begin
 
-Instruction_mem:byteAddressable_32bitRam generic map (instruction_memory_address_width,instruction_synthesis_file_directory0,
-instruction_synthesis_file_directory1,instruction_synthesis_file_directory2,instruction_synthesis_file_directory3)
-port map(clk,not rst,'0','0',instruction_pointer(instruction_memory_address_width-1 downto 0),(others=>'0'),current_instruction);
+--Instruction_mem:byteAddressable_32bitRam generic map (instruction_memory_address_width,instruction_synthesis_file_directory0,
+--instruction_synthesis_file_directory1,instruction_synthesis_file_directory2,instruction_synthesis_file_directory3)
+--port map(clk,not rst,'0','0',instruction_pointer(instruction_memory_address_width-1 downto 0),(others=>'0'),current_instruction);
 --here memory is alwais enabled
-DATA_mem:byteAddressable_32bitRam generic map (data_memory_address_width,data_synthesis_file_directory0,
-data_synthesis_file_directory1,data_synthesis_file_directory2,data_synthesis_file_directory3)
-port map(clk,RD,WD,'0',data_pointer(data_memory_address_width-1 downto 0),data_towrite,data_toread);
+--DATA_mem:byteAddressable_32bitRam generic map (data_memory_address_width,data_synthesis_file_directory0,
+--data_synthesis_file_directory1,data_synthesis_file_directory2,data_synthesis_file_directory3)
+--port map(clk,RD,WD,'0',data_pointer(data_memory_address_width-1 downto 0),data_towrite,data_toread);
 --SAME HERE CS IS ENABLED TO ENABLE MORE MEMORIES TO BE INTERFACED
 
 
@@ -125,17 +125,17 @@ port map(clk,RD,WD,'0',data_pointer(data_memory_address_width-1 downto 0),data_t
 
 
 
---Instruction_mem:RAM_simulation generic map(32,instruction_memory_address_width,instruction_simulation_file_directory)
---port map(clk,not rst,'0',instruction_pointer(instruction_memory_address_width-1 downto 0),(others=>'0'),current_instruction);
+Instruction_mem:RAM_simulation generic map(32,instruction_memory_address_width,instruction_simulation_file_directory)
+port map(clk,not rst,'0',instruction_pointer(instruction_memory_address_width-1 downto 0),(others=>'0'),current_instruction);
 
---DATA_mem:RAM_simulation generic map(32,data_memory_address_width,data_simulation_file_directory)
---port map(clk,RD,WD,data_pointer(data_memory_address_width-1 downto 0),data_towrite,data_toread);
+DATA_mem:RAM_simulation generic map(32,data_memory_address_width,data_simulation_file_directory)
+port map(clk,RD,WD,data_pointer(data_memory_address_width-1 downto 0),data_towrite,data_toread);
 
 
 THE_CORE:RV32IMF 
 generic map(32,address_width,instruction_memory_address_width,data_memory_address_width,23,8,7)
 port map(clk,rst,int,IN_DATA,current_instruction,data_toread,RD,WD,CPU_output,instruction_pointer,data_pointer,data_towrite);
-
+instruction_address<=instruction_pointer;
 --seven segment display set up, but outputs must be assigned
 SEVSEG1:sevseg port map(CPU_output(3 downto 0),sev_seg1);
 SEVSEG2:sevseg port map(CPU_output(7 downto 4),sev_seg2);
