@@ -84,7 +84,7 @@ signal calculated_address,calculated_offset,selected_offset,fpu_out,mult_div_out
 signal equal,greater,not_equal,unsigned_greater,lower,unsigned_lower:std_logic;
 signal store_offset_forming:std_logic_vector(data_width-1 downto 0);
 --lsb is forced to be ZERO
-signal B_format:std_logic_vector(10 downto 0);
+signal B_format:std_logic_vector(11 downto 0);
 signal J_format:std_logic_vector(18 downto 0);
 --not forced to be ZERO for lsb because upper 20 bits 
 signal U_format:std_logic_vector(19 downto 0);
@@ -128,7 +128,9 @@ ALU:arithmetic_logic_unit generic map(operand_width,address_width) port map(inte
 MDU:int_mul_div generic map(operand_width) port map(integer_operandA,integer_operandB,mul_div_op,mult_div_out);
 
 --auipc use U format jal uses J format and branches use B format 
-B_format<=upper_immediate_value(19)&write_address(0)&upper_immediate_value(18 downto 14)&write_address(address_width-1 downto  1);
+--i just fixed it after the offset was not calculated well :)
+--took me 3 hours in ramadan (ya rabbi aghfr lana wa t9abal siyam
+B_format<=upper_immediate_value(19)&write_address(0)&upper_immediate_value(18 downto 13)&write_address(address_width-1 downto  1);
 
 J_format<=upper_immediate_value(19)&upper_immediate_value(7 downto 1)&upper_immediate_value(8)&upper_immediate_value(18 downto 9);
 
