@@ -10,7 +10,7 @@ data_width:integer:=32;
 address_width:integer:=5;
 instruction_memory_address_width:integer:=9;
 data_memory_address_width:integer:=11;
-
+--adjust these directories depending on you files used for initializing the rams 
 instruction_simulation_file_directory:string:= 
 "C:\Users\DELL\Desktop\riscvIDE\OUTPUT.txt";
 
