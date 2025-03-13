@@ -127,13 +127,16 @@ elsif(clk'event and clk='0') then
 		when"0100111"=>Wram_wd<='1';Wfp_rd1<='1';Wint_rd2<='1';Wram_src<="101";Waddress_calculate<='1';
 		--FLOATING POINT OPERATIONS 
 		when"1010011"=>Wfp_wd<='1';Wfp_rd1<='1';Wfp_rd2<='1';Wram_src<="010";Wwriteback_op<='0';Wfp_enable<='1';
-						if(func7="0001000") then Wfp_op<="0000";--mul
-						elsif(func7="0001100") then Wfp_op<="0001";--div
-						elsif(func7="0000000") then Wfp_op<="0010";--add
-						elsif(func7="0010100" and func3="000") then Wfp_op<="0100";--min
-						elsif(func7="0010100" and func3="001") then Wfp_op<="0011";--max
-						elsif(func7="1100000" ) then Wfp_op<="0110";Wint_wd<='1';Wfp_wd<='0';Wfp_rd1<='1';Wfp_rd2<='0';--FCVT.W.S converts fp number to integer 
-						elsif(func7="1101000" ) then Wfp_op<="0101";Wint_rd1<='1';Wfp_rd1<='0';Wfp_rd2<='0';Wfp_srcA<="01";--FCVT.S.W converts integer to fp number
+						-- fpu shows the change of data, so you can see the process of addition/multiplication...
+						-- we dont want to write the result untill we have completed the operation
+						-- hence we replace Wfp_wd<='1'; and repalce it by Wfp_wd<=fp_done;
+						if(func7="0001000") then Wfp_op<="0000";Wfp_wd<=fp_done;--mul
+						elsif(func7="0001100") then Wfp_op<="0001";Wfp_wd<=fp_done;--div
+						elsif(func7="0000000") then Wfp_op<="0010";Wfp_wd<=fp_done;--add
+						elsif(func7="0010100" and func3="000") then Wfp_op<="0100";Wfp_wd<=fp_done;--min
+						elsif(func7="0010100" and func3="001") then Wfp_op<="0011";Wfp_wd<=fp_done;--max
+						elsif(func7="1100000" ) then Wfp_op<="0110";Wint_wd<='1';Wfp_wd<='0';Wfp_rd1<='1';Wfp_rd2<='0';Wfp_wd<=fp_done;--FCVT.W.S converts fp number to integer 
+						elsif(func7="1101000" ) then Wfp_op<="0101";Wint_rd1<='1';Wfp_rd1<='0';Wfp_rd2<='0';Wfp_srcA<="01";Wfp_wd<=fp_done;--FCVT.S.W converts integer to fp number
 						elsif(func7="1111000" and func3="000") then Wint_rd1<='1';Wfp_rd1<='0';Wfp_rd2<='0';Wfp_enable<='0';Wram_src<="000";--FMV.W.X to move integer reg to fp reg
 						elsif(func7="1110000" and func3="000") then Wfp_enable<='0';Wfp_rd2<='0';Wfp_wd<='0';Wint_wd<='1';Wram_src<="101";--FMV.X.W to move fp reg to integer reg
 						elsif(func7="0010000" and func3="000") then Wfp_enable<='0';Wfp_rd2<='0';Wram_src<="101";--FSGNJ.S to move data between registers RS2 is not used (FMV)
