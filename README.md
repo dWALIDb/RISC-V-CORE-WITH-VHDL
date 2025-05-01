@@ -116,7 +116,7 @@ the following table organizes all the instructions:
 |NO OPERANTION|NOP|ENCODED AS ADD x0,x0,x0|
 |JUMP AND LINK|JAL rd,20_bit_offset|rd=pc+4 , pc=pc+4+20_bit_OFFSET|
 |ADD UPPER IMMEDIATE TO pc|AUIPC rd,upper_20_bit_offset|rd=pc+upper_20_bit_offset|
-|LOAD UPPER IMMEDIATE|LUI rd,upper_20_bit_immediate|rd=upper_20_bit_immediate|
+|LOAD UPPER IMMEDIATE|LUI rd,upper_20_bit_immediate|rd=upper_20_bit_immediate in assembler provide 32-bit address and it handles taking upper 20 bits|
 |MOVE INT TO FLOAT|FMV.W.X rd,rs|MOVE rs int REGISTER ADDRESS TO rd fp REGISTER ADDRESS WITHOUT CONVERSION |
 |MOVE FLOAT TO INT|FMV.X.W rd,rs|MOVE rs fp REGISTER ADDRESS TO rd int REGISTER ADDRESS WITHOUT CONVERSION |
 |CONVERT FLOAT TO INT|FCVT.W.S rd,rs|CONVERT rs fp REGISTER ADDRESS TO rd signed int REGISTER ADDRESS|
@@ -183,10 +183,12 @@ the following table organizes all the instructions:
 **SOME UPDATES :**
 After some time (2 monthes :o) i changed a lot of stuff.
 -**FIRST:** Architecture was changed to have the instruction and data memories to be outside the cpu, this makes the 
-architecture able to be interfaced with memories outside of the FPGA.  
+architecture able to be interfaced with memories outside of the FPGA, memory interfacing shenanigans.  
 -**SECOND:** Input/Output for CPU are different from instruction/data inputs and outputs, now cpu has data from user and data from 2 other memories.
 
 **WEIRD BEHAVIOUR**
 I noticed that when i set the CPU after compilation, the timing reports have different ranges for maximum frequency.  
 Some times the operating frequency is 7 Mhz and it can shoot upto 165 Mhz this is confusing.  
 Maybe in the next months i can explore more into it after synthesis and uploading the design, if the frequency still holds up then synthesiser is trying to optimize away some logic.
+**update**  
+it worked fine with internal 50Mhz clock so thats weird
