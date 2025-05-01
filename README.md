@@ -189,6 +189,5 @@ architecture able to be interfaced with memories outside of the FPGA, memory int
 **WEIRD BEHAVIOUR**
 I noticed that when i set the CPU after compilation, the timing reports have different ranges for maximum frequency.  
 Some times the operating frequency is 7 Mhz and it can shoot upto 165 Mhz this is confusing.  
-Maybe in the next months i can explore more into it after synthesis and uploading the design, if the frequency still holds up then synthesiser is trying to optimize away some logic.
-**update**  
-it worked fine with internal 50Mhz clock so thats weird
+Maybe in the next months i can explore more into it after synthesis and uploading the design, if the frequency still holds up then synthesiser is trying to optimize away some logic.  
+**UPDATE** it worked fine with internal 50Mhz clock so thats weird
