@@ -1,1 +1,7 @@
 
+fixed some things on this architecture to support different load and store sizes, this enables more flexibility when coding.
+
+all this work to make it compatible with gcc compiler, im using riscv-none-elf-gcc tool chain , it generates elf files, we can use them to generate binary files that provide 
+initialization of the memory and the data we need to maybe program it with a UART.
+
+need to provide a custom linker script that has the memory layout and the section destribution on the memory.
