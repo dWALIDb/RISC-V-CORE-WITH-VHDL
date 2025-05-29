@@ -6,7 +6,7 @@ use work.tools.all;
 entity ram_byteaddressable32 is 
 generic( 
 	addresses : integer :=8;
-	init_file_directory : string:="C:\Users\DELL\Desktop\xpack_RISCV_gcc\instructions.txt"
+	init_file_directory : string
 );
 port(
 	clk,cs,rd1,rd2,wd: in std_logic;
@@ -25,8 +25,12 @@ architecture arch of ram_byteaddressable32 is
 --type ram_t is array (0 to (2**addresses -1)) of std_logic_vector(7 downto 0);
 --signal data : ram_t;
 
-signal data : std_logic_vector_array(2**addresses -1 downto 0)(7 downto 0):=init_ram_withFile(init_file_directory,addresses);
-
+signal data : std_logic_vector_array(2**addresses -1 downto 0)(7 downto 0)--:=init_ram_withFile(init_file_directory,addresses)
+;
+attribute RAM_INIT_FILE : string;
+attribute RAM_INIT_FILE of data : signal is init_file_directory;
+-- use attribute for mif 
+-- function for simulation :)
 begin
 -- CHANGE THEM TO ACCOMODATE TO RISCV FUNCT 3 FIELD IN LOAD AND STORE OPERATIONS
 process(clk,cs,wd,address_write,D,special_write)
