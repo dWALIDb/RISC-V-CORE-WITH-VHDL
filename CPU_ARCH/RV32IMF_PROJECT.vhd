@@ -97,6 +97,8 @@ signal byte_en : std_logic_vector(3 downto 0);
 signal clk_slow: unsigned(3 downto 0);
 begin
 
+-- this is basically an MMU that maps CPU generated addresses to BRAM addresses using func3 field, RD,WD and 2 lsb bits of addresses.
+
 --in code data is in the least byte/half word but our memory writes each byte to specific location, not always in lsbs, hence we scale it as needed
 adjusted_writedata<= data_towrite when wd='1' and special_load_store="010" else --SW
 							x"000000"&data_towrite(7 downto 0) when special_load_store="000" and wd='1' and data_pointer(1 downto 0)="00" else --SB
