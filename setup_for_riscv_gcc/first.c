@@ -1,28 +1,58 @@
 //from what i noticed when i assign a constant that is large, assemly generates a load instruction
 //that is exactly after the main function to load data so i gotta check the assembly to get where to put the data
 // it also places the results after the main function crazy how advanced the compiler is :o
-const char h[13]="hello worldD";
-char t[13];
-int  __attribute__((section(".text.main"))) main() {
-    for (int i = 0; i < 13; i++)
+
+#include<stdint.h>
+
+#define UART_BASE ((volatile unsigned char*) (0x00000200))
+
+//custom instruction to put data into out register
+void output_data(int *base,int offset);
+
+void uart_send(const char*c,int size);
+
+const char t[]={"Hello World"};
+
+int main() {
+    while (1)
     {
-        t[i]=h[i];
+    
+    uart_send((const char*)t,sizeof(t));
+    while (1);
     }
-    
-    
-    __asm__ volatile (".word 0x00000008");//OUT_DATA x0,00 hex for the funzies    
-    return 0;
+
+return 0;
 }
-// entry of program where i init stack pointer and other stuffies
-// need to set sp this way (before reset) because sp starts at 0 when pc is loaded
-__asm__("addi sp,zero,255");//set sp to last memory location
-void Reset(){
-    for (int i = 0; i < 13; i++)
-    {
-        t[i]=1;
-    }
+
+
+void output_data(int *base,int offset){
+    //output x10,offset=0 but offset is added with base a0
+    // first ':' output operand 
+   // second ':' input operand  
+   // first ':' clobbered registers 
+   __asm__ volatile("mv a0,%0\n\t"
+    "mv a1,%1\n\t"
+    "add a0,a0,a1\n\t"
+    ".word 0x00054008\n\t" 
+    :
+    :"r" (base), "r" (offset)
+    :"a0", "a1"
+);
+}
+// function doesnt affect sp nor save return address,used to init data and to 
+// run at startup, before anything else
+__attribute__((naked, noreturn))
+void __attribute__((section(".text.Reset"))) Reset(){
+    __asm__ volatile ("li sp,0x000003FC");//set sp to last memory location
     main();
 }
-//  riscv-none-elf-gcc -T linker.ld -o first.elf first.c -O0 -march=rv32imf -nostartfiles -nostdlib
-//  riscv-none-elf-objcopy -O binary first.elf first.bin 
-//  riscv-none-elf-objdump -d first.elf > first.asm
+
+void uart_send(const char* c,int size){
+    int i=0;
+    while (i<size)
+    {
+        UART_BASE[0]=(unsigned char)c[i];
+        output_data(UART_BASE,0);
+        i++;
+    }
+}
