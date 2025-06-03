@@ -1,1 +1,8 @@
 
+memory is byte addressable thanks to quartus megawizard tool, it has BRAM with byte enables, generated ram ignores the 2 lsb bits 
+
+those 2 lsb bits are used to choose what byte is read/written depending on provided address by CPU.
+
+LOGICAL ADDRESS=> 31 downto 0
+
+PHISICAL ADDRESS=> memory_width-1 downto 0 and 2 lsbs control bytes,with some in between logic to use funct3 field
