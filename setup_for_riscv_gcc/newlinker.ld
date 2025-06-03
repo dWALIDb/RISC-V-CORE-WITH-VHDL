@@ -2,8 +2,8 @@ ENTRY(Reset)
 
 MEMORY
 {
-    FLASH (rx)   : ORIGIN = 0x00000000, LENGTH = 127
-    RAM (rw)   : ORIGIN = 0x00000080, LENGTH = 127
+    FLASH (rx)   : ORIGIN = 0x00000000, LENGTH = 2048
+    RAM (rw)   : ORIGIN = 0x00000800, LENGTH = 2048 
 }
 
 SECTIONS
@@ -13,6 +13,7 @@ SECTIONS
     .text :
     {
     . = ALIGN(4);
+        *(.text.Reset*)
         *(.text*)
     . = ALIGN(4);
     }>FLASH
