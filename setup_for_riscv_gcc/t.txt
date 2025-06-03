@@ -6,3 +6,5 @@ gotta compile flipper.c to use it to convert, compile it to get .exe file to run
 flipper is used to generate mif files. it should be used with gcc and not with cross compiler to be able to use
 
 bat file has the commands that we need to use
+
+mif generated depends on memory size and file written inside, so changing them is needed depending on usage 
