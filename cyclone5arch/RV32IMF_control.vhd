@@ -125,6 +125,7 @@ elsif(clk'event and clk='0') then
 		--STORE FLOATING POINT REGISTER:address is calculated and the multiplexed with alu output
 		when"0100111"=>Wram_wd<='1';Wfp_rd1<='1';Wint_rd2<='1';Wram_src<="101";Waddress_calculate<='1';
 		--FLOATING POINT OPERATIONS 
+		-- sub is not supported because we have signed addition :)
 		when"1010011"=>Wfp_wd<='1';Wfp_rd1<='1';Wfp_rd2<='1';Wram_src<="010";Wwriteback_op<='0';Wfp_enable<='1';
 						-- fpu shows the change of data, so you can see the process of addition/multiplication...
 						-- we dont want to write the result untill we have completed the operation
@@ -134,7 +135,7 @@ elsif(clk'event and clk='0') then
 						elsif(func7="0000000") then Wfp_op<="0010";Wfp_wd<=fp_done;--add
 						elsif(func7="0010100" and func3="000") then Wfp_op<="0100";Wfp_wd<=fp_done;--min
 						elsif(func7="0010100" and func3="001") then Wfp_op<="0011";Wfp_wd<=fp_done;--max
-						elsif(func7="1100000" ) then Wfp_op<="0110";Wint_wd<='1';Wfp_wd<='0';Wfp_rd1<='1';Wfp_rd2<='0';Wfp_wd<=fp_done;--FCVT.W.S converts fp number to integer 
+						--elsif(func7="1100000" ) then Wfp_op<="0110";Wint_wd<='1';Wfp_rd1<='1';Wfp_rd2<='0';Wfp_wd<=fp_done;--FCVT.W.S converts fp number to integer 
 						elsif(func7="1101000" ) then Wfp_op<="0101";Wint_rd1<='1';Wfp_rd1<='0';Wfp_rd2<='0';Wfp_srcA<="01";Wfp_wd<=fp_done;--FCVT.S.W converts integer to fp number
 						elsif(func7="1111000" and func3="000") then Wint_rd1<='1';Wfp_rd1<='0';Wfp_rd2<='0';Wfp_enable<='0';Wram_src<="000";--FMV.W.X to move integer reg to fp reg
 						elsif(func7="1110000" and func3="000") then Wfp_enable<='0';Wfp_rd2<='0';Wfp_wd<='0';Wint_wd<='1';Wram_src<="101";--FMV.X.W to move fp reg to integer reg
@@ -165,12 +166,16 @@ elsif(clk'event and clk='0') then
 		when others=>null;
 end case;
 
+	if(selected_opcode="1010011" and func7="1100000" ) then Wfp_op<="0110";Wint_wd<='1';Wfp_rd1<='1';Wfp_rd2<='0';Wfp_wd<='0';--FCVT.W.S converts fp number to integer 
+	end if;
+	
 	if(Wfp_enable='1' and fp_done='0'and cycle_count<4 and cycle_count>0) then Wpc_enable<='0';Wpc_enable_src<='0';
 	elsif(Wfp_enable='1' and fp_done='1' and cycle_count<3 and cycle_count>0) then Wpc_enable<='0';cycle_count<=4;Wpc_enable_src<='1';
 	elsif(cycle_count=3) then Wpc_enable_src<='1';cycle_count<=cycle_count+1;
 	elsif(cycle_count=4) then Wpc_enable<='1';cycle_count<=0;Wpc_enable_src<='0';
 	else Wpc_enable<='0';cycle_count<=cycle_count+1;Wpc_enable_src<='0';
 	end if;
+	if cycle_count=4 then wint_wd<='0';end if;
 end if;
 end process;
 control_NEQ<=Wcontrol_NEQ;address_calculate<=Waddress_calculate;pc_enable<=Wpc_enable;pc_enable_src<=Wpc_enable_src;
@@ -179,5 +184,6 @@ ram_rd<=Wram_rd;ram_wd<=Wram_wd;unsigned_compare<=Wunsigned_compare;fp_op<=Wfp_o
 alu_op<=Walu_op;mul_div_op<=Wmul_div_op;offset_src<=Woffset_src;int_srcB<=Wint_srcB;ld_service_routine<=Wld_service_routine;
 fp_srcA<=Wfp_srcA;ram_src<=Wram_src;interrupt_ack<=Winterrupt_ack;
 unconditional<=Wunconditional;int_wd<=Wint_wd;int_rd1<=Wint_rd1;int_rd2<=Wint_rd2;ld_intaddress<=Wld_intaddress;
-fp_wd<=Wfp_wd;fp_rd1<=Wfp_rd1;fp_rd2<=Wfp_rd2;writeback_op<=Wwriteback_op;jump_andlink<=Wjump_andlink;
+fp_wd<=Wfp_wd;
+fp_rd1<=Wfp_rd1;fp_rd2<=Wfp_rd2;writeback_op<=Wwriteback_op;jump_andlink<=Wjump_andlink;
 end arch;

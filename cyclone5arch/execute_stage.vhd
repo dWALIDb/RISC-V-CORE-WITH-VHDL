@@ -88,6 +88,14 @@ signal B_format:std_logic_vector(11 downto 0);
 signal J_format:std_logic_vector(19 downto 0);
 --not forced to be ZERO for lsb because upper 20 bits 
 signal U_format:std_logic_vector(19 downto 0);
+
+
+-- Intermediate comparators
+signal signed_lt, signed_ge : std_logic;
+signal unsigned_lt, unsigned_ge : std_logic;
+
+
+
 begin 
 
 --input for alu and mul_div
@@ -152,21 +160,40 @@ selected_offset<=all_zeroes(operand_width-B_format'length-2 downto 0)&B_format&'
 -- i was understanding offsets wrong, addresses are calculated with current pc of instruction and not PC+4 :)
 calculated_offset<=std_logic_vector(unsigned(PC_PLUS4)+unsigned(selected_offset) - 4);
 
-equal<='1' when A_int=B_int else '0';
-not_equal<=not equal;
+--equal<='1' when A_int=B_int else '0';
+--not_equal<=not equal;
 
-greater<='1' when signed(A_int)>signed(B_int) else '0';
-lower<='1' when signed(A_int)>signed(B_int) else '0';
+--greater<='1' when signed(A_int)>signed(B_int) else '0';
+--lower<='1' when signed(A_int)>signed(B_int) else '0';
+--
+--unsigned_greater<='1' when unsigned(A_int)>unsigned(B_int) else '0';
+--unsigned_lower<='1' when unsigned(A_int)>unsigned(B_int) else '0';
+--
+--ALU_EQ<=equal;
+--
+--ALU_NEQ<=not_equal;
+--
+--ALU_GE<=greater or equal  when unsigned_compare='0' else unsigned_greater or equal;
+--
+--ALU_LT<=lower when unsigned_compare='0' else unsigned_lower;
 
-unsigned_greater<='1' when unsigned(A_int)>unsigned(B_int) else '0';
-unsigned_lower<='1' when unsigned(A_int)>unsigned(B_int) else '0';
 
-ALU_EQ<=equal;
+-- Comparison logic
+signed_lt     <= '1' when signed(A_int) < signed(B_int) else '0';
+signed_ge     <= '1' when signed(A_int) >= signed(B_int) else '0';
 
-ALU_NEQ<=not_equal;
+unsigned_lt   <= '1' when unsigned(A_int) < unsigned(B_int) else '0';
+unsigned_ge   <= '1' when unsigned(A_int) >= unsigned(B_int) else '0';
 
-ALU_GE<=greater or equal  when unsigned_compare='0' else unsigned_greater or equal;
+equal         <= '1' when A_int = B_int else '0';
+not_equal     <= '1' when A_int /= B_int else '0';
 
-ALU_LT<=lower when unsigned_compare='0' else unsigned_lower;
+-- ALU output signals
+ALU_EQ  <= equal;
+ALU_NEQ <= not_equal;
+
+ALU_GE  <= signed_ge  when unsigned_compare = '0' else unsigned_ge;
+ALU_LT  <= signed_lt  when unsigned_compare = '0' else unsigned_lt;
+
 
 end arch;
