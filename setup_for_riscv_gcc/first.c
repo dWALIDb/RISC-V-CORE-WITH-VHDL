@@ -6,10 +6,11 @@
 // register int value asm("x31");   //now x31 is tied to value but can get address of it (like &value)
 #include "utils\custom_instructions.h"
 #include "utils\uart.h"
-#include "utils\packet.h"
-#include "utils\circular_buffer.h"
 #include "utils/hex_to_ascii.h"
+#include "utils\neural_network.h"
+#include "C:\Users\DELL\Desktop\learn\python\weights.h"
 // delay in ms
+
 void delay(uint32_t ms){
     // 4 instructions per iteration each taking 4 cycles
     // then 1000 for a delay in ms ;)
@@ -24,46 +25,67 @@ void delay(uint32_t ms){
         }
 }
 
-uint8_t a;
-uint8_t b[8];
-volatile float f=1.0f;
-uint32_t return_addr;
+
 // must be generated with prologue and epilogue in order to not lose addressed inside ISR
 void __attribute__((noinline)) interrupt_handler(){
     uart_Rx_ISR();
-    *UART_CONTROLS |= (0x02);
+    // *UART_CONTROLS |= (0x02);
     
-    __asm__ volatile(
-        "sw x31,%0"
-        :"=m"(return_addr)
-    );
-    uart_read(&a,1);
-    uart_write("recieved : ",12);
-    uart_write(&a,1);
-    uart_write("\n\r",2);
+
     
-    memory_to_hex_ascii((uint8_t*)&f,4,b);
-    uart_write(b,8);
-    uart_write("\n\r",2);
-    
-    memory_to_hex_ascii((uint8_t*)&return_addr,4,b);
-    uart_write(b,8);
-    uart_write("<-\n\r",5);
-    
-    *UART_CONTROLS &= ~(0x02);
-    delay(1000);
+    // *UART_CONTROLS &= ~(0x02);
     enable_interrupts(interrupt_handler);
 }
+uint8_t b[13];
+
+
+
 int main() {
     
     uart_enable(TX_ENABLE|RX_ENABLE);
     enable_interrupts(interrupt_handler);
     uart_write("main\n\r",7);
+    
     //super loop
-    while (1){
-        f=f+3.0f;
-        // delay(1000); 
+    // Define inputs
+    float input=0.0f;
+    float l0[8], l1[8], l2[8], l3[8], l4[1];  // outputs buffers for each layer
+
+// Layer 0
+uart_write("layer 0\n\r",10);
+forward_pass(&input, 1, W0, B0, l0, 8);
+tanh_activation(l0, 8);
+
+// Layer 1
+uart_write("layer 1\n\r",10);
+forward_pass(l0, 8, W1, B1, l1, 8);
+tanh_activation(l1, 8);
+
+// Layer 2
+uart_write("layer 2\n\r",10);
+forward_pass(l1, 8, W2, B2, l0, 8);
+tanh_activation(l0, 8);
+
+// Layer 3
+uart_write("layer 3\n\r",10);
+forward_pass(l0, 8, W3, B3, l1, 8);
+tanh_activation(l1, 8);
+
+// Layer 4 (final output)
+uart_write("layer 4\n\r",10);
+forward_pass(l1, 8, W4, B4, l0, 1);
+// Typically no activation or depends on your use case here
+    uart_write("output: [ ",11);
+    for (uint8_t i = 0; i < 1; i++)
+    {
+        memory_to_hex_ascii(&l0[i],4,b);
+        uart_write(b,8);
+        // print_float(layers[i]);
+        uart_write(" ",1);
     }
+    uart_write(" ]\n\r",5);
+    
+    while (1){}
     return 0;
 }
 
