@@ -52,7 +52,7 @@ void inline output_data(uint8_t *base,uint8_t offset,uint8_t funct3){
 // custom instruction that reads data from a special port and loads it into memory
 // it is encoded as store instruction with a special opcode
 // supports only unsigned bytes,half words and words
-void inline input_data(uint8_t *base,uint8_t offset,uint8_t funct3){
+void input_data(uint8_t *base,uint8_t offset,uint8_t funct3){
 // input x10,0 custom instruction that is implemented on my riscv cpu
 // this will change memory location [base+offset] to be what ever 
 // is on the IN_DATA line :)

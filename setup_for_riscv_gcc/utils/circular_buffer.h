@@ -10,9 +10,9 @@
 #define BUFFER_SIZE 128
 
 // errors for checking reading and writing validity
-#define CIRC_BUFF_ERR_NULPTR -1
-#define CIRC_BUFF_ERR_FULL -2
-#define CIRC_BUFF_ERR_EMPTY -3
+#define CIRC_BUFF_ERR_NULPTR (int8_t)-1
+#define CIRC_BUFF_ERR_FULL (int8_t)-2
+#define CIRC_BUFF_ERR_EMPTY (int8_t)-3
 
 // simple data structure that enables us to save memory using static buffers
 typedef  struct circular_buffer
@@ -38,6 +38,6 @@ void circ_buf_close(circular_buffer* buff);
 int8_t circ_buf_write(circular_buffer* buff,uint8_t item);
 // read upto the spcified length returns the actual amount of data read
 // doesn't read if empty or NULL pointer  and returns the error codes
-int8_t circ_buf_read(circular_buffer* buff,uint8_t length,uint8_t *buffer);
+int8_t circ_buf_read(circular_buffer* buff,uint8_t *buffer);
 
 #endif

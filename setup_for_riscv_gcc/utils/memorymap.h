@@ -4,7 +4,7 @@
 
 // some defines for the memory mapped devices and usefull Constants
 
-#define UART_BASE 0x00080000U
+#define UART_BASE 0x80000000U
 // 50 MHz
 #define CPU_FREQ 50000000U
 
