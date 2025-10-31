@@ -99,7 +99,7 @@ int Serial_port::SetUpBaud(int baud_rate)
     d.DCBlength=sizeof(d);
     if(GetCommState(com,&d))
     {
-        d.BaudRate=baud_rate;
+        d.BaudRate=CBR_9600;
         d.ByteSize=DATABITS_8;
         d.Parity=NOPARITY;
         d.StopBits=ONESTOPBIT;
@@ -111,11 +111,11 @@ int Serial_port::SetUpBaud(int baud_rate)
     // Timeout = (MULTIPLIER * number_of_bytes) + CONSTANT
     // ----------------------------------------------------
     COMMTIMEOUTS t={0};
-    t.ReadIntervalTimeout=1;//TIME BETWEEN RECEPTION OF 2 CHARACTERS IN ms  80  10
-    t.ReadTotalTimeoutConstant=10;//100  10
+    t.ReadIntervalTimeout=10;//TIME BETWEEN RECEPTION OF 2 CHARACTERS IN ms  80  10
+    t.ReadTotalTimeoutConstant=1;//100  10
     t.ReadTotalTimeoutMultiplier=1;//10  10
-    t.WriteTotalTimeoutConstant=5;//100  10
-    t.WriteTotalTimeoutMultiplier=1;//10  10
+    t.WriteTotalTimeoutConstant=1;//100  10
+    t.WriteTotalTimeoutMultiplier=0;//10  10
     SetCommTimeouts(com,&t);
     SetCommMask(com,EV_RXCHAR);
     PurgeComm(com,PURGE_RXCLEAR| PURGE_TXCLEAR);
@@ -153,16 +153,16 @@ void Serial_port::ReadPort(){
         {
             ReadFile(com,this->reciever_buff,MAX_READ_BUFFER_SIZE,&BYTES_READ,NULL);
             this->BYTES_READ=BYTES_READ;
-            if (this->BYTES_READ>0)
+            if (BYTES_READ>0)
             {
-            std::cout<<"recieved "<<this->BYTES_READ<<"\n";
-            for (size_t i = 0; i < this->BYTES_READ; i++)
-            {
-                std::printf(" %2X ",(unsigned char)this->reciever_buff[i]);
+                for (int i = 0; i < BYTES_READ; i++)
+                {
+                    std::printf("%c",(unsigned char) reciever_buff[i]);
+                }
+                // std::printf("\n");
             }
-            std::printf(" \n ");
-            this->BYTES_READ=0;
-            }
+            
+            
             PurgeComm(com,PURGE_RXCLEAR);
         }
     }
@@ -171,10 +171,14 @@ void Serial_port::ReadPort(){
 void Serial_port::WritePort(){
 
     DWORD BYTES_WRITE;
-    if(this->ENABLE_WRITE)
+    if(this->ENABLE_WRITE) 
     {
-        WriteFile(com,this->transmitter_buff,4,&BYTES_WRITE,NULL);
-        PurgeComm(com,PURGE_TXCLEAR);
+        for (int i = 0; i < this->MSG_LENGTH; i++)
+        {
+            WriteFile(com,&this->transmitter_buff[i],1,&BYTES_WRITE,NULL);
+            Sleep(20);
+            FlushFileBuffers(com);
+        }        
     }
 }
 

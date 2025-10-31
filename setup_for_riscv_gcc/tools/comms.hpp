@@ -1,7 +1,7 @@
 #ifndef WORKAROUND__
 #define UI__
 
-#define MAX_READ_BUFFER_SIZE 256
+#define MAX_READ_BUFFER_SIZE 64
 #define MAX_WRITE_BUFFER_SIZE 256
 
 //used to create files for read/write in WIN32 or POSIX 
@@ -30,9 +30,11 @@ public:
 bool ENABLE_READ=true;
 bool ENABLE_WRITE=true;
 bool STOP_READ=false;
-char reciever_buff[MAX_READ_BUFFER_SIZE]={0};
+unsigned char reciever_buff[MAX_READ_BUFFER_SIZE]={0};
 int BYTES_READ=0;
-char transmitter_buff[MAX_WRITE_BUFFER_SIZE]={0};
+int MSG_LENGTH=0;//this must be set before sending the data because i must introduce some delay
+// between the bytes :)
+unsigned char transmitter_buff[MAX_WRITE_BUFFER_SIZE]={0};
 public :
     Serial_port();
     ~Serial_port();
