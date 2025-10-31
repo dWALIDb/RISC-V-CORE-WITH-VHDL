@@ -73,6 +73,19 @@ port(
 );
 end component;
 
+component Rx is 
+generic(
+	baud_rate: integer:=9600;
+	frequency: integer:=50 --in Mhz
+);
+port(
+	clk,rst: in std_logic;
+	D:in std_logic;
+	done,ready:out std_logic;
+	O:out std_logic_vector(7 downto 0)
+);end component;
+
+
 component uart is 
 generic(
 	baud_rate: integer:=115200;
@@ -123,24 +136,26 @@ begin
 ------------------------------------------_RAM & LSU_---------------------------------------------------------------
 LSU: load_store_unit port map(RD,WD,data_pointer(1 downto 0),special_load_store,ram_out,data_towrite,byte_en,
 data_toread,ram_in);
-										
+
+---------------------------------------------_RAM_--------------------------------------------------							
 RAM0: ram_byteaddressable32 generic map(instruction_memory_address_width,instruction_file_directory0) 
 port map(clk,(WD and (uart_cs)),(RD and (uart_cs)),'1',byte_en,data_pointer(instruction_memory_address_width-1 downto 0),
 ram_in,data_pointer(instruction_memory_address_width-1 downto 0),
 instruction_pointer(instruction_memory_address_width-1 downto 0),ram_out,current_instruction);
 
 -------------------------------------__UART__-----------------------------------------------------------------
-uart_cs<='0'when data_pointer=x"00080000" or data_pointer=x"00080001" or data_pointer=x"00080002" else '1';--address 0x00080000 and so on else cs='1'
+uart_cs<='0'when data_pointer=x"80000000" or data_pointer=x"80000001" or data_pointer=x"80000002" else '1';--address 0x00080000 and so on else cs='1'
 
 UART_DEVICE: uart generic map(9600,50) port map(clk,rst,data_towrite(0),data_towrite(1),data_towrite(4),
 uart_cs,RD,WD,int_ack,data_pointer(1 downto 0),tx_done,rx_done,uart_stat(0),uart_stat(1),data_towrite(7 downto 0),
-serial_tx,serial_rx,uart_out(7 downto 0),int_uart);
-
+serial_tx,serial_rx,uart_out,int_uart);
 -------------------------------------__CPU CORE__-------------------------------------------------------------------
 
 cpu_data_in<= data_toread when uart_cs='1'else
 				x"000000"&uart_out when uart_cs='0' and data_pointer(1 downto 0)="10"else
-				x"0000000"&uart_stat&"00"  when uart_cs='0' and data_pointer(1 downto 0)="00" else (others=>'0');
+				x"0000000"&uart_stat&"00"  when uart_cs='0' and data_pointer(1 downto 0)="00"
+				else (others=>'0');
+
 data_towrite<=cpu_data_out;
 
 

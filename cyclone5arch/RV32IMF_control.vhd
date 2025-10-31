@@ -157,7 +157,7 @@ elsif(clk'event and clk='0') then
 		when"0111111"=>int_enable<='1';Wint_rd1<='1';Wint_srcB<="10";Wld_intaddress<='1';Wld_service_routine<='1';
 		--INTERRUPT DISABLE 
 		WHEN"0011111"=>int_enable<='0';
-		--IN_DATA:IO_IN USED TO INPUT TO RAM FROM USER just like the store word but for IO RS1 field is 0 and the others are the same
+		--IN_DATA:IO_IN USED TO INPUT TO RAM FROM USER just like the store word but for IO RS1?w field is 0 and the others are the same
 		when"1110111"=>Wram_wd<='1';Wram_src<="000";WIO_IN<='1';Wram_src<="100";Waddress_calculate<='1';
 		--OUT_DATA:used to output data from ram to IO_regiser used like load instruction but for io alu has calculated address and RD is ZERO
 		--func3 must be "010"
@@ -165,10 +165,12 @@ elsif(clk'event and clk='0') then
 		--NOTHING WILL BE DONE AND EVERY THING IS SET TO "0"
 		when others=>null;
 end case;
-
+	-- those gotta be here, i cant do them in the case statement, synthesizer would get mad and mess up the design
 	if(selected_opcode="1010011" and func7="1100000" ) then Wfp_op<="0110";Wint_wd<='1';Wfp_rd1<='1';Wfp_rd2<='0';Wfp_wd<='0';--FCVT.W.S converts fp number to integer 
+	--elsif(selected_opcode="1110111") then Wint_rd2<='1'; end if;
 	end if;
 	
+	--timing related functionalities :)
 	if(Wfp_enable='1' and fp_done='0'and cycle_count<4 and cycle_count>0) then Wpc_enable<='0';Wpc_enable_src<='0';
 	elsif(Wfp_enable='1' and fp_done='1' and cycle_count<3 and cycle_count>0) then Wpc_enable<='0';cycle_count<=4;Wpc_enable_src<='1';
 	elsif(cycle_count=3) then Wpc_enable_src<='1';cycle_count<=cycle_count+1;

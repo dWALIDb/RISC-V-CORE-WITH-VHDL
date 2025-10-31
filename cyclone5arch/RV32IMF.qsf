@@ -96,7 +96,7 @@ set_location_assignment PIN_V15 -to instruction_address[3]
 set_location_assignment PIN_V16 -to instruction_address[2]
 set_location_assignment PIN_AA24 -to instruction_address[1]
 set_location_assignment PIN_W15 -to instruction_address[0]
-set_location_assignment PIN_W24 -to int
+set_location_assignment PIN_W20 -to int
 set_location_assignment PIN_Y24 -to rst
 set_location_assignment PIN_AF26 -to rx_done
 set_location_assignment PIN_AE26 -to tx_done

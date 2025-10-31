@@ -50,7 +50,7 @@ port(
 );end component;
 
 signal done_recieve,done_transmit:std_logic;
-signal tx_data:std_logic_vector(7 downto 0);
+signal tx_data,rx_data:std_logic_vector(7 downto 0);
 signal wrst_tx,wrst_rx,wsend: std_logic;
 begin 
 
@@ -78,8 +78,9 @@ elsif(done_recieve'event and done_recieve='0') then
 		int<='1';
 		end if;
 end process;
+--
 
 trans:tx generic map(baud_rate,frequency) port map(clk,rst OR wrst_tx,wsend,tx_data,tx_out,tx_ready,done_transmit);
-rec:rx generic map(baud_rate,frequency) port map(clk,rst OR wrst_rx,rx_in,done_recieve,rx_ready,rx_out);
+rec:rx generic map(baud_rate,frequency) port map(clk,rst or wrst_rx,rx_in,done_recieve,rx_ready,rx_OUT);
 
 end arch;

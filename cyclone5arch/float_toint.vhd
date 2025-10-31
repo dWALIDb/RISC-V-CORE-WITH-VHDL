@@ -76,13 +76,17 @@ shifter_input<=largest_positive_int  when (too_large='1' and too_small='0' and A
 
 EXPONENT_EVAL:generic_reg generic map(exponent_width) port map(clk,rst,ld_exponent,adjusted_exponent,registered_exponent);
 
+--biggest error is for 1 and -1 where the exponent offset gives a 0
+
 INT_FORMATION:generic_SL_reg generic map(operand_width+mantissa_width+1) port map(clk,rst,ld_shifter,shift,shifter_input,int);
 
 --mux to select 2s compolement or directly output
 signed_out<=int(operand_width+mantissa_width downto mantissa_width+1) when A(operand_width-1)='0' else std_logic_vector(unsigned(not(int(operand_width+mantissa_width downto mantissa_width+1)))+1);
 
-C<=signed_out;
-
+C<=signed_out when offset_exponent/=ZERO else 
+					'0'&std_logic_vector(unsigned(ZERO_operand)+1) when offset_exponent=ZERO and A(operand_width-1)='0' else 
+					'1'&std_logic_vector(unsigned(ZERO_operand)-1) when offset_exponent=ZERO and A(operand_width-1)='1' else (others=>'0');
+					
 CONTROL:float_toint_control port map(clk,rst,go,zero_exponent,too_large,too_small,ld_shifter,shift,ld_exponent,exponent_src,done);
 
 end arch;
