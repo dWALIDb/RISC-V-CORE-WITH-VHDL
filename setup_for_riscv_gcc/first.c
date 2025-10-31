@@ -7,10 +7,11 @@
 #include "utils\custom_instructions.h"
 #include "utils\uart.h"
 #include "utils/hex_to_ascii.h"
-#include "utils\neural_network.h"
-#include "C:\Users\DELL\Desktop\learn\python\weights.h"
-// delay in ms
+#include"C:\\Users\\DELL\\Desktop\\learn\\python\\weights_quantized.h"
+#include"C:\Users\DELL\Desktop\xpack_RISCV_gcc\utils\neural_network.h"
+#include"C:\Users\DELL\Desktop\xpack_RISCV_gcc\utils\custom_instructions.h"
 
+// delay in ms
 void delay(uint32_t ms){
     // 4 instructions per iteration each taking 4 cycles
     // then 1000 for a delay in ms ;)
@@ -26,67 +27,115 @@ void delay(uint32_t ms){
 }
 
 
+void forward_pass_quantized(const float* input, uint32_t input_size,
+                  const int8_t* weights,float scale_weights, const int8_t* biases,
+                  float scale_biases,float* output, uint32_t output_size)
+{
+    for (uint32_t i = 0; i < output_size; i++) {
+        float sum = biases[i]*scale_biases;
+        for (uint32_t j = 0; j < input_size; j++) {
+            sum += input[j] * weights[j * output_size + i]*scale_weights;
+        }
+        output[i] = sum;
+    }
+}
+
+void tanh_activation_quantized(float* input,uint32_t size){
+    for(uint32_t i=0;i<size;i++){
+        
+        if ((int32_t)input[i] < -3){input[i]=-1.0f;continue;}
+        if ((int32_t)input[i] >  3){input[i]=1.0f;continue;}
+        
+        float x2 = input[i] * input[i];
+        float x3=input[i] * (27.0f + x2) / (27.0f + 9.0f * x2);
+        input[i]=x3;
+    }
+}
+
+
+// Assuming you have:
+float input=-3.14f;
+uint32_t x=0;
+float l0[16], l1[16];  // outputs buffers for each layer
+uint8_t a[8];
+volatile uint32_t data=0;
+
 // must be generated with prologue and epilogue in order to not lose addressed inside ISR
 void __attribute__((noinline)) interrupt_handler(){
     uart_Rx_ISR();
-    // *UART_CONTROLS |= (0x02);
-    
+    data++;
+    input_data((uint8_t*)&x,0,WORD);
+    memory_to_hex_ascii(&x,4,a);        
+    input_data(0,0,WORD);
+    memory_to_hex_ascii(0,4,a);
+        
+    if (data==4)
+    {   
+        data=0;
+        uart_read(&a[0],1);
+        uart_read(&a[1],1);
+        uart_read(&a[2],1);
+        uart_read(&a[3],1);
+        input=*(float*)&a[0];
+        // uart_write((uint8_t*)&input,4);
+        print_float(input);
+    }
 
-    
-    // *UART_CONTROLS &= ~(0x02);
+    *UART_CONTROLS |= (RX_ENABLE);
+    *UART_CONTROLS &= ~(RX_ENABLE);
     enable_interrupts(interrupt_handler);
 }
-uint8_t b[13];
-
-
 
 int main() {
     
     uart_enable(TX_ENABLE|RX_ENABLE);
     enable_interrupts(interrupt_handler);
     uart_write("main\n\r",7);
+    int32_t j=-1;
+    output_data((uint8_t*)&j,0,WORD);
+    // super loop :)
+    while(1){
+
+        // if (data>3)
+        // {
+        // data-=4;
+        // uart_read(&a[0],1);
+        // uart_read(&a[1],1);
+        // uart_read(&a[2],1);
+        // uart_read(&a[3],1);
+        // input=*(float*)&a[0];
+
+        // print_float(input);
+        // uart_write(" ",1);
+
+        // forward_pass_quantized(&input, 1, quantized_W0,W0_scale, quantized_B0,B0_scale, l0, 8);
+        // tanh_activation_quantized(l0, 8);
     
-    //super loop
-    // Define inputs
-    float input=0.0f;
-    float l0[8], l1[8], l2[8], l3[8], l4[1];  // outputs buffers for each layer
+        // // uart_write("layer2\n\r",9);
+        // forward_pass_quantized(l0, 8, quantized_W1,W1_scale, quantized_B1,B1_scale, l1, 16);
+        // tanh_activation_quantized(l1, 16);
+    
+        // // uart_write("layer3\n\r",9);
+        // forward_pass_quantized(l1, 16, quantized_W2,W2_scale, quantized_B2,B2_scale, l0, 16);
+        // tanh_activation_quantized(l0, 16);
+    
+        // // uart_write("layer4\n\r",9);
+        // forward_pass_quantized(l0, 16, quantized_W3,W3_scale, quantized_B3,B3_scale, l1, 8);
+        // tanh_activation_quantized(l1, 8);
+    
+        // // Layer 4 (final output)
+        // forward_pass_quantized(l1, 8, quantized_W4,W4_scale, quantized_B4,B4_scale, l0, 1);
+        // uart_write(" -> ",4);
+        // print_float(l0[0]);
+        // uart_write(" ",1);
+        // memory_to_hex_ascii(&l0[0],4,a);
+        // uart_write(a,8);
+        // uart_write("\n\r",2);
+        // uart_write("#",1);
+        // }
 
-// Layer 0
-uart_write("layer 0\n\r",10);
-forward_pass(&input, 1, W0, B0, l0, 8);
-tanh_activation(l0, 8);
-
-// Layer 1
-uart_write("layer 1\n\r",10);
-forward_pass(l0, 8, W1, B1, l1, 8);
-tanh_activation(l1, 8);
-
-// Layer 2
-uart_write("layer 2\n\r",10);
-forward_pass(l1, 8, W2, B2, l0, 8);
-tanh_activation(l0, 8);
-
-// Layer 3
-uart_write("layer 3\n\r",10);
-forward_pass(l0, 8, W3, B3, l1, 8);
-tanh_activation(l1, 8);
-
-// Layer 4 (final output)
-uart_write("layer 4\n\r",10);
-forward_pass(l1, 8, W4, B4, l0, 1);
-// Typically no activation or depends on your use case here
-    uart_write("output: [ ",11);
-    for (uint8_t i = 0; i < 1; i++)
-    {
-        memory_to_hex_ascii(&l0[i],4,b);
-        uart_write(b,8);
-        // print_float(layers[i]);
-        uart_write(" ",1);
     }
-    uart_write(" ]\n\r",5);
-    
-    while (1){}
-    return 0;
+return 0;
 }
 
 

@@ -15,30 +15,39 @@ void circ_buf_close(circular_buffer* buff){
 int8_t circ_buf_write(circular_buffer* buff,uint8_t item){
     // if(buff==NULL || buff->head==-1){return CIRC_BUFF_ERR_NULPTR;}
     // cant use NULL cus i dont have lib std
-    if(buff->head==-1){return CIRC_BUFF_ERR_NULPTR;}
+    if(buff->head==(uint8_t)-1){return CIRC_BUFF_ERR_NULPTR;}
     //no write if full
     if(circ_buf_is_full(buff)==1){return CIRC_BUFF_ERR_FULL;}
     buff->buffer[buff->head]=item;
     buff->head= (buff->head+1)%BUFFER_SIZE;
     buff->elem_count++;
-    return 1;
+    return (int8_t)1;
 }
-int8_t circ_buf_read(circular_buffer* buff,uint8_t length,uint8_t *buffer){
-    // if(buff==NULL || buff->tail==-1){return CIRC_BUFF_ERR_NULPTR;}
-    // cant use NULL cus i dont have lib std
-    if(buff->tail==-1){return CIRC_BUFF_ERR_NULPTR;}
-    // no read if empty
+
+int8_t circ_buf_read(circular_buffer* buff,uint8_t *buffer){
+    if(buff->tail==(uint8_t)-1){return CIRC_BUFF_ERR_NULPTR;}
     if(circ_buf_is_empty(buff)==1){return CIRC_BUFF_ERR_EMPTY;}
-    uint8_t actual_read=0;
-    for(uint8_t i=0;i<length;i++){
-        if(circ_buf_is_empty(buff)==1){break;}
-        buffer[i]=buff->buffer[buff->tail];
-        buff->tail= (buff->tail+1)%BUFFER_SIZE;
-        actual_read++;
-        buff->elem_count--;
-    }
-    return actual_read;
+    buff->elem_count-=1;
+    buffer[0]=buff->buffer[buff->tail];
+    buff->tail= (buff->tail+1)%BUFFER_SIZE;
+    return (int8_t)1;
 }
+// int8_t circ_buf_read(circular_buffer* buff,uint8_t length,uint8_t *buffer){
+//     // if(buff==NULL || buff->tail==-1){return CIRC_BUFF_ERR_NULPTR;}
+//     // cant use NULL cus i dont have lib std
+//     if(buff->tail==-1){return CIRC_BUFF_ERR_NULPTR;}
+//     // no read if empty
+//     if(circ_buf_is_empty(buff)==1){return CIRC_BUFF_ERR_EMPTY;}
+//     uint8_t actual_read=0;
+//     for(uint8_t i=0;i<length;i++){
+//         if(circ_buf_is_empty(buff)==1){break;}
+//         buffer[i]=buff->buffer[buff->tail];
+//         buff->tail= (buff->tail+1)%BUFFER_SIZE;
+//         actual_read++;
+//         buff->elem_count--;
+//     }
+//     return actual_read;
+// }
 
 //check full buffer
 uint8_t circ_buf_is_full(circular_buffer* buff){

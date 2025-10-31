@@ -1,7 +1,7 @@
 #include<memorymap.h>
 #include<uart.h>
 
-static circular_buffer uart_read_buff;
+circular_buffer uart_read_buff;
 
 // enabling the UART transmitter/reciever or both 2 LSBs
 void uart_enable(uint8_t tx_rx){
@@ -25,7 +25,9 @@ void uart_write(const uint8_t* src,uint32_t size){
 }
 
 uint8_t uart_read(uint8_t* dst,uint8_t size){
-    return circ_buf_read(&uart_read_buff,size,dst);
+    // uart_read_buff.elem_count--;//idk but it doesnt decrease elemcount inside function :( 
+    circ_buf_read(&uart_read_buff,dst);
+    return 1;
 }
 
 void uart_Rx_ISR(){
