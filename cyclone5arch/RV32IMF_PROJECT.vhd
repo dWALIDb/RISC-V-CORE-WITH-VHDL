@@ -2,6 +2,7 @@
 -- the synthesis file directories are used to initialize the memories
 -- more outputs are provided to prevent the synthesizer from omitting logic :)
 -- MAKE SURE YOU GOT VHDL2008
+-- with agressive compilation optimization
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -10,11 +11,12 @@ entity RV32IMF_PROJECT is
 generic(
 data_width:integer:=32;
 address_width:integer:=5;
+
 --UART USES BIT 15 as chip select
 instruction_memory_address_width:integer:=16;--bare in mind that 2 lsbs are not used to address ram(word addressable shenanigans)
 
 instruction_file_directory0:string:=
-"C:\Users\DELL\Desktop\xpack_RISCV_gcc\mif_0.mif"
+"C:\Users\DELL\Desktop\master_proj\C_python_setp\mif_0.mif"
 );
 port (
 --"rd" must be '1' and "wd" must be '0'
@@ -28,20 +30,35 @@ port (
 architecture arch of RV32IMF_PROJECT is 
 
 component ram_byteaddressable32 is 
-	generic (address_width : INTEGER;
-	INIT_FILE:STRING
-	);
-port (
-        clk        : in  std_logic;
-        we,re1,re2         : in  std_logic;
-        byte_en    : in  std_logic_vector(3 downto 0);
-        addr_wr    : in  std_logic_vector(address_width-1 downto 0);  -- 10-bit byte address
-        din        : in  std_logic_vector(31 downto 0);
-        addr_rd1   : in  std_logic_vector(address_width-1 downto 0);
-        addr_rd2   : in  std_logic_vector(address_width-1 downto 0);
-        dout1      : out std_logic_vector(31 downto 0);
-        dout2      : out std_logic_vector(31 downto 0)
-    );
+GENERIC (address_width : INTEGER;--1 for data
+INIT_FILE:STRING-- 1 for data
+);
+ port (
+       clk        : in  std_logic;
+       we,re1,re2         : in  std_logic;
+       byte_en    : in  std_logic_vector(3 downto 0);
+       addr_wr    : in  std_logic_vector(31 downto 0);  -- 10-bit byte address
+       din        : in  std_logic_vector(31 downto 0);
+       addr_rd1   : in  std_logic_vector(31 downto 0);
+       addr_rd2   : in  std_logic_vector(31 downto 0);
+       dout1      : out std_logic_vector(31 downto 0);
+       dout2      : out std_logic_vector(31 downto 0)
+   );
+
+--	generic (address_width : INTEGER;
+--	INIT_FILE:STRING
+--	);
+--port (
+--        clk        : in  std_logic;
+--        we,re1,re2         : in  std_logic;
+--        byte_en    : in  std_logic_vector(3 downto 0);
+--        addr_wr    : in  std_logic_vector(address_width-1 downto 0);  -- 10-bit byte address
+--        din        : in  std_logic_vector(31 downto 0);
+--        addr_rd1   : in  std_logic_vector(address_width-1 downto 0);
+--        addr_rd2   : in  std_logic_vector(address_width-1 downto 0);
+--        dout1      : out std_logic_vector(31 downto 0);
+--        dout2      : out std_logic_vector(31 downto 0)
+--    );
 end component;
 
 component sevseg is 
@@ -125,7 +142,7 @@ signal special_load_store: std_logic_vector(2 downto 0);
 
 constant zero: std_logic_vector(31 downto 0):=(others=>'0');
 
-signal byte_en : std_logic_vector(3 downto 0);
+signal byte_en,byte_en1 : std_logic_vector(3 downto 0);
 signal uart_cs,loopback: std_logic;
 signal uart_out:std_logic_vector(7 downto 0);
 signal uart_stat:std_logic_vector(1 downto 0);
@@ -133,31 +150,29 @@ signal uart_stat:std_logic_vector(1 downto 0);
 signal int_ack,int_uart:std_logic;
 
 begin
-------------------------------------------_RAM & LSU_---------------------------------------------------------------
-LSU: load_store_unit port map(RD,WD,data_pointer(1 downto 0),special_load_store,ram_out,data_towrite,byte_en,
+------------------------------------------__LSUs__---------------------------------------------------------------
+LSU0: load_store_unit port map(RD,WD,data_pointer(1 downto 0),special_load_store,ram_out,data_towrite,byte_en,
 data_toread,ram_in);
 
----------------------------------------------_RAM_--------------------------------------------------							
+---------------------------------------------__RAMs__--------------------------------------------------							
 RAM0: ram_byteaddressable32 generic map(instruction_memory_address_width,instruction_file_directory0) 
-port map(clk,(WD and (uart_cs)),(RD and (uart_cs)),'1',byte_en,data_pointer(instruction_memory_address_width-1 downto 0),
-ram_in,data_pointer(instruction_memory_address_width-1 downto 0),
-instruction_pointer(instruction_memory_address_width-1 downto 0),ram_out,current_instruction);
+port map(clk,(WD and (uart_cs)),(RD and (uart_cs)),'1',byte_en,data_pointer,
+ram_in,data_pointer,instruction_pointer,ram_out,current_instruction);
 
 -------------------------------------__UART__-----------------------------------------------------------------
 uart_cs<='0'when data_pointer=x"80000000" or data_pointer=x"80000001" or data_pointer=x"80000002" else '1';--address 0x00080000 and so on else cs='1'
 
-UART_DEVICE: uart generic map(9600,50) port map(clk,rst,data_towrite(0),data_towrite(1),data_towrite(4),
+UART_DEVICE: uart generic map(115200,50) port map(clk,rst,data_towrite(0),data_towrite(1),data_towrite(4),
 uart_cs,RD,WD,int_ack,data_pointer(1 downto 0),tx_done,rx_done,uart_stat(0),uart_stat(1),data_towrite(7 downto 0),
 serial_tx,serial_rx,uart_out,int_uart);
--------------------------------------__CPU CORE__-------------------------------------------------------------------
 
-cpu_data_in<= data_toread when uart_cs='1'else
+-------------------------------------__CPU CORE__-------------------------------------------------------------------
+cpu_data_in<= data_toread when uart_cs='1' else
 				x"000000"&uart_out when uart_cs='0' and data_pointer(1 downto 0)="10"else
 				x"0000000"&uart_stat&"00"  when uart_cs='0' and data_pointer(1 downto 0)="00"
 				else (others=>'0');
 
 data_towrite<=cpu_data_out;
-
 
 --im using same memory for instructions and data,riscv compiler with custom linker script handle the addresses
 THE_CORE:RV32IMF generic map(32,address_width,instruction_memory_address_width,instruction_memory_address_width,23,8,7)
