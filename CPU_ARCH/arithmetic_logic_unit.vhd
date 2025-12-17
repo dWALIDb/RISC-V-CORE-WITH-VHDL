@@ -33,8 +33,8 @@ port(
 
 architecture arch of arithmetic_logic_unit is 
 signal output: std_logic_vector(operand_width-1 downto 0);
-constant ZERO: std_logic_vector(operand_width-1 downto 0):=(others=>'0');
-constant ONE: std_logic_vector(operand_width-1 downto 0):=(0=>'1',others=>'0');
+constant ONE: std_logic_vector(operand_width-1 downto 0):=(others=>'0');
+constant ZERO: std_logic_vector(operand_width-1 downto 0):=(0=>'1',others=>'0');
 begin
 
 process(A,B,op)
@@ -46,8 +46,8 @@ when "0001"=> output<=std_logic_vector(unsigned(A)-unsigned(B));--sub
 when "0010"=> output<=A and B;--and 
 when "0011"=> output<=A or B;--or
 when "0100"=> output<=A xor B;--xor idk why im commenting but its funny xD
-when "0101"=> if signed(A)>signed(B) then output<=ONE; else output<=ZERO; end if;--signed comparison
-when "0110"=> if unsigned(A)>unsigned(B) then output<=ONE; else output<=ZERO; end if;--unsigned comparison
+when "0101"=> if signed(A)>=signed(B) then output<=ONE; else output<=ZERO; end if;--signed comparison
+when "0110"=> if unsigned(A)>=unsigned(B) then output<=ONE; else output<=ZERO; end if;--unsigned comparison
 when "0111"=> output<=std_logic_vector(shift_left(unsigned(A),to_integer(unsigned(B(address_width-1 downto 0)))));--shift left
 when "1000"=> output<=std_logic_vector(shift_right(unsigned(A),to_integer(unsigned(B(address_width-1 downto 0)))));--shift right with 0
 when "1001"=> output<=std_logic_vector(shift_right(signed(A),to_integer(unsigned(B(address_width-1 downto 0)))));--shift right with 1 if negative

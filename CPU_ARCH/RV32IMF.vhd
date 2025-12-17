@@ -25,7 +25,8 @@ port(
 	RD,WD:out std_logic;
 	-- used for LB/U,LH/U,LW
 	special_load_store:out std_logic_vector(2 downto 0);
-	O_DATA,instruction_pointer,data_pointer,data_towrite:out std_logic_vector(data_width-1 downto 0)
+	O_DATA,instruction_pointer,data_pointer,data_towrite:out std_logic_vector(data_width-1 downto 0);
+	int_ack : out std_logic
 );
 end RV32IMF;
 
@@ -212,13 +213,14 @@ write_addressD,alu_op1,fp_op1,mul_div_op1,offset_src1,int_srcB1,fp_srcA1,
 fp_done,write_addressE,ALU_NEQ,ALU_EQ,ALU_LT,ALU_GE,
 C_aluE,C_mul_divE,C_fpuE,
 PC_OUTPLUS4E,PC_unconditionalE);
-
+int_ack<=interrupt_ack;
 wd<=ram_WD2;
 rd<=ram_RD2;
 
 THE_MEMORY_STAGE:memory_stage generic map(data_width,address_width,data_memory_address_width)
 port map(clk,rst,interrupt_ack2,ld_service_routine2,IO_IN2,ram_RD2,ram_WD2,ALU_NEQ,ALU_EQ,ALU_LT,ALU_GE,control_NEQ2,control_EQ2,control_LT2,
-control_GE2,unconditional2,branchneq2,brancheq2,branchlt2,branchge2,enable_pc_src,jump_andlink2,int_readE,fp_readE,I_DATA,C_aluE,C_fpuE,C_mul_divE,PC_OUTPLUS4E,PC_unconditionalE,
+control_GE2,unconditional2,branchneq2,brancheq2,branchlt2,branchge2,enable_pc_src,jump_andlink2,int_readE,fp_readE,I_DATA, 
+C_aluE,C_fpuE,C_mul_divE,PC_OUTPLUS4E,PC_unconditionalE,
 data_toread,upper_immediate_valueE,write_addressE,ram_src2,write_back_dataM,write_addressM,next_pcM,ram_outM,data_towrite);
 
 THE_WRITEBACK_STAGE:write_back_stage generic map(data_width,address_width)
@@ -231,11 +233,11 @@ unconditional,int_wd,int_rd1,int_rd2,fp_wd,fp_rd1,fp_rd2,writeback_op,address_ca
 brancheq,branchlt,branchge,enable_pc,enable_pc_src,interrupt_ack,ld_intaddress,ld_service_routine,IO_IN,IO_OUT);
 
 --WE REGISTER OUTPUT WHEN USING A SPECIFIC INSTRUCTION 
-OUTPUT_DATA:process(clk,rst,IO_OUT3)
+OUTPUT_DATA:process(clk,rst,IO_OUT2)
 begin 
 if(rst='1')then OUT_DATA<=(others=>'0');
 elsif(clk'event and clk='1')then 
-if(IO_OUT3='1')then OUT_DATA<=RAM_OUTM;
+if(IO_OUT2='1')then OUT_DATA<=RAM_OUTM;
 end if;
 end if;
 end process;

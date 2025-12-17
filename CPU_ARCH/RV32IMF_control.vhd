@@ -59,13 +59,12 @@ elsif(clk'event and clk='0') then
 	Wfp_wd<='0';Wfp_rd1<='0';Wfp_rd2<='0';Wwriteback_op<='0';Wjump_andlink<='0';Wld_intaddress<='0';
 	
 	--the opcode is changed when rcieving an interrupt 
-	if(int='1' and int_enable='1' and cycle_count=4)then selected_opcode<="1111111";
-	elsif(selected_opcode="1111111" and cycle_count/=4) then selected_opcode<="1111111"; 
+	if(int='1' and int_enable='1' and cycle_count=4)then selected_opcode<="1111111";int_enable<='0';
+	elsif(selected_opcode="1111111" and cycle_count/=4) then selected_opcode<="1111111"; int_enable<='0';
 	else selected_opcode<=opcode; end if;
 	--enable and disable interrupts 
 	if(opcode="0111111") then int_enable<='1';
-	elsif(opcode="0011111" or (int='1' and int_enable='1' and selected_opcode="1111111")) then int_enable<='0';
-	else int_enable<=int_enable;
+	elsif(opcode="0011111" or (selected_opcode="1111111")) then int_enable<='0';
 	end if;
 	
 	case selected_opcode is 
@@ -126,6 +125,7 @@ elsif(clk'event and clk='0') then
 		--STORE FLOATING POINT REGISTER:address is calculated and the multiplexed with alu output
 		when"0100111"=>Wram_wd<='1';Wfp_rd1<='1';Wint_rd2<='1';Wram_src<="101";Waddress_calculate<='1';
 		--FLOATING POINT OPERATIONS 
+		-- sub is not supported because we have signed addition :)
 		when"1010011"=>Wfp_wd<='1';Wfp_rd1<='1';Wfp_rd2<='1';Wram_src<="010";Wwriteback_op<='0';Wfp_enable<='1';
 						-- fpu shows the change of data, so you can see the process of addition/multiplication...
 						-- we dont want to write the result untill we have completed the operation
@@ -135,7 +135,7 @@ elsif(clk'event and clk='0') then
 						elsif(func7="0000000") then Wfp_op<="0010";Wfp_wd<=fp_done;--add
 						elsif(func7="0010100" and func3="000") then Wfp_op<="0100";Wfp_wd<=fp_done;--min
 						elsif(func7="0010100" and func3="001") then Wfp_op<="0011";Wfp_wd<=fp_done;--max
-						elsif(func7="1100000" ) then Wfp_op<="0110";Wint_wd<='1';Wfp_wd<='0';Wfp_rd1<='1';Wfp_rd2<='0';Wfp_wd<=fp_done;--FCVT.W.S converts fp number to integer 
+						--elsif(func7="1100000" ) then Wfp_op<="0110";Wint_wd<='1';Wfp_rd1<='1';Wfp_rd2<='0';Wfp_wd<=fp_done;--FCVT.W.S converts fp number to integer 
 						elsif(func7="1101000" ) then Wfp_op<="0101";Wint_rd1<='1';Wfp_rd1<='0';Wfp_rd2<='0';Wfp_srcA<="01";Wfp_wd<=fp_done;--FCVT.S.W converts integer to fp number
 						elsif(func7="1111000" and func3="000") then Wint_rd1<='1';Wfp_rd1<='0';Wfp_rd2<='0';Wfp_enable<='0';Wram_src<="000";--FMV.W.X to move integer reg to fp reg
 						elsif(func7="1110000" and func3="000") then Wfp_enable<='0';Wfp_rd2<='0';Wfp_wd<='0';Wint_wd<='1';Wram_src<="101";--FMV.X.W to move fp reg to integer reg
@@ -151,13 +151,13 @@ elsif(clk'event and clk='0') then
 		when"1101111"=>Wram_src<="110";Wint_wd<='1';Wunconditional<='1';Woffset_src<="01";
 		--AUPIC:set a destination register to have the value of PC+20-bit upper immediate
 		when"0010111"=>Wint_wd<='1';Woffset_src<="11";Wram_src<="111";
-		--INTERRUPT STATE TO PUT PC IN REGISTER  AND PUT INTERRUPT SERVICE ROUTINE IN PC
-		when"1111111"=>Wint_wd<='1';Wram_src<="110";Winterrupt_ack<='1';
+		--INTERRUPT STATE TO PUT PC IN REGISTER  AND PUT INTERRUPT SERVICE ROUTINE IN PC used directly in control unit
+		when"1111111"=>Wint_wd<='1';Wram_src<="110";Winterrupt_ack<='1';int_enable<='0';
 		--INTERRUPT ENABLE ISR=RS1+12bit immediate offset,specify address that writes pc uppon interrupting 
 		when"0111111"=>int_enable<='1';Wint_rd1<='1';Wint_srcB<="10";Wld_intaddress<='1';Wld_service_routine<='1';
 		--INTERRUPT DISABLE 
 		WHEN"0011111"=>int_enable<='0';
-		--IN_DATA:IO_IN USED TO INPUT TO RAM FROM USER just like the store word but for IO RS1 field is 0 and the others are the same
+		--IN_DATA:IO_IN USED TO INPUT TO RAM FROM USER just like the store word but for IO RS1?w field is 0 and the others are the same
 		when"1110111"=>Wram_wd<='1';Wram_src<="000";WIO_IN<='1';Wram_src<="100";Waddress_calculate<='1';
 		--OUT_DATA:used to output data from ram to IO_regiser used like load instruction but for io alu has calculated address and RD is ZERO
 		--func3 must be "010"
@@ -165,13 +165,19 @@ elsif(clk'event and clk='0') then
 		--NOTHING WILL BE DONE AND EVERY THING IS SET TO "0"
 		when others=>null;
 end case;
-
-	if(Wfp_enable='1' and fp_done='0'and cycle_count<3 and cycle_count>0) then Wpc_enable<='0';Wpc_enable_src<='0';
+	-- those gotta be here, i cant do them in the case statement, synthesizer would get mad and mess up the design
+	if(selected_opcode="1010011" and func7="1100000" ) then Wfp_op<="0110";Wint_wd<='1';Wfp_rd1<='1';Wfp_rd2<='0';Wfp_wd<='0';--FCVT.W.S converts fp number to integer 
+	--elsif(selected_opcode="1110111") then Wint_rd2<='1'; end if;
+	end if;
+	
+	--timing related functionalities :)
+	if(Wfp_enable='1' and fp_done='0'and cycle_count<4 and cycle_count>0) then Wpc_enable<='0';Wpc_enable_src<='0';
 	elsif(Wfp_enable='1' and fp_done='1' and cycle_count<3 and cycle_count>0) then Wpc_enable<='0';cycle_count<=4;Wpc_enable_src<='1';
 	elsif(cycle_count=3) then Wpc_enable_src<='1';cycle_count<=cycle_count+1;
 	elsif(cycle_count=4) then Wpc_enable<='1';cycle_count<=0;Wpc_enable_src<='0';
 	else Wpc_enable<='0';cycle_count<=cycle_count+1;Wpc_enable_src<='0';
 	end if;
+	if cycle_count=4 then wint_wd<='0';end if;
 end if;
 end process;
 control_NEQ<=Wcontrol_NEQ;address_calculate<=Waddress_calculate;pc_enable<=Wpc_enable;pc_enable_src<=Wpc_enable_src;
@@ -180,5 +186,6 @@ ram_rd<=Wram_rd;ram_wd<=Wram_wd;unsigned_compare<=Wunsigned_compare;fp_op<=Wfp_o
 alu_op<=Walu_op;mul_div_op<=Wmul_div_op;offset_src<=Woffset_src;int_srcB<=Wint_srcB;ld_service_routine<=Wld_service_routine;
 fp_srcA<=Wfp_srcA;ram_src<=Wram_src;interrupt_ack<=Winterrupt_ack;
 unconditional<=Wunconditional;int_wd<=Wint_wd;int_rd1<=Wint_rd1;int_rd2<=Wint_rd2;ld_intaddress<=Wld_intaddress;
-fp_wd<=Wfp_wd;fp_rd1<=Wfp_rd1;fp_rd2<=Wfp_rd2;writeback_op<=Wwriteback_op;jump_andlink<=Wjump_andlink;
+fp_wd<=Wfp_wd;
+fp_rd1<=Wfp_rd1;fp_rd2<=Wfp_rd2;writeback_op<=Wwriteback_op;jump_andlink<=Wjump_andlink;
 end arch;

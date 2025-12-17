@@ -11,8 +11,7 @@ generic(
 port(
 	clk,rst,send: in std_logic;
 	D:in std_logic_vector(7 downto 0);
-	count:out std_logic_vector(31 downto 0);
-	O,done:out std_logic
+	O,ready,done:out std_logic
 );end Tx;
 
 architecture arch of Tx is 
@@ -61,5 +60,5 @@ O<='1' when state=idle or state=finish or rst='1' else
 	d(7) when state=d7 else '1' ;
 	
 done<='1' when state=finish else '0';
-count<=std_logic_vector(counter);
+ready<='1' when state=idle else '0';
 end arch;

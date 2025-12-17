@@ -65,7 +65,7 @@ upper_immediate_value<=(others=>'0');
 
 elsif(clk'event and clk='1')then 
 -- i flipped the registers to calculate the addresses for sw instructions, hence i gotta flip registers here to compensate
--- best thing i can do :( 
+-- best thing i can do :(
 if ((ram_out(opcode_length-1 downto 0)="0100011") or (ram_out(opcode_length-1 downto 0)="0100111") or (ram_out(opcode_length-1 downto 0)="1110111")) then 
 read_address2<=ram_out(19 downto 15);read_address1<=ram_out(24 downto 20);
 else read_address1<=ram_out(19 downto 15);read_address2<=ram_out(24 downto 20); 

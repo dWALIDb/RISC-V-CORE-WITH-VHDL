@@ -53,7 +53,7 @@ selected_data<=C_ALU when ram_src="000"and IO_IN='0' else --to take integer oper
 			   int_read_data when ram_src="100" and IO_IN='0' else --passing data between registers
 			   fp_read_data when ram_src="101" and IO_IN='0' else --passing data between registers
 			   PC_PLUS4 when ram_src="110" and IO_IN='0' else --used to store the next instruction from jarl and jal
-			   std_logic_vector(unsigned(PC_unconditional)-4) when ram_src="111" and IO_IN='0' else --subtract 4 because we need to offset according to current instruction and not next instruction address
+			   PC_unconditional when ram_src="111" and IO_IN='0' else --used for auipc insttruction
 			   IO_data when ram_src="100" and IO_IN='1' else (others=>'0');--IO_DATA is similar to store instruction but for IO so RS1 doesn't matter  
 
 --C_alu has the addresses,and selected data has the data :) so we take data from the ram by providing address from memory stage
