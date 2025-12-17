@@ -23,14 +23,14 @@ void update_packet(){
             // get data length, if data length is 0 then we need to check retransmit
             case MSG_LENGTH:
             write_index=0;
-            uart_read(&construction_packet.length,1);
+            uart_read(&construction_packet.length);
             if (construction_packet.length==0)
                 state=SPECIAL_MSG;
             else state=DATA_BYTES;
             break;
             
             case DATA_BYTES:
-            uart_read(&construction_packet.msg[write_index++],1);
+            uart_read(&construction_packet.msg[write_index++]);
             if (write_index>=construction_packet.length){
                 write_index=0;
                 state=CRC_LOW;
@@ -38,19 +38,19 @@ void update_packet(){
             break;
 
             case SPECIAL_MSG:
-            uart_read(&construction_packet.msg[write_index++],1);
+            uart_read(&construction_packet.msg[write_index++]);
             if (construction_packet.msg[0]==PACKET_CORRECT)
                 state=MSG_LENGTH;
             else send_packet(&transmition_copy);//retransmit
             break;
 
             case CRC_LOW:  
-            uart_read(&construction_packet.crc_low,1);
+            uart_read(&construction_packet.crc_low);
             state=CRC_HIGH;
             break;
             
             case CRC_HIGH:
-            uart_read(&construction_packet.crc_high,1);
+            uart_read(&construction_packet.crc_high);
             uint16_t crc=compute_crc((uint8_t*)&construction_packet,construction_packet.length+1);
             if (crc==(construction_packet.crc_high | (construction_packet.crc_high<<8)))
             {

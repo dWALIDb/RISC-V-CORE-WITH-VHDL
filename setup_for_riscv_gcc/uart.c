@@ -24,8 +24,7 @@ void uart_write(const uint8_t* src,uint32_t size){
     while ((*UART_CONTROLS & TX_READY)==0);//block until LAST BYTE
 }
 
-uint8_t uart_read(uint8_t* dst,uint8_t size){
-    // uart_read_buff.elem_count--;//idk but it doesnt decrease elemcount inside function :( 
+uint8_t uart_read(uint8_t* dst){
     circ_buf_read(&uart_read_buff,dst);
     return 1;
 }
