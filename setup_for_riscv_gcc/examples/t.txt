@@ -1,0 +1,7 @@
+this is a folder for examples, it is made for running on this CPU :)
+
+most of these should be accompanied with a python script that has the same file name as the C, and added _VISUALIZER at end.
+
+in the next part im willing to do some actual wave generation, sound and maybe image processing 
+
+imma put this design to good use ;)
