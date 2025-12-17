@@ -36,7 +36,7 @@ void circ_buf_close(circular_buffer* buff);
 // checks for the pointer if NULL then return else push data 
 // it doesn't push data if full or empty and return error codes
 int8_t circ_buf_write(circular_buffer* buff,uint8_t item);
-// read upto the spcified length returns the actual amount of data read
+// read 1 element, 1 on success , CIRC_BUFF_ERR on failure
 // doesn't read if empty or NULL pointer  and returns the error codes
 int8_t circ_buf_read(circular_buffer* buff,uint8_t *buffer);
 

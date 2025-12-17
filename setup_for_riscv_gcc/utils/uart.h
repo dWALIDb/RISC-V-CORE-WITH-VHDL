@@ -25,8 +25,8 @@ void uart_enable(uint8_t tx_rx);
 
 // write data through uart via polling the ready line
 void uart_write(const uint8_t* src,uint32_t size);
-// read data up to specified length 
-uint8_t uart_read(uint8_t* dst,uint8_t size);
+// read 1 byte 
+uint8_t uart_read(uint8_t* dst);
 // returns number of bytes recieved over uart
 uint8_t uart_elem_count();
 // Rx ISR, writes data on internal buffer 
