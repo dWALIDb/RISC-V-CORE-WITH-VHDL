@@ -1,0 +1,2 @@
+those codes shoud be copied to the first.c file and compile directly, some require 
+more stuf like checkig the libraries... figure it out homie.
