@@ -13,7 +13,7 @@
 // custom instruction instruction to put data
 // into IO register inside custom architecture
 // supports signed and unsigned bytes,half words and words
-void inline output_data(uint8_t *base,uint8_t offset,uint8_t funct3){
+void __attribute__((noinline)) output_data(uint8_t *base,uint8_t offset,uint8_t funct3){
     // output_data <reg>,ofst 
     // output x10,0 custom instruction that is implemented on my riscv cpu
     //added offset with base and put in reg and encoded ofst as 0 
@@ -52,15 +52,14 @@ void inline output_data(uint8_t *base,uint8_t offset,uint8_t funct3){
 // custom instruction that reads data from a special port and loads it into memory
 // it is encoded as store instruction with a special opcode
 // supports only unsigned bytes,half words and words
-void input_data(uint8_t *base,uint8_t offset,uint8_t funct3){
+void __attribute__((noinline)) input_data(uint8_t *base,uint8_t offset,uint8_t funct3){
 // input x10,0 custom instruction that is implemented on my riscv cpu
 // this will change memory location [base+offset] to be what ever 
 // is on the IN_DATA line :)
 // uses a0 and a1 to calculate the address then select the instruction to 
 // run depending on the desired functionality 
-__asm__ volatile("mv a0,%0\n\t"
-    "mv a1,%1\n\t"
-    "add a0,a0,a1\n\t"
+__asm__ volatile(
+    "add a0,%1,%0\n\t"
     :
     :"r" (base), "r" (offset)
     :"a0", "a1");
@@ -70,13 +69,40 @@ __asm__ volatile("mv a0,%0\n\t"
         {
         case UNSIGNED_BYTE:
         __asm__ volatile(".word 0x00050077\n\t"); 
+        volatile uint8_t val8;
+        asm volatile(
+            "li t0, 0x0\n\t"
+            "lbu %0, 0(t0)\n\t"     // load byte
+            : "=r"(val8)
+            :
+            : "t0"
+        );
+        base[offset]=val8;
         break;
         case UNSIGNED_HALFWORD:
-        __asm__ volatile(".word 0x00051077\n\t"); 
+        __asm__ volatile(".word 0x00051077\n\t");
+        volatile uint16_t val16;
+        asm volatile(
+            "li t0, 0x0\n\t"
+            "lhu %0, 0(t0)\n\t"     // load halfword
+            : "=r"(val16)
+            :
+            : "t0"
+        );
+        *((uint16_t*)base)=val16;
         break;
         case WORD:
         default:
-        __asm__ volatile(".word 0x00052077\n\t");
+        __asm__ volatile(".word 0x00A52077\n\t");
+        volatile uint32_t val;
+        asm volatile(
+            "li t0, 0x0\n\t"
+            "lw %0, 0(t0)\n\t"     // load halfword
+            : "=r"(val)
+            :
+            : "t0"
+        );
+        *((uint32_t*)base)=val;
             break;
         }
 }
@@ -109,7 +135,7 @@ void enable_interrupts(void __attribute__((noinline)) (*interrupt_handler)(void)
 }
 
 // custom instruction that disables interrupts 
-void inline disable_interrupts(){
+void disable_interrupts(){
     __asm__ volatile(
         // 0000 0000 0000 0000 0000 0000 0001 1111
         ".word 0x0000001f\r\n"

@@ -38,13 +38,38 @@ void forward_pass(const float* input, uint32_t input_size,
 void ReLU(float* input,uint32_t size){
     for (uint32_t i = 0; i < size; i++)
     {
-        if((int32_t)input[i]<0.0f){input[i]=0.0f;}
+        if((int32_t)(input[i])<0){input[i]=0.0f;}
     }
 }
 
 void tanh_activation(float* input,uint32_t size){
     for(uint32_t i=0;i<size;i++){
 
+        if ((int32_t)(input[i]) < -3){input[i]=-1.0f;continue;}
+        if ((int32_t)(input[i]) >  3){input[i]=1.0f;continue;}
+        
+        float x2 = input[i] * input[i];
+        float x3=input[i] * (27.0f + x2) / (27.0f + 9.0f * x2);
+        input[i]=x3;
+    }
+}
+
+void forward_pass_quantized(const float* input, uint32_t input_size,
+                  const int8_t* weights,float scale_weights, const int8_t* biases,
+                  float scale_biases,float* output, uint32_t output_size)
+{
+    for (uint32_t i = 0; i < output_size; i++) {
+        float sum = biases[i]*scale_biases;
+        for (uint32_t j = 0; j < input_size; j++) {
+            sum += input[j] * weights[j * output_size + i]*scale_weights;
+        }
+        output[i] = sum;
+    }
+}
+
+void tanh_activation_quantized(float* input,uint32_t size){
+    for(uint32_t i=0;i<size;i++){
+        
         if ((int32_t)input[i] < -3){input[i]=-1.0f;continue;}
         if ((int32_t)input[i] >  3){input[i]=1.0f;continue;}
         

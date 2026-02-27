@@ -15,9 +15,11 @@
 #define TX_ENABLE 0x01 
 #define RX_ENABLE 0x02 
 // check if the uart is transmitting/recieving data
+// send the byte, uart doesn't send data until it TX_SEND is high
+#define INT_UART  0x02 //this bit provides interrupt status, used to derermine if uart Rx interrupted
 #define TX_READY  0x04
 #define RX_READY  0x08
-// send the byte, uart doesn't send data until it is high
+// send the byte, uart doesn't send data until it TX_SEND is high
 #define TX_SEND   0x10
 
 // enable transmitter/reciever
