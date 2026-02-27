@@ -1,0 +1,227 @@
+
+Discarded input sections
+
+ .data          0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\cc1Purhk.o
+ .bss           0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\cc1Purhk.o
+ .data          0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\ccTah02w.o
+ .bss           0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\ccTah02w.o
+ .sbss.state    0x00000000        0x4 C:\Users\DELL\AppData\Local\Temp\ccTah02w.o
+ .sbss.input    0x00000000        0x4 C:\Users\DELL\AppData\Local\Temp\ccTah02w.o
+ .sbss.res      0x00000000        0x1 C:\Users\DELL\AppData\Local\Temp\ccTah02w.o
+ .sbss.a        0x00000000        0x8 C:\Users\DELL\AppData\Local\Temp\ccTah02w.o
+ .sbss.cycles_delay
+                0x00000000        0x4 C:\Users\DELL\AppData\Local\Temp\ccTah02w.o
+ .sdata.NEGATIVE_PI
+                0x00000000        0x4 C:\Users\DELL\AppData\Local\Temp\ccTah02w.o
+ .sdata.NEGATIVE_TWO_PI
+                0x00000000        0x4 C:\Users\DELL\AppData\Local\Temp\ccTah02w.o
+ .sdata.B4_scale
+                0x00000000        0x4 C:\Users\DELL\AppData\Local\Temp\ccTah02w.o
+ .sdata.quantized_B4
+                0x00000000        0x1 C:\Users\DELL\AppData\Local\Temp\ccTah02w.o
+ .sdata.B3_scale
+                0x00000000        0x4 C:\Users\DELL\AppData\Local\Temp\ccTah02w.o
+ .sdata.quantized_B3
+                0x00000000        0x8 C:\Users\DELL\AppData\Local\Temp\ccTah02w.o
+ .sdata.B2_scale
+                0x00000000        0x4 C:\Users\DELL\AppData\Local\Temp\ccTah02w.o
+ .data.quantized_B2
+                0x00000000       0x10 C:\Users\DELL\AppData\Local\Temp\ccTah02w.o
+ .sdata.B1_scale
+                0x00000000        0x4 C:\Users\DELL\AppData\Local\Temp\ccTah02w.o
+ .data.quantized_B1
+                0x00000000       0x10 C:\Users\DELL\AppData\Local\Temp\ccTah02w.o
+ .sdata.B0_scale
+                0x00000000        0x4 C:\Users\DELL\AppData\Local\Temp\ccTah02w.o
+ .sdata.quantized_B0
+                0x00000000        0x8 C:\Users\DELL\AppData\Local\Temp\ccTah02w.o
+ .sdata.W4_scale
+                0x00000000        0x4 C:\Users\DELL\AppData\Local\Temp\ccTah02w.o
+ .sdata.quantized_W4
+                0x00000000        0x8 C:\Users\DELL\AppData\Local\Temp\ccTah02w.o
+ .sdata.W3_scale
+                0x00000000        0x4 C:\Users\DELL\AppData\Local\Temp\ccTah02w.o
+ .data.quantized_W3
+                0x00000000       0x80 C:\Users\DELL\AppData\Local\Temp\ccTah02w.o
+ .sdata.W2_scale
+                0x00000000        0x4 C:\Users\DELL\AppData\Local\Temp\ccTah02w.o
+ .data.quantized_W2
+                0x00000000      0x100 C:\Users\DELL\AppData\Local\Temp\ccTah02w.o
+ .sdata.W1_scale
+                0x00000000        0x4 C:\Users\DELL\AppData\Local\Temp\ccTah02w.o
+ .data.quantized_W1
+                0x00000000       0x80 C:\Users\DELL\AppData\Local\Temp\ccTah02w.o
+ .sdata.W0_scale
+                0x00000000        0x4 C:\Users\DELL\AppData\Local\Temp\ccTah02w.o
+ .sdata.quantized_W0
+                0x00000000        0x8 C:\Users\DELL\AppData\Local\Temp\ccTah02w.o
+ .text          0x00000000      0x418 C:\Users\DELL\AppData\Local\Temp\ccJWzaPQ.o
+ .data          0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\ccJWzaPQ.o
+ .bss           0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\ccJWzaPQ.o
+ .rodata        0x00000000       0x18 C:\Users\DELL\AppData\Local\Temp\ccJWzaPQ.o
+ .sbss.available
+                0x00000000        0x1 C:\Users\DELL\AppData\Local\Temp\ccJWzaPQ.o
+ .sbss.write_index
+                0x00000000        0x1 C:\Users\DELL\AppData\Local\Temp\ccJWzaPQ.o
+ .sbss.state    0x00000000        0x4 C:\Users\DELL\AppData\Local\Temp\ccJWzaPQ.o
+ .bss.available_packet
+                0x00000000       0x83 C:\Users\DELL\AppData\Local\Temp\ccJWzaPQ.o
+ .bss.construction_packet
+                0x00000000       0x83 C:\Users\DELL\AppData\Local\Temp\ccJWzaPQ.o
+ .bss.transmition_copy
+                0x00000000       0x83 C:\Users\DELL\AppData\Local\Temp\ccJWzaPQ.o
+ .comment       0x00000000       0x34 C:\Users\DELL\AppData\Local\Temp\ccJWzaPQ.o
+ .note.GNU-stack
+                0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\ccJWzaPQ.o
+ .riscv.attributes
+                0x00000000       0x38 C:\Users\DELL\AppData\Local\Temp\ccJWzaPQ.o
+ .data          0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\ccrSLhLi.o
+ .bss           0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\ccrSLhLi.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+RAM              0x00000000         0x00004000         xrw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD C:\Users\DELL\AppData\Local\Temp\cc1Purhk.o
+LOAD C:\Users\DELL\AppData\Local\Temp\ccTah02w.o
+LOAD C:\Users\DELL\AppData\Local\Temp\ccJWzaPQ.o
+LOAD C:\Users\DELL\AppData\Local\Temp\ccrSLhLi.o
+LOAD C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a
+START GROUP
+LOAD C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32imf_zicsr/ilp32f\libc.a
+LOAD C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32imf_zicsr/ilp32f\libgloss.a
+END GROUP
+LOAD C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a
+                0x00004000                        PROVIDE (_stack_start = (ORIGIN (RAM) + LENGTH (RAM)))
+                0x00000000                        . = ORIGIN (RAM)
+
+.text           0x00000000      0xb00
+                0x00000000                        . = ALIGN (0x4)
+ *(.text.Reset*)
+ .text.Reset    0x00000000       0x18 C:\Users\DELL\AppData\Local\Temp\ccTah02w.o
+                0x00000000                Reset
+ *(.text*)
+ .text          0x00000018       0xe4 C:\Users\DELL\AppData\Local\Temp\cc1Purhk.o
+                0x00000018                circ_buf_init
+                0x00000028                circ_buf_close
+                0x0000003c                circ_buf_write
+                0x00000088                circ_buf_read
+                0x000000d8                circ_buf_is_full
+                0x000000e4                circ_buf_is_empty
+                0x000000f0                circ_buf_data_available
+ .text          0x000000fc      0x8d4 C:\Users\DELL\AppData\Local\Temp\ccTah02w.o
+                0x000000fc                output_data
+                0x00000158                input_data
+                0x000001d4                enable_interrupts
+                0x000001f0                interrupt_handler
+                0x00000228                disable_interrupts
+                0x00000230                interrupt_entry
+                0x00000260                byte_to_hex
+                0x000002bc                memory_to_hex_ascii
+                0x00000318                print_int
+                0x0000040c                print_float
+                0x000004e0                forward_pass
+                0x00000540                ReLU
+                0x00000574                tanh_activation
+                0x000005f8                forward_pass_quantized
+                0x0000065c                tanh_activation_quantized
+                0x000006e0                delay_ms
+                0x00000714                delay_us
+                0x00000748                main
+ .text          0x000009d0      0x130 C:\Users\DELL\AppData\Local\Temp\ccrSLhLi.o
+                0x000009d0                uart_enable
+                0x00000a08                uart_write
+                0x00000a70                uart_read
+                0x00000a98                uart_Rx_ISR
+                0x00000ac0                uart_disable
+                0x00000af4                uart_elem_count
+                0x00000b00                        . = ALIGN (0x4)
+
+.rela.dyn       0x00000b00        0x0
+ .rela.text.Reset
+                0x00000b00        0x0 C:\Users\DELL\AppData\Local\Temp\cc1Purhk.o
+
+.rodata         0x00000b00        0x0
+                0x00000b00                        . = ALIGN (0x4)
+ *(.rodata)
+                0x00000b00                        . = ALIGN (0x4)
+
+.rodata.str1.4  0x00000b00       0x62
+ .rodata.str1.4
+                0x00000b00       0x62 C:\Users\DELL\AppData\Local\Temp\ccTah02w.o
+                                 0x66 (size before relaxing)
+
+.srodata.cst4   0x00000b64       0x1c
+ .srodata.cst4  0x00000b64       0x1c C:\Users\DELL\AppData\Local\Temp\ccTah02w.o
+
+.data           0x00000b80        0x0
+                0x00000b80                        . = ALIGN (0x4)
+ *(.data)
+                0x00000b80                        . = ALIGN (0x4)
+
+.bss            0x00000b80        0x0
+                0x00000b80                        . = ALIGN (0x4)
+ *(.bss)
+                0x00000b80                        . = ALIGN (0x4)
+                0x00000b80                        . = ALIGN (0x4)
+OUTPUT(first.elf elf32-littleriscv)
+
+.sbss.data      0x00000b80        0x4
+ .sbss.data     0x00000b80        0x4 C:\Users\DELL\AppData\Local\Temp\ccTah02w.o
+                0x00000b80                data
+
+.sbss.gp_state  0x00000b84        0x4
+ .sbss.gp_state
+                0x00000b84        0x4 C:\Users\DELL\AppData\Local\Temp\ccTah02w.o
+                0x00000b84                gp_state
+
+.sbss.cycles_end
+                0x00000b88        0x4
+ .sbss.cycles_end
+                0x00000b88        0x4 C:\Users\DELL\AppData\Local\Temp\ccTah02w.o
+                0x00000b88                cycles_end
+
+.sbss.cycles_start
+                0x00000b8c        0x4
+ .sbss.cycles_start
+                0x00000b8c        0x4 C:\Users\DELL\AppData\Local\Temp\ccTah02w.o
+                0x00000b8c                cycles_start
+
+.sbss.isr       0x00000b90        0x4
+ .sbss.isr      0x00000b90        0x4 C:\Users\DELL\AppData\Local\Temp\ccTah02w.o
+
+.bss.uart_read_buff
+                0x00000b94       0x83
+ .bss.uart_read_buff
+                0x00000b94       0x83 C:\Users\DELL\AppData\Local\Temp\ccrSLhLi.o
+                0x00000b94                uart_read_buff
+
+.comment        0x00000000       0x33
+ .comment       0x00000000       0x33 C:\Users\DELL\AppData\Local\Temp\cc1Purhk.o
+                                 0x34 (size before relaxing)
+ .comment       0x00000033        0x0 C:\Users\DELL\AppData\Local\Temp\ccTah02w.o
+                                 0x34 (size before relaxing)
+ .comment       0x00000033        0x0 C:\Users\DELL\AppData\Local\Temp\ccrSLhLi.o
+                                 0x34 (size before relaxing)
+
+.note.GNU-stack
+                0x00000000        0x0
+ .note.GNU-stack
+                0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\cc1Purhk.o
+ .note.GNU-stack
+                0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\ccTah02w.o
+ .note.GNU-stack
+                0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\ccrSLhLi.o
+
+.riscv.attributes
+                0x00000000       0x38
+ .riscv.attributes
+                0x00000000       0x38 C:\Users\DELL\AppData\Local\Temp\cc1Purhk.o
+ .riscv.attributes
+                0x00000038       0x38 C:\Users\DELL\AppData\Local\Temp\ccTah02w.o
+ .riscv.attributes
+                0x00000070       0x38 C:\Users\DELL\AppData\Local\Temp\ccrSLhLi.o
