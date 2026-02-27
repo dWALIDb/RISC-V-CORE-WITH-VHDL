@@ -60,16 +60,18 @@ float l0[16], l1[16];  // outputs buffers for each layer
 uint8_t a[8],m[8];
 float input;
 volatile uint32_t data=1,state=0;
-
+// just incase the needed BGEU does not work
+// it is working now, but i had some trouble with it before
 uint32_t is_greater_equal(uint32_t rs1,uint32_t rs2){
     uint32_t res;
     __asm__ volatile (
         "sltu %0,%1,%2 \t\n"
-        :"=r"(res)
+        :"=r"(res)//outputs numbered first, then inputs 0-> end :)
         :"r"(rs1),"r"(rs2)
     );
-    return res;
+    return (res ^ 0x00000001);
 }
+
 
 
 float factorial(uint32_t n){

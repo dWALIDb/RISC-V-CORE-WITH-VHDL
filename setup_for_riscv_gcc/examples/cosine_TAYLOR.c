@@ -27,7 +27,7 @@ float factorial(uint32_t n){
 
 float mult(float num,int pow){
     float prod=num;
-    for (int i = 1; i < pow-1; i++)
+    for (int i = 1; i < pow; i++)
     {
         prod*=num;
     }
@@ -41,7 +41,7 @@ void compute(){
         uart_read(&a[2]);
         uart_read(&a[3]);
         input=*(float*)&a[0];
-        l0[0]=1.0f;
+        l0[1]=1.0f;
         l1[0]=1.0f;
         float f;
 

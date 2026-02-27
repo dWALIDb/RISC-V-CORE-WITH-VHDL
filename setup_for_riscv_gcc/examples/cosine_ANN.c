@@ -54,19 +54,24 @@ void tanh_activation_quantized(float* input,uint32_t size){
 
 
 uint32_t x=0;
+uint32_t cycles_start=0;
+uint32_t cycles_end=0;
+float cycles_delay=0;
 float l0[16], l1[16];  // outputs buffers for each layer
 uint8_t a[8],m[8];
 float input;
 volatile uint32_t data=1,state=0;
 
+// just incase the needed BGEU does not work
+// it is working now, but i had some trouble with it before
 uint32_t is_greater_equal(uint32_t rs1,uint32_t rs2){
     uint32_t res;
     __asm__ volatile (
         "sltu %0,%1,%2 \t\n"
-        :"=r"(res)
+        :"=r"(res)//outputs numbered first, then inputs 0-> end :)
         :"r"(rs1),"r"(rs2)
     );
-    return res;
+    return (res ^ 0x00000001);
 }
 
 // must be generated with prologue and epilogue in order to not lose addressed inside ISR
@@ -91,7 +96,9 @@ void compute(){
         uart_read(&a[2]);
         uart_read(&a[3]);
         input=*(float*)&a[0];
-
+        input_data((uint8_t*)&cycles_start,0,WORD);
+        cycles_start=*(uint32_t *)0x00000000;
+    
         // print_float(input);
         // uart_write(" ",1);
 
@@ -112,13 +119,12 @@ void compute(){
     
         // Layer 4 (final output)
         forward_pass_quantized(l1, 8, quantized_W4,W4_scale, quantized_B4,B4_scale, l0, 1);
-        // uart_write(" -> ",4);
-        print_float(l0[0]);
-        // uart_write(" ",1);
-        // memory_to_hex_ascii(&l0[0],4,a);
-        // uart_write(a,8);
+        input_data((uint8_t*)&cycles_end,0,WORD);
+        cycles_end=*(uint32_t *)0x00000000;
+        cycles_delay= (float)(cycles_end - cycles_start);
+        uart_write((uint8_t*)&l0[0],4);
+        uart_write((uint8_t*)&cycles_delay,4);
         uart_write("\n\r",2);
-        // uart_write("#",1);
 }
 
 int main() {

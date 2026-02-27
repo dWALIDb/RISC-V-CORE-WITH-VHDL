@@ -3,7 +3,7 @@ import time
 import struct
 import matplotlib.pyplot as plt
 import numpy as np
-
+import time
 PI = 3.14159
 
 # DATA SENT AS BYTES, BUT OVERALL WE SEND FLOATS TO CPU :) (SEND/RECIEVE BINARY DATA)
@@ -13,7 +13,7 @@ PI = 3.14159
 
 DELAY_UART = 0.000001 #1 us between bytes to send(because hardware is slow ?)
 
-DELAY_PROCESSING = 0.01 #10 ms as processing delay, while waiting for response (again slow?)
+DELAY_PROCESSING = 0.003 # 3 ms as processing delay, while waiting for response (again slow?)
 
 
 INITIAL_VAL = -PI #starting value to send
@@ -26,18 +26,24 @@ STEP = 0.01 #increment on value sent to CPU
 # EACH WRITE OF 4 BYTES HAS A GRAPH :)
 NUM_GRAPHS = 7 #how many float values are sent in one iteration, that correspond to 1 graph
 
-
-ser=serial.Serial('COM4',115200,timeout=0)
+UART_BAUD = 115200
+UART_PORT = 'COM4' 
+ser=serial.Serial(UART_PORT,UART_BAUD,timeout=0)
 
 # both lists are used for the graphs
-results=[] # list that holds data processed by cpu
-inputs=[] # list that holds data that was sent to cpu
+results: list[float]=[] # list that holds data processed by cpu
+inputs: list[float]=[] # list that holds data that was sent to cpu
+response_delays : list[float]=[] 
 
 
-# used to stop accounting:)
+# used to stop counting:)
 iters=0
-time.sleep(1) #just a delay, no real reason
+# measures delay between sending bytes and response of CPU
+# time taken by this code and the tiny delays are accounted too
+# so it does need more ... polishing all this cus i dont have a cycle counter 
+# in my architecture... what a shame ...
 
+time.sleep(1) #just a delay, no real reason
 
 a=float(INITIAL_VAL) #STARTING 
 # decompose float into bytes to send them individually
@@ -47,10 +53,13 @@ for b in bytess:
         ser.flush()
         time.sleep(DELAY_UART)
 
+current_start=time.perf_counter()
+
 try:
     while True:
         if ser.in_waiting:
             time.sleep(DELAY_PROCESSING)
+            response_delays.append(time.perf_counter()-current_start)
             # line=ser.readline().decode(errors='replace').replace("\n"," ")
             #READING PACKS OF 4 BYTES 
             while ser.in_waiting>=4:
@@ -75,6 +84,8 @@ try:
                 ser.write(bytes([b]))
                 ser.flush()
                 time.sleep(DELAY_UART)
+
+        current_start=time.perf_counter()
 
 except KeyboardInterrupt:
     print(f"\nSTOPPED after {iters} iters...\n")
@@ -112,3 +123,9 @@ finally:
     for i in range(0,NUM_GRAPHS-1):
         mean=np.mean(np.abs(np.subtract(ann_cos,results[i::NUM_GRAPHS])))
         print(f"Mean Absolute Error between Taylor Series n={i+1} and ANN cosine : {mean}")
+
+# we get average computation time
+#i have a hard coded delay in this code, so i just subtract it to the average :)
+average_calculation_delay= np.average(response_delays) - DELAY_PROCESSING
+print()
+print(f"average calculation delay : {average_calculation_delay*1000} ms")
