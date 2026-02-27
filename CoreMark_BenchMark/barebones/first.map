@@ -1,0 +1,745 @@
+Archive member included to satisfy reference by file (symbol)
+
+C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(adddf3.o)
+                              C:\Users\DELL\AppData\Local\Temp\ccI6NiIz.o (__adddf3)
+C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(divdf3.o)
+                              C:\Users\DELL\AppData\Local\Temp\ccI6NiIz.o (__divdf3)
+C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(eqdf2.o)
+                              C:\Users\DELL\AppData\Local\Temp\ccI6NiIz.o (__nedf2)
+C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(gedf2.o)
+                              C:\Users\DELL\AppData\Local\Temp\ccI6NiIz.o (__gtdf2)
+C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(ledf2.o)
+                              C:\Users\DELL\AppData\Local\Temp\ccI6NiIz.o (__ltdf2)
+C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(muldf3.o)
+                              C:\Users\DELL\AppData\Local\Temp\ccI6NiIz.o (__muldf3)
+C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(fixdfsi.o)
+                              C:\Users\DELL\AppData\Local\Temp\ccI6NiIz.o (__fixdfsi)
+C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(_clzsi2.o)
+                              C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(adddf3.o) (__clzsi2)
+C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(_clz.o)
+                              C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(_clzsi2.o) (__clz_tab)
+C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32imf_zicsr/ilp32f\libc.a(libc_a-memset.o)
+                              C:\Users\DELL\AppData\Local\Temp\ccGDDrHl.o (memset)
+C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32imf_zicsr/ilp32f\libc.a(libc_a-memcpy.o)
+                              C:\Users\DELL\AppData\Local\Temp\ccWFN8EZ.o (memcpy)
+C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32imf_zicsr/ilp32f\libc.a(libm_a-s_modf.o)
+                              C:\Users\DELL\AppData\Local\Temp\ccI6NiIz.o (modf)
+C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32imf_zicsr/ilp32f\libc.a(libm_a-s_fpclassify.o)
+                              C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32imf_zicsr/ilp32f\libc.a(libm_a-s_modf.o) (__fpclassifyd)
+C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(subdf3.o)
+                              C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32imf_zicsr/ilp32f\libc.a(libm_a-s_modf.o) (__subdf3)
+
+Discarded input sections
+
+ .text          0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\ccAIEXNp.o
+ .data          0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\ccAIEXNp.o
+ .bss           0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\ccAIEXNp.o
+ .text.copy_info
+                0x00000000       0x14 C:\Users\DELL\AppData\Local\Temp\ccAIEXNp.o
+ .text.core_list_insert_new
+                0x00000000       0x60 C:\Users\DELL\AppData\Local\Temp\ccAIEXNp.o
+ .text.core_list_remove
+                0x00000000       0x28 C:\Users\DELL\AppData\Local\Temp\ccAIEXNp.o
+ .text.core_list_undo_remove
+                0x00000000       0x20 C:\Users\DELL\AppData\Local\Temp\ccAIEXNp.o
+ .text.core_list_find
+                0x00000000       0x4c C:\Users\DELL\AppData\Local\Temp\ccAIEXNp.o
+ .text.core_list_reverse
+                0x00000000       0x24 C:\Users\DELL\AppData\Local\Temp\ccAIEXNp.o
+ .text          0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\ccTeXprQ.o
+ .data          0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\ccTeXprQ.o
+ .bss           0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\ccTeXprQ.o
+ .rodata.byte_to_hex.str1.4
+                0x00000000       0x11 C:\Users\DELL\AppData\Local\Temp\ccTeXprQ.o
+ .text.byte_to_hex
+                0x00000000       0x54 C:\Users\DELL\AppData\Local\Temp\ccTeXprQ.o
+ .text.memory_to_hex_ascii
+                0x00000000       0x84 C:\Users\DELL\AppData\Local\Temp\ccTeXprQ.o
+ .rodata.print_int.str1.4
+                0x00000000        0x6 C:\Users\DELL\AppData\Local\Temp\ccTeXprQ.o
+ .text.print_int
+                0x00000000       0xec C:\Users\DELL\AppData\Local\Temp\ccTeXprQ.o
+ .rodata.print_float.str1.4
+                0x00000000        0x2 C:\Users\DELL\AppData\Local\Temp\ccTeXprQ.o
+ .text.print_float
+                0x00000000       0xe4 C:\Users\DELL\AppData\Local\Temp\ccTeXprQ.o
+ .rodata.str1.4
+                0x00000000       0x16 C:\Users\DELL\AppData\Local\Temp\ccTeXprQ.o
+ .data.mem_name
+                0x00000000        0xc C:\Users\DELL\AppData\Local\Temp\ccTeXprQ.o
+ .srodata.cst4  0x00000000        0x4 C:\Users\DELL\AppData\Local\Temp\ccTeXprQ.o
+ .text          0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\ccmcTwSx.o
+ .data          0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\ccmcTwSx.o
+ .bss           0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\ccmcTwSx.o
+ .text.matrix_sum
+                0x00000000       0x80 C:\Users\DELL\AppData\Local\Temp\ccmcTwSx.o
+ .text.matrix_mul_const
+                0x00000000       0x4c C:\Users\DELL\AppData\Local\Temp\ccmcTwSx.o
+ .text.matrix_add_const
+                0x00000000       0x38 C:\Users\DELL\AppData\Local\Temp\ccmcTwSx.o
+ .text          0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\ccnvdpel.o
+ .data          0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\ccnvdpel.o
+ .bss           0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\ccnvdpel.o
+ .text.enable_interrupts
+                0x00000000       0x1c C:\Users\DELL\AppData\Local\Temp\ccnvdpel.o
+ .text.interrupt_entry
+                0x00000000       0x30 C:\Users\DELL\AppData\Local\Temp\ccnvdpel.o
+ .text.barebones_clock
+                0x00000000       0x3c C:\Users\DELL\AppData\Local\Temp\ccnvdpel.o
+ .sbss.isr      0x00000000        0x4 C:\Users\DELL\AppData\Local\Temp\ccnvdpel.o
+ .text          0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\ccGDDrHl.o
+ .data          0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\ccGDDrHl.o
+ .bss           0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\ccGDDrHl.o
+ .text          0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\cc2kRpRl.o
+ .data          0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\cc2kRpRl.o
+ .bss           0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\cc2kRpRl.o
+ .text.crcu8    0x00000000      0x130 C:\Users\DELL\AppData\Local\Temp\cc2kRpRl.o
+ .text          0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\ccI6NiIz.o
+ .data          0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\ccI6NiIz.o
+ .bss           0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\ccI6NiIz.o
+ .text.cvt      0x00000000      0x490 C:\Users\DELL\AppData\Local\Temp\ccI6NiIz.o
+ .text.ecvt     0x00000000       0x14 C:\Users\DELL\AppData\Local\Temp\ccI6NiIz.o
+ .text.ecvtbuf  0x00000000        0xc C:\Users\DELL\AppData\Local\Temp\ccI6NiIz.o
+ .text.fcvt     0x00000000       0x14 C:\Users\DELL\AppData\Local\Temp\ccI6NiIz.o
+ .text.fcvtbuf  0x00000000        0xc C:\Users\DELL\AppData\Local\Temp\ccI6NiIz.o
+ .bss.CVTBUF    0x00000000       0x50 C:\Users\DELL\AppData\Local\Temp\ccI6NiIz.o
+ .srodata.cst8  0x00000000       0x18 C:\Users\DELL\AppData\Local\Temp\ccI6NiIz.o
+ .comment       0x00000000       0x34 C:\Users\DELL\AppData\Local\Temp\ccI6NiIz.o
+ .note.GNU-stack
+                0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\ccI6NiIz.o
+ .riscv.attributes
+                0x00000000       0x38 C:\Users\DELL\AppData\Local\Temp\ccI6NiIz.o
+ .text          0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\ccWFN8EZ.o
+ .data          0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\ccWFN8EZ.o
+ .bss           0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\ccWFN8EZ.o
+ .text.uart_send_char
+                0x00000000       0x28 C:\Users\DELL\AppData\Local\Temp\ccWFN8EZ.o
+ .text          0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\ccA0qs3w.o
+ .data          0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\ccA0qs3w.o
+ .bss           0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\ccA0qs3w.o
+ .text.uart_read
+                0x00000000       0x2c C:\Users\DELL\AppData\Local\Temp\ccA0qs3w.o
+ .text.uart_Rx_ISR
+                0x00000000       0x18 C:\Users\DELL\AppData\Local\Temp\ccA0qs3w.o
+ .text.uart_disable
+                0x00000000       0x24 C:\Users\DELL\AppData\Local\Temp\ccA0qs3w.o
+ .text.uart_elem_count
+                0x00000000        0xc C:\Users\DELL\AppData\Local\Temp\ccA0qs3w.o
+ .text          0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\ccinOVab.o
+ .data          0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\ccinOVab.o
+ .bss           0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\ccinOVab.o
+ .text.circ_buf_close
+                0x00000000       0x14 C:\Users\DELL\AppData\Local\Temp\ccinOVab.o
+ .text.circ_buf_write
+                0x00000000       0x50 C:\Users\DELL\AppData\Local\Temp\ccinOVab.o
+ .text.circ_buf_read
+                0x00000000       0x54 C:\Users\DELL\AppData\Local\Temp\ccinOVab.o
+ .text.circ_buf_is_full
+                0x00000000        0xc C:\Users\DELL\AppData\Local\Temp\ccinOVab.o
+ .text.circ_buf_is_empty
+                0x00000000        0xc C:\Users\DELL\AppData\Local\Temp\ccinOVab.o
+ .text.circ_buf_data_available
+                0x00000000        0xc C:\Users\DELL\AppData\Local\Temp\ccinOVab.o
+ .text          0x00000000        0x0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(adddf3.o)
+ .data          0x00000000        0x0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(adddf3.o)
+ .bss           0x00000000        0x0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(adddf3.o)
+ .text.__adddf3
+                0x00000000     0x1320 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(adddf3.o)
+ .debug_info    0x00000000      0x5d2 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(adddf3.o)
+ .debug_abbrev  0x00000000      0x17f C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(adddf3.o)
+ .debug_loclists
+                0x00000000     0x4097 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(adddf3.o)
+ .debug_aranges
+                0x00000000       0x20 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(adddf3.o)
+ .debug_rnglists
+                0x00000000      0x550 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(adddf3.o)
+ .debug_line    0x00000000     0x3cfa C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(adddf3.o)
+ .debug_str     0x00000000      0x2cb C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(adddf3.o)
+ .debug_line_str
+                0x00000000      0x247 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(adddf3.o)
+ .comment       0x00000000       0x34 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(adddf3.o)
+ .note.GNU-stack
+                0x00000000        0x0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(adddf3.o)
+ .debug_frame   0x00000000       0xd0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(adddf3.o)
+ .riscv.attributes
+                0x00000000       0x3c C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(adddf3.o)
+ .text          0x00000000        0x0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(divdf3.o)
+ .data          0x00000000        0x0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(divdf3.o)
+ .bss           0x00000000        0x0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(divdf3.o)
+ .text.__divdf3
+                0x00000000      0xf80 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(divdf3.o)
+ .rodata.__divdf3
+                0x00000000       0x40 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(divdf3.o)
+ .srodata.cst8  0x00000000        0x8 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(divdf3.o)
+ .debug_info    0x00000000      0x822 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(divdf3.o)
+ .debug_abbrev  0x00000000      0x172 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(divdf3.o)
+ .debug_loclists
+                0x00000000     0x2767 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(divdf3.o)
+ .debug_aranges
+                0x00000000       0x20 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(divdf3.o)
+ .debug_rnglists
+                0x00000000      0x2ca C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(divdf3.o)
+ .debug_line    0x00000000     0x2b49 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(divdf3.o)
+ .debug_str     0x00000000      0x38d C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(divdf3.o)
+ .debug_line_str
+                0x00000000      0x251 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(divdf3.o)
+ .comment       0x00000000       0x34 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(divdf3.o)
+ .note.GNU-stack
+                0x00000000        0x0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(divdf3.o)
+ .debug_frame   0x00000000      0x144 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(divdf3.o)
+ .riscv.attributes
+                0x00000000       0x3c C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(divdf3.o)
+ .text          0x00000000        0x0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(eqdf2.o)
+ .data          0x00000000        0x0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(eqdf2.o)
+ .bss           0x00000000        0x0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(eqdf2.o)
+ .text.__eqdf2  0x00000000       0xd0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(eqdf2.o)
+ .debug_info    0x00000000      0x26a C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(eqdf2.o)
+ .debug_abbrev  0x00000000      0x159 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(eqdf2.o)
+ .debug_loclists
+                0x00000000      0x1d9 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(eqdf2.o)
+ .debug_aranges
+                0x00000000       0x20 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(eqdf2.o)
+ .debug_rnglists
+                0x00000000       0x41 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(eqdf2.o)
+ .debug_line    0x00000000      0x30e C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(eqdf2.o)
+ .debug_str     0x00000000      0x1dd C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(eqdf2.o)
+ .debug_line_str
+                0x00000000      0x253 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(eqdf2.o)
+ .comment       0x00000000       0x34 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(eqdf2.o)
+ .note.GNU-stack
+                0x00000000        0x0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(eqdf2.o)
+ .debug_frame   0x00000000       0x20 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(eqdf2.o)
+ .riscv.attributes
+                0x00000000       0x3c C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(eqdf2.o)
+ .text          0x00000000        0x0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(gedf2.o)
+ .data          0x00000000        0x0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(gedf2.o)
+ .bss           0x00000000        0x0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(gedf2.o)
+ .text.__gedf2  0x00000000      0x118 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(gedf2.o)
+ .debug_info    0x00000000      0x268 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(gedf2.o)
+ .debug_abbrev  0x00000000      0x15d C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(gedf2.o)
+ .debug_loclists
+                0x00000000      0x1f6 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(gedf2.o)
+ .debug_aranges
+                0x00000000       0x20 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(gedf2.o)
+ .debug_rnglists
+                0x00000000       0x52 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(gedf2.o)
+ .debug_line    0x00000000      0x43a C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(gedf2.o)
+ .debug_str     0x00000000      0x201 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(gedf2.o)
+ .debug_line_str
+                0x00000000      0x253 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(gedf2.o)
+ .comment       0x00000000       0x34 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(gedf2.o)
+ .note.GNU-stack
+                0x00000000        0x0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(gedf2.o)
+ .debug_frame   0x00000000       0x20 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(gedf2.o)
+ .riscv.attributes
+                0x00000000       0x3c C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(gedf2.o)
+ .text          0x00000000        0x0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(ledf2.o)
+ .data          0x00000000        0x0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(ledf2.o)
+ .bss           0x00000000        0x0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(ledf2.o)
+ .text.__ledf2  0x00000000      0x118 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(ledf2.o)
+ .debug_info    0x00000000      0x268 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(ledf2.o)
+ .debug_abbrev  0x00000000      0x15d C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(ledf2.o)
+ .debug_loclists
+                0x00000000      0x1fb C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(ledf2.o)
+ .debug_aranges
+                0x00000000       0x20 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(ledf2.o)
+ .debug_rnglists
+                0x00000000       0x45 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(ledf2.o)
+ .debug_line    0x00000000      0x42a C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(ledf2.o)
+ .debug_str     0x00000000      0x201 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(ledf2.o)
+ .debug_line_str
+                0x00000000      0x253 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(ledf2.o)
+ .comment       0x00000000       0x34 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(ledf2.o)
+ .note.GNU-stack
+                0x00000000        0x0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(ledf2.o)
+ .debug_frame   0x00000000       0x20 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(ledf2.o)
+ .riscv.attributes
+                0x00000000       0x3c C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(ledf2.o)
+ .text          0x00000000        0x0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(muldf3.o)
+ .data          0x00000000        0x0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(muldf3.o)
+ .bss           0x00000000        0x0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(muldf3.o)
+ .text.__muldf3
+                0x00000000      0xcdc C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(muldf3.o)
+ .srodata.cst8  0x00000000        0x8 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(muldf3.o)
+ .debug_info    0x00000000      0x7fd C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(muldf3.o)
+ .debug_abbrev  0x00000000      0x184 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(muldf3.o)
+ .debug_loclists
+                0x00000000     0x1ecd C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(muldf3.o)
+ .debug_aranges
+                0x00000000       0x20 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(muldf3.o)
+ .debug_rnglists
+                0x00000000      0x28b C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(muldf3.o)
+ .debug_line    0x00000000     0x23c7 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(muldf3.o)
+ .debug_str     0x00000000      0x3e5 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(muldf3.o)
+ .debug_line_str
+                0x00000000      0x251 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(muldf3.o)
+ .comment       0x00000000       0x34 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(muldf3.o)
+ .note.GNU-stack
+                0x00000000        0x0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(muldf3.o)
+ .debug_frame   0x00000000      0x10c C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(muldf3.o)
+ .riscv.attributes
+                0x00000000       0x3c C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(muldf3.o)
+ .text          0x00000000        0x0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(fixdfsi.o)
+ .data          0x00000000        0x0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(fixdfsi.o)
+ .bss           0x00000000        0x0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(fixdfsi.o)
+ .text.__fixdfsi
+                0x00000000      0x118 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(fixdfsi.o)
+ .debug_info    0x00000000      0x1f0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(fixdfsi.o)
+ .debug_abbrev  0x00000000      0x141 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(fixdfsi.o)
+ .debug_loclists
+                0x00000000      0x22f C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(fixdfsi.o)
+ .debug_aranges
+                0x00000000       0x20 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(fixdfsi.o)
+ .debug_rnglists
+                0x00000000       0x42 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(fixdfsi.o)
+ .debug_line    0x00000000      0x3f2 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(fixdfsi.o)
+ .debug_str     0x00000000      0x1d8 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(fixdfsi.o)
+ .debug_line_str
+                0x00000000      0x253 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(fixdfsi.o)
+ .comment       0x00000000       0x34 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(fixdfsi.o)
+ .note.GNU-stack
+                0x00000000        0x0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(fixdfsi.o)
+ .debug_frame   0x00000000       0x20 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(fixdfsi.o)
+ .riscv.attributes
+                0x00000000       0x3c C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(fixdfsi.o)
+ .text          0x00000000        0x0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(_clzsi2.o)
+ .data          0x00000000        0x0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(_clzsi2.o)
+ .bss           0x00000000        0x0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(_clzsi2.o)
+ .text.__clzsi2
+                0x00000000       0x88 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(_clzsi2.o)
+ .debug_info    0x00000000      0x168 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(_clzsi2.o)
+ .debug_abbrev  0x00000000       0xd9 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(_clzsi2.o)
+ .debug_loclists
+                0x00000000       0xe3 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(_clzsi2.o)
+ .debug_aranges
+                0x00000000       0x20 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(_clzsi2.o)
+ .debug_rnglists
+                0x00000000       0x2a C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(_clzsi2.o)
+ .debug_line    0x00000000      0x15f C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(_clzsi2.o)
+ .debug_str     0x00000000      0x1fb C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(_clzsi2.o)
+ .debug_line_str
+                0x00000000      0x23a C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(_clzsi2.o)
+ .comment       0x00000000       0x34 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(_clzsi2.o)
+ .note.GNU-stack
+                0x00000000        0x0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(_clzsi2.o)
+ .debug_frame   0x00000000       0x20 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(_clzsi2.o)
+ .riscv.attributes
+                0x00000000       0x38 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(_clzsi2.o)
+ .text          0x00000000        0x0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(_clz.o)
+ .data          0x00000000        0x0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(_clz.o)
+ .bss           0x00000000        0x0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(_clz.o)
+ .rodata.__clz_tab
+                0x00000000      0x100 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(_clz.o)
+ .debug_info    0x00000000       0xf2 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(_clz.o)
+ .debug_abbrev  0x00000000       0x76 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(_clz.o)
+ .debug_aranges
+                0x00000000       0x18 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(_clz.o)
+ .debug_line    0x00000000       0x49 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(_clz.o)
+ .debug_str     0x00000000      0x1de C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(_clz.o)
+ .debug_line_str
+                0x00000000      0x23a C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(_clz.o)
+ .comment       0x00000000       0x34 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(_clz.o)
+ .note.GNU-stack
+                0x00000000        0x0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(_clz.o)
+ .riscv.attributes
+                0x00000000       0x38 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(_clz.o)
+ .data          0x00000000        0x0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32imf_zicsr/ilp32f\libc.a(libc_a-memset.o)
+ .bss           0x00000000        0x0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32imf_zicsr/ilp32f\libc.a(libc_a-memset.o)
+ .text          0x00000000        0x0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32imf_zicsr/ilp32f\libc.a(libc_a-memcpy.o)
+ .data          0x00000000        0x0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32imf_zicsr/ilp32f\libc.a(libc_a-memcpy.o)
+ .bss           0x00000000        0x0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32imf_zicsr/ilp32f\libc.a(libc_a-memcpy.o)
+ .text          0x00000000        0x0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32imf_zicsr/ilp32f\libc.a(libm_a-s_modf.o)
+ .data          0x00000000        0x0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32imf_zicsr/ilp32f\libc.a(libm_a-s_modf.o)
+ .bss           0x00000000        0x0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32imf_zicsr/ilp32f\libc.a(libm_a-s_modf.o)
+ .text.modf     0x00000000      0x174 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32imf_zicsr/ilp32f\libc.a(libm_a-s_modf.o)
+ .comment       0x00000000       0x34 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32imf_zicsr/ilp32f\libc.a(libm_a-s_modf.o)
+ .note.GNU-stack
+                0x00000000        0x0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32imf_zicsr/ilp32f\libc.a(libm_a-s_modf.o)
+ .riscv.attributes
+                0x00000000       0x38 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32imf_zicsr/ilp32f\libc.a(libm_a-s_modf.o)
+ .text          0x00000000        0x0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32imf_zicsr/ilp32f\libc.a(libm_a-s_fpclassify.o)
+ .data          0x00000000        0x0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32imf_zicsr/ilp32f\libc.a(libm_a-s_fpclassify.o)
+ .bss           0x00000000        0x0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32imf_zicsr/ilp32f\libc.a(libm_a-s_fpclassify.o)
+ .text.__fpclassifyd
+                0x00000000       0x68 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32imf_zicsr/ilp32f\libc.a(libm_a-s_fpclassify.o)
+ .comment       0x00000000       0x34 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32imf_zicsr/ilp32f\libc.a(libm_a-s_fpclassify.o)
+ .note.GNU-stack
+                0x00000000        0x0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32imf_zicsr/ilp32f\libc.a(libm_a-s_fpclassify.o)
+ .riscv.attributes
+                0x00000000       0x38 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32imf_zicsr/ilp32f\libc.a(libm_a-s_fpclassify.o)
+ .text          0x00000000        0x0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(subdf3.o)
+ .data          0x00000000        0x0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(subdf3.o)
+ .bss           0x00000000        0x0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(subdf3.o)
+ .text.__subdf3
+                0x00000000     0x1204 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(subdf3.o)
+ .debug_info    0x00000000      0x5c3 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(subdf3.o)
+ .debug_abbrev  0x00000000      0x17f C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(subdf3.o)
+ .debug_loclists
+                0x00000000     0x3701 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(subdf3.o)
+ .debug_aranges
+                0x00000000       0x20 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(subdf3.o)
+ .debug_rnglists
+                0x00000000      0x55d C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(subdf3.o)
+ .debug_line    0x00000000     0x3dd8 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(subdf3.o)
+ .debug_str     0x00000000      0x2cb C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(subdf3.o)
+ .debug_line_str
+                0x00000000      0x247 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(subdf3.o)
+ .comment       0x00000000       0x34 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(subdf3.o)
+ .note.GNU-stack
+                0x00000000        0x0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(subdf3.o)
+ .debug_frame   0x00000000       0x44 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(subdf3.o)
+ .riscv.attributes
+                0x00000000       0x3c C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a(subdf3.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+RAM              0x00000000         0x00008000         xrw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD C:\Users\DELL\AppData\Local\Temp\ccAIEXNp.o
+LOAD C:\Users\DELL\AppData\Local\Temp\ccTeXprQ.o
+LOAD C:\Users\DELL\AppData\Local\Temp\ccmcTwSx.o
+LOAD C:\Users\DELL\AppData\Local\Temp\ccnvdpel.o
+LOAD C:\Users\DELL\AppData\Local\Temp\ccGDDrHl.o
+LOAD C:\Users\DELL\AppData\Local\Temp\cc2kRpRl.o
+LOAD C:\Users\DELL\AppData\Local\Temp\ccI6NiIz.o
+LOAD C:\Users\DELL\AppData\Local\Temp\ccWFN8EZ.o
+LOAD C:\Users\DELL\AppData\Local\Temp\ccA0qs3w.o
+LOAD C:\Users\DELL\AppData\Local\Temp\ccinOVab.o
+LOAD C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a
+START GROUP
+LOAD C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32imf_zicsr/ilp32f\libc.a
+LOAD C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32imf_zicsr/ilp32f\libgloss.a
+END GROUP
+LOAD C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a
+                0x00008000                        PROVIDE (_stack_start = (ORIGIN (RAM) + LENGTH (RAM)))
+                0x00000000                        . = ORIGIN (RAM)
+
+.text           0x00000000     0x3604
+                0x00000000                        . = ALIGN (0x4)
+ *(.text.Reset*)
+ .text.Reset    0x00000000       0x1c C:\Users\DELL\AppData\Local\Temp\ccTeXprQ.o
+                0x00000000                Reset
+ *(.text*)
+ .text.cmp_idx  0x0000001c       0x54 C:\Users\DELL\AppData\Local\Temp\ccAIEXNp.o
+                0x0000001c                cmp_idx
+ .text.calc_func
+                0x00000070      0x134 C:\Users\DELL\AppData\Local\Temp\ccAIEXNp.o
+                0x00000070                calc_func
+ .text.cmp_complex
+                0x000001a4       0x48 C:\Users\DELL\AppData\Local\Temp\ccAIEXNp.o
+                0x000001a4                cmp_complex
+ .text.core_list_mergesort
+                0x000001ec      0x1b0 C:\Users\DELL\AppData\Local\Temp\ccAIEXNp.o
+                0x000001ec                core_list_mergesort
+ .text.core_bench_list
+                0x0000039c      0x2f8 C:\Users\DELL\AppData\Local\Temp\ccAIEXNp.o
+                0x0000039c                core_bench_list
+ .text.core_list_init
+                0x00000694      0x15c C:\Users\DELL\AppData\Local\Temp\ccAIEXNp.o
+                0x00000694                core_list_init
+ .text.iterate  0x000007f0       0x88 C:\Users\DELL\AppData\Local\Temp\ccTeXprQ.o
+                0x000007f0                iterate
+ .text.startup.main
+                0x00000878      0x750 C:\Users\DELL\AppData\Local\Temp\ccTeXprQ.o
+                0x00000878                main
+ .text.core_init_matrix
+                0x00000fc8      0x124 C:\Users\DELL\AppData\Local\Temp\ccmcTwSx.o
+                0x00000fc8                core_init_matrix
+ .text.matrix_mul_vect
+                0x000010ec       0x58 C:\Users\DELL\AppData\Local\Temp\ccmcTwSx.o
+                0x000010ec                matrix_mul_vect
+ .text.matrix_mul_matrix
+                0x00001144       0xa0 C:\Users\DELL\AppData\Local\Temp\ccmcTwSx.o
+                0x00001144                matrix_mul_matrix
+ .text.matrix_mul_matrix_bitextract
+                0x000011e4       0xb4 C:\Users\DELL\AppData\Local\Temp\ccmcTwSx.o
+                0x000011e4                matrix_mul_matrix_bitextract
+ .text.matrix_test
+                0x00001298      0x3e8 C:\Users\DELL\AppData\Local\Temp\ccmcTwSx.o
+                0x00001298                matrix_test
+ .text.core_bench_matrix
+                0x00001680       0x3c C:\Users\DELL\AppData\Local\Temp\ccmcTwSx.o
+                0x00001680                core_bench_matrix
+ .text.output_data
+                0x000016bc       0x5c C:\Users\DELL\AppData\Local\Temp\ccnvdpel.o
+                0x000016bc                output_data
+ .text.input_data
+                0x00001718       0x34 C:\Users\DELL\AppData\Local\Temp\ccnvdpel.o
+                0x00001718                input_data
+ .text.start_time
+                0x0000174c       0x40 C:\Users\DELL\AppData\Local\Temp\ccnvdpel.o
+                0x0000174c                start_time
+ .text.stop_time
+                0x0000178c       0x40 C:\Users\DELL\AppData\Local\Temp\ccnvdpel.o
+                0x0000178c                stop_time
+ .text.get_time
+                0x000017cc       0x18 C:\Users\DELL\AppData\Local\Temp\ccnvdpel.o
+                0x000017cc                get_time
+ .text.time_in_secs
+                0x000017e4       0x14 C:\Users\DELL\AppData\Local\Temp\ccnvdpel.o
+                0x000017e4                time_in_secs
+ .text.portable_init
+                0x000017f8       0x44 C:\Users\DELL\AppData\Local\Temp\ccnvdpel.o
+                0x000017f8                portable_init
+ .text.portable_fini
+                0x0000183c        0x8 C:\Users\DELL\AppData\Local\Temp\ccnvdpel.o
+                0x0000183c                portable_fini
+ .text.core_init_state
+                0x00001844      0x194 C:\Users\DELL\AppData\Local\Temp\ccGDDrHl.o
+                0x00001844                core_init_state
+ .text.core_state_transition
+                0x000019d8      0x2e8 C:\Users\DELL\AppData\Local\Temp\ccGDDrHl.o
+                0x000019d8                core_state_transition
+ .text.core_bench_state
+                0x00001cc0      0x1b4 C:\Users\DELL\AppData\Local\Temp\ccGDDrHl.o
+                0x00001cc0                core_bench_state
+ .text.get_seed_32
+                0x00001e74       0x64 C:\Users\DELL\AppData\Local\Temp\cc2kRpRl.o
+                0x00001e74                get_seed_32
+ .text.crcu16   0x00001ed8      0x228 C:\Users\DELL\AppData\Local\Temp\cc2kRpRl.o
+                0x00001ed8                crcu16
+ .text.crcu32   0x00002100      0x420 C:\Users\DELL\AppData\Local\Temp\cc2kRpRl.o
+                0x00002100                crcu32
+ .text.crc16    0x00002520      0x22c C:\Users\DELL\AppData\Local\Temp\cc2kRpRl.o
+                0x00002520                crc16
+ .text.check_data_types
+                0x0000274c        0x8 C:\Users\DELL\AppData\Local\Temp\cc2kRpRl.o
+                0x0000274c                check_data_types
+ .text.number   0x00002754      0x340 C:\Users\DELL\AppData\Local\Temp\ccWFN8EZ.o
+ .text.ee_printf
+                0x00002a94      0x8d0 C:\Users\DELL\AppData\Local\Temp\ccWFN8EZ.o
+                0x00002a94                ee_printf
+ .text.uart_enable
+                0x00003364       0x24 C:\Users\DELL\AppData\Local\Temp\ccA0qs3w.o
+                0x00003364                uart_enable
+ .text.uart_write
+                0x00003388       0x68 C:\Users\DELL\AppData\Local\Temp\ccA0qs3w.o
+                0x00003388                uart_write
+ .text.circ_buf_init
+                0x000033f0       0x10 C:\Users\DELL\AppData\Local\Temp\ccinOVab.o
+                0x000033f0                circ_buf_init
+ .text          0x00003400       0xdc C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32imf_zicsr/ilp32f\libc.a(libc_a-memset.o)
+                0x00003400                memset
+ .text.memcpy   0x000034dc      0x128 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32imf_zicsr/ilp32f\libc.a(libc_a-memcpy.o)
+                0x000034dc                memcpy
+                0x00003604                        . = ALIGN (0x4)
+
+.rodata         0x00003604      0x200
+                0x00003604                        . = ALIGN (0x4)
+ *(.rodata)
+ .rodata        0x00003604      0x200 C:\Users\DELL\AppData\Local\Temp\cc2kRpRl.o
+                0x00003804                        . = ALIGN (0x4)
+
+.rodata.main.str1.4
+                0x00003804      0x47a
+ .rodata.main.str1.4
+                0x00003804      0x47a C:\Users\DELL\AppData\Local\Temp\ccTeXprQ.o
+
+.rodata.Reset.str1.4
+                0x00003c80        0x7
+ .rodata.Reset.str1.4
+                0x00003c80        0x7 C:\Users\DELL\AppData\Local\Temp\ccTeXprQ.o
+
+.rodata.state_known_crc
+                0x00003c88        0xa
+ .rodata.state_known_crc
+                0x00003c88        0xa C:\Users\DELL\AppData\Local\Temp\ccTeXprQ.o
+
+.rodata.matrix_known_crc
+                0x00003c94        0xa
+ .rodata.matrix_known_crc
+                0x00003c94        0xa C:\Users\DELL\AppData\Local\Temp\ccTeXprQ.o
+
+.rodata.list_known_crc
+                0x00003ca0        0xa
+ .rodata.list_known_crc
+                0x00003ca0        0xa C:\Users\DELL\AppData\Local\Temp\ccTeXprQ.o
+
+.rodata.str1.4  0x00003cac       0xad
+ .rodata.str1.4
+                0x00003cac       0xad C:\Users\DELL\AppData\Local\Temp\ccGDDrHl.o
+
+.rodata.errpat  0x00003d5c       0x10
+ .rodata.errpat
+                0x00003d5c       0x10 C:\Users\DELL\AppData\Local\Temp\ccGDDrHl.o
+
+.rodata.scipat  0x00003d6c       0x10
+ .rodata.scipat
+                0x00003d6c       0x10 C:\Users\DELL\AppData\Local\Temp\ccGDDrHl.o
+
+.rodata.floatpat
+                0x00003d7c       0x10
+ .rodata.floatpat
+                0x00003d7c       0x10 C:\Users\DELL\AppData\Local\Temp\ccGDDrHl.o
+
+.rodata.intpat  0x00003d8c       0x10
+ .rodata.intpat
+                0x00003d8c       0x10 C:\Users\DELL\AppData\Local\Temp\ccGDDrHl.o
+
+.rodata.get_seed_32
+                0x00003d9c       0x18
+ .rodata.get_seed_32
+                0x00003d9c       0x18 C:\Users\DELL\AppData\Local\Temp\cc2kRpRl.o
+
+.rodata.number.str1.4
+                0x00003db4       0x4d
+ .rodata.number.str1.4
+                0x00003db4       0x4d C:\Users\DELL\AppData\Local\Temp\ccWFN8EZ.o
+
+.rodata.ee_printf.str1.4
+                0x00003e04        0x7
+ .rodata.ee_printf.str1.4
+                0x00003e04        0x7 C:\Users\DELL\AppData\Local\Temp\ccWFN8EZ.o
+
+.rodata.ee_printf
+                0x00003e0c      0x204
+ .rodata.ee_printf
+                0x00003e0c      0x204 C:\Users\DELL\AppData\Local\Temp\ccWFN8EZ.o
+
+.rela.dyn       0x00004010        0x0
+ .rela.text.Reset
+                0x00004010        0x0 C:\Users\DELL\AppData\Local\Temp\ccAIEXNp.o
+
+.data           0x00004010        0x0
+                0x00004010                        . = ALIGN (0x4)
+ *(.data)
+                0x00004010                        . = ALIGN (0x4)
+
+.sdata.default_num_contexts
+                0x00004010        0x4
+ .sdata.default_num_contexts
+                0x00004010        0x4 C:\Users\DELL\AppData\Local\Temp\ccnvdpel.o
+                0x00004010                default_num_contexts
+
+.sdata.seed4_volatile
+                0x00004014        0x4
+ .sdata.seed4_volatile
+                0x00004014        0x4 C:\Users\DELL\AppData\Local\Temp\ccnvdpel.o
+                0x00004014                seed4_volatile
+
+.sdata.seed3_volatile
+                0x00004018        0x4
+ .sdata.seed3_volatile
+                0x00004018        0x4 C:\Users\DELL\AppData\Local\Temp\ccnvdpel.o
+                0x00004018                seed3_volatile
+
+.bss            0x0000401c        0x0
+                0x0000401c                        . = ALIGN (0x4)
+ *(.bss)
+                0x0000401c                        . = ALIGN (0x4)
+                0x0000401c                        . = ALIGN (0x4)
+OUTPUT(first.elf elf32-littleriscv)
+
+.bss.static_memblk
+                0x0000401c      0x7d0
+ .bss.static_memblk
+                0x0000401c      0x7d0 C:\Users\DELL\AppData\Local\Temp\ccTeXprQ.o
+                0x0000401c                static_memblk
+
+.sbss.stop_time_val
+                0x000047ec        0x4
+ .sbss.stop_time_val
+                0x000047ec        0x4 C:\Users\DELL\AppData\Local\Temp\ccnvdpel.o
+
+.sbss.start_time_val
+                0x000047f0        0x4
+ .sbss.start_time_val
+                0x000047f0        0x4 C:\Users\DELL\AppData\Local\Temp\ccnvdpel.o
+
+.sbss.seed5_volatile
+                0x000047f4        0x4
+ .sbss.seed5_volatile
+                0x000047f4        0x4 C:\Users\DELL\AppData\Local\Temp\ccnvdpel.o
+                0x000047f4                seed5_volatile
+
+.sbss.seed2_volatile
+                0x000047f8        0x4
+ .sbss.seed2_volatile
+                0x000047f8        0x4 C:\Users\DELL\AppData\Local\Temp\ccnvdpel.o
+                0x000047f8                seed2_volatile
+
+.sbss.seed1_volatile
+                0x000047fc        0x4
+ .sbss.seed1_volatile
+                0x000047fc        0x4 C:\Users\DELL\AppData\Local\Temp\ccnvdpel.o
+                0x000047fc                seed1_volatile
+
+.bss.uart_read_buff
+                0x00004800       0x83
+ .bss.uart_read_buff
+                0x00004800       0x83 C:\Users\DELL\AppData\Local\Temp\ccA0qs3w.o
+                0x00004800                uart_read_buff
+
+.comment        0x00000000       0x33
+ .comment       0x00000000       0x33 C:\Users\DELL\AppData\Local\Temp\ccAIEXNp.o
+                                 0x34 (size before relaxing)
+ .comment       0x00000033        0x0 C:\Users\DELL\AppData\Local\Temp\ccTeXprQ.o
+                                 0x34 (size before relaxing)
+ .comment       0x00000033        0x0 C:\Users\DELL\AppData\Local\Temp\ccmcTwSx.o
+                                 0x34 (size before relaxing)
+ .comment       0x00000033        0x0 C:\Users\DELL\AppData\Local\Temp\ccnvdpel.o
+                                 0x34 (size before relaxing)
+ .comment       0x00000033        0x0 C:\Users\DELL\AppData\Local\Temp\ccGDDrHl.o
+                                 0x34 (size before relaxing)
+ .comment       0x00000033        0x0 C:\Users\DELL\AppData\Local\Temp\cc2kRpRl.o
+                                 0x34 (size before relaxing)
+ .comment       0x00000033        0x0 C:\Users\DELL\AppData\Local\Temp\ccWFN8EZ.o
+                                 0x34 (size before relaxing)
+ .comment       0x00000033        0x0 C:\Users\DELL\AppData\Local\Temp\ccA0qs3w.o
+                                 0x34 (size before relaxing)
+ .comment       0x00000033        0x0 C:\Users\DELL\AppData\Local\Temp\ccinOVab.o
+                                 0x34 (size before relaxing)
+ .comment       0x00000033        0x0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32imf_zicsr/ilp32f\libc.a(libc_a-memcpy.o)
+                                 0x34 (size before relaxing)
+
+.note.GNU-stack
+                0x00000000        0x0
+ .note.GNU-stack
+                0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\ccAIEXNp.o
+ .note.GNU-stack
+                0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\ccTeXprQ.o
+ .note.GNU-stack
+                0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\ccmcTwSx.o
+ .note.GNU-stack
+                0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\ccnvdpel.o
+ .note.GNU-stack
+                0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\ccGDDrHl.o
+ .note.GNU-stack
+                0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\cc2kRpRl.o
+ .note.GNU-stack
+                0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\ccWFN8EZ.o
+ .note.GNU-stack
+                0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\ccA0qs3w.o
+ .note.GNU-stack
+                0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\ccinOVab.o
+ .note.GNU-stack
+                0x00000000        0x0 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32imf_zicsr/ilp32f\libc.a(libc_a-memcpy.o)
+
+.riscv.attributes
+                0x00000000       0x3c
+ .riscv.attributes
+                0x00000000       0x38 C:\Users\DELL\AppData\Local\Temp\ccAIEXNp.o
+ .riscv.attributes
+                0x00000038       0x38 C:\Users\DELL\AppData\Local\Temp\ccTeXprQ.o
+ .riscv.attributes
+                0x00000070       0x38 C:\Users\DELL\AppData\Local\Temp\ccmcTwSx.o
+ .riscv.attributes
+                0x000000a8       0x38 C:\Users\DELL\AppData\Local\Temp\ccnvdpel.o
+ .riscv.attributes
+                0x000000e0       0x38 C:\Users\DELL\AppData\Local\Temp\ccGDDrHl.o
+ .riscv.attributes
+                0x00000118       0x38 C:\Users\DELL\AppData\Local\Temp\cc2kRpRl.o
+ .riscv.attributes
+                0x00000150       0x38 C:\Users\DELL\AppData\Local\Temp\ccWFN8EZ.o
+ .riscv.attributes
+                0x00000188       0x38 C:\Users\DELL\AppData\Local\Temp\ccA0qs3w.o
+ .riscv.attributes
+                0x000001c0       0x38 C:\Users\DELL\AppData\Local\Temp\ccinOVab.o
+ .riscv.attributes
+                0x000001f8       0x36 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32imf_zicsr/ilp32f\libc.a(libc_a-memset.o)
+ .riscv.attributes
+                0x0000022e       0x38 C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32imf_zicsr/ilp32f\libc.a(libc_a-memcpy.o)
