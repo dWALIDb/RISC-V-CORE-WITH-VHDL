@@ -1,0 +1,255 @@
+
+Discarded input sections
+
+ .text          0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\cc9br8tm.o
+ .data          0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\cc9br8tm.o
+ .bss           0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\cc9br8tm.o
+ .text.enable_interrupts
+                0x00000000       0x1c C:\Users\DELL\AppData\Local\Temp\cc9br8tm.o
+ .text.interrupt_entry
+                0x00000000       0x30 C:\Users\DELL\AppData\Local\Temp\cc9br8tm.o
+ .rodata.byte_to_hex.str1.4
+                0x00000000       0x11 C:\Users\DELL\AppData\Local\Temp\cc9br8tm.o
+ .text.byte_to_hex
+                0x00000000       0x5c C:\Users\DELL\AppData\Local\Temp\cc9br8tm.o
+ .text.memory_to_hex_ascii
+                0x00000000       0x60 C:\Users\DELL\AppData\Local\Temp\cc9br8tm.o
+ .text.my_sub   0x00000000       0x14 C:\Users\DELL\AppData\Local\Temp\cc9br8tm.o
+ .sbss.isr      0x00000000        0x4 C:\Users\DELL\AppData\Local\Temp\cc9br8tm.o
+ .text          0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\ccFss0pD.o
+ .data          0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\ccFss0pD.o
+ .bss           0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\ccFss0pD.o
+ .text.uart_enable
+                0x00000000       0x3c C:\Users\DELL\AppData\Local\Temp\ccFss0pD.o
+ .text.uart_read
+                0x00000000       0x2c C:\Users\DELL\AppData\Local\Temp\ccFss0pD.o
+ .text.uart_Rx_ISR
+                0x00000000       0x2c C:\Users\DELL\AppData\Local\Temp\ccFss0pD.o
+ .text.uart_elem_count
+                0x00000000        0xc C:\Users\DELL\AppData\Local\Temp\ccFss0pD.o
+ .text          0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\cc9Ji404.o
+ .data          0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\cc9Ji404.o
+ .bss           0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\cc9Ji404.o
+ .text.circ_buf_init
+                0x00000000       0x10 C:\Users\DELL\AppData\Local\Temp\cc9Ji404.o
+ .text.circ_buf_write
+                0x00000000       0x4c C:\Users\DELL\AppData\Local\Temp\cc9Ji404.o
+ .text.circ_buf_read
+                0x00000000       0x50 C:\Users\DELL\AppData\Local\Temp\cc9Ji404.o
+ .text.circ_buf_is_full
+                0x00000000        0xc C:\Users\DELL\AppData\Local\Temp\cc9Ji404.o
+ .text.circ_buf_is_empty
+                0x00000000        0xc C:\Users\DELL\AppData\Local\Temp\cc9Ji404.o
+ .text.circ_buf_data_available
+                0x00000000        0xc C:\Users\DELL\AppData\Local\Temp\cc9Ji404.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+RAM              0x00000000         0x00008000         xrw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD C:\Users\DELL\AppData\Local\Temp\cc9br8tm.o
+LOAD C:\Users\DELL\AppData\Local\Temp\ccFss0pD.o
+LOAD C:\Users\DELL\AppData\Local\Temp\cc9Ji404.o
+LOAD C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a
+START GROUP
+LOAD C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32imf_zicsr/ilp32f\libc.a
+LOAD C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32imf_zicsr/ilp32f\libgloss.a
+END GROUP
+LOAD C:/Users/DELL/Desktop/master_proj/C_python_setp/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32imf_zicsr/ilp32f\libgcc.a
+                0x00008000                        PROVIDE (_stack_start = (ORIGIN (RAM) + LENGTH (RAM)))
+                0x00000000                        . = ORIGIN (RAM)
+
+.text           0x00000000     0x18cc
+                0x00000000                        . = ALIGN (0x4)
+ *(.text.Reset*)
+ .text.Reset    0x00000000       0x18 C:\Users\DELL\AppData\Local\Temp\cc9br8tm.o
+                0x00000000                Reset
+ *(.text*)
+ .text.number   0x00000018      0x28c C:\Users\DELL\AppData\Local\Temp\cc9br8tm.o
+ .text.cosine_from_rads_interp
+                0x000002a4       0xd0 C:\Users\DELL\AppData\Local\Temp\cc9br8tm.o
+                0x000002a4                cosine_from_rads_interp
+ .text.output_data
+                0x00000374       0x5c C:\Users\DELL\AppData\Local\Temp\cc9br8tm.o
+                0x00000374                output_data
+ .text.input_data
+                0x000003d0       0x34 C:\Users\DELL\AppData\Local\Temp\cc9br8tm.o
+                0x000003d0                input_data
+ .text.disable_interrupts
+                0x00000404        0x8 C:\Users\DELL\AppData\Local\Temp\cc9br8tm.o
+                0x00000404                disable_interrupts
+ .text.print_int
+                0x0000040c       0xf4 C:\Users\DELL\AppData\Local\Temp\cc9br8tm.o
+                0x0000040c                print_int
+ .text.print_float
+                0x00000500       0xd4 C:\Users\DELL\AppData\Local\Temp\cc9br8tm.o
+                0x00000500                print_float
+ .text.uart_send_char
+                0x000005d4       0x24 C:\Users\DELL\AppData\Local\Temp\cc9br8tm.o
+                0x000005d4                uart_send_char
+ .text.ee_printf
+                0x000005f8      0x8f8 C:\Users\DELL\AppData\Local\Temp\cc9br8tm.o
+                0x000005f8                ee_printf
+ .text.sine_from_rads_interp
+                0x00000ef0       0xd0 C:\Users\DELL\AppData\Local\Temp\cc9br8tm.o
+                0x00000ef0                sine_from_rads_interp
+ .text.atan_approx
+                0x00000fc0       0x60 C:\Users\DELL\AppData\Local\Temp\cc9br8tm.o
+                0x00000fc0                atan_approx
+ .text.log_approx
+                0x00001020       0xfc C:\Users\DELL\AppData\Local\Temp\cc9br8tm.o
+                0x00001020                log_approx
+ .text.exp_approx
+                0x0000111c       0x34 C:\Users\DELL\AppData\Local\Temp\cc9br8tm.o
+                0x0000111c                exp_approx
+ .text.sqrt_newton
+                0x00001150       0x44 C:\Users\DELL\AppData\Local\Temp\cc9br8tm.o
+                0x00001150                sqrt_newton
+ .text.PA       0x00001194       0xa8 C:\Users\DELL\AppData\Local\Temp\cc9br8tm.o
+                0x00001194                PA
+ .text.P0       0x0000123c       0x54 C:\Users\DELL\AppData\Local\Temp\cc9br8tm.o
+                0x0000123c                P0
+ .text.P3       0x00001290       0x30 C:\Users\DELL\AppData\Local\Temp\cc9br8tm.o
+                0x00001290                P3
+ .text.main     0x000012c0      0x55c C:\Users\DELL\AppData\Local\Temp\cc9br8tm.o
+                0x000012c0                main
+ .text.uart_write
+                0x0000181c       0x68 C:\Users\DELL\AppData\Local\Temp\ccFss0pD.o
+                0x0000181c                uart_write
+ .text.uart_disable
+                0x00001884       0x34 C:\Users\DELL\AppData\Local\Temp\ccFss0pD.o
+                0x00001884                uart_disable
+ .text.circ_buf_close
+                0x000018b8       0x14 C:\Users\DELL\AppData\Local\Temp\cc9Ji404.o
+                0x000018b8                circ_buf_close
+                0x000018cc                        . = ALIGN (0x4)
+
+.rodata         0x000018cc        0x0
+                0x000018cc                        . = ALIGN (0x4)
+ *(.rodata)
+                0x000018cc                        . = ALIGN (0x4)
+
+.rodata.number.str1.4
+                0x000018cc       0x4d
+ .rodata.number.str1.4
+                0x000018cc       0x4d C:\Users\DELL\AppData\Local\Temp\cc9br8tm.o
+
+.rodata.print_int.str1.4
+                0x0000191c        0x6
+ .rodata.print_int.str1.4
+                0x0000191c        0x6 C:\Users\DELL\AppData\Local\Temp\cc9br8tm.o
+
+.rodata.print_float.str1.4
+                0x00001924        0x2
+ .rodata.print_float.str1.4
+                0x00001924        0x2 C:\Users\DELL\AppData\Local\Temp\cc9br8tm.o
+
+.rodata.ee_printf.str1.4
+                0x00001928        0x7
+ .rodata.ee_printf.str1.4
+                0x00001928        0x7 C:\Users\DELL\AppData\Local\Temp\cc9br8tm.o
+
+.rodata.ee_printf
+                0x00001930      0x204
+ .rodata.ee_printf
+                0x00001930      0x204 C:\Users\DELL\AppData\Local\Temp\cc9br8tm.o
+
+.rodata.main.str1.4
+                0x00001b34       0x78
+ .rodata.main.str1.4
+                0x00001b34       0x78 C:\Users\DELL\AppData\Local\Temp\cc9br8tm.o
+
+.srodata.cst4   0x00001bac       0x58
+ .srodata.cst4  0x00001bac       0x58 C:\Users\DELL\AppData\Local\Temp\cc9br8tm.o
+
+.rela.dyn       0x00001c04        0x0
+ .rela.text.Reset
+                0x00001c04        0x0 C:\Users\DELL\AppData\Local\Temp\cc9br8tm.o
+
+.data           0x00001c04        0x0
+                0x00001c04                        . = ALIGN (0x4)
+ *(.data)
+                0x00001c04                        . = ALIGN (0x4)
+
+.sdata.MINUS_TWO_PI
+                0x00001c04        0x4
+ .sdata.MINUS_TWO_PI
+                0x00001c04        0x4 C:\Users\DELL\AppData\Local\Temp\cc9br8tm.o
+                0x00001c04                MINUS_TWO_PI
+
+.data.cosine_table
+                0x00001c08      0x200
+ .data.cosine_table
+                0x00001c08      0x200 C:\Users\DELL\AppData\Local\Temp\cc9br8tm.o
+                0x00001c08                cosine_table
+
+.bss            0x00001e08        0x0
+                0x00001e08                        . = ALIGN (0x4)
+ *(.bss)
+                0x00001e08                        . = ALIGN (0x4)
+                0x00001e08                        . = ALIGN (0x4)
+OUTPUT(first.elf elf32-littleriscv)
+
+.sbss.L         0x00001e08        0x4
+ .sbss.L        0x00001e08        0x4 C:\Users\DELL\AppData\Local\Temp\cc9br8tm.o
+                0x00001e08                L
+
+.sbss.K         0x00001e0c        0x4
+ .sbss.K        0x00001e0c        0x4 C:\Users\DELL\AppData\Local\Temp\cc9br8tm.o
+                0x00001e0c                K
+
+.sbss.J         0x00001e10        0x4
+ .sbss.J        0x00001e10        0x4 C:\Users\DELL\AppData\Local\Temp\cc9br8tm.o
+                0x00001e10                J
+
+.bss.E1         0x00001e14       0x14
+ .bss.E1        0x00001e14       0x14 C:\Users\DELL\AppData\Local\Temp\cc9br8tm.o
+                0x00001e14                E1
+
+.sbss.T2        0x00001e28        0x4
+ .sbss.T2       0x00001e28        0x4 C:\Users\DELL\AppData\Local\Temp\cc9br8tm.o
+                0x00001e28                T2
+
+.sbss.T1        0x00001e2c        0x4
+ .sbss.T1       0x00001e2c        0x4 C:\Users\DELL\AppData\Local\Temp\cc9br8tm.o
+                0x00001e2c                T1
+
+.sbss.T         0x00001e30        0x4
+ .sbss.T        0x00001e30        0x4 C:\Users\DELL\AppData\Local\Temp\cc9br8tm.o
+                0x00001e30                T
+
+.bss.uart_read_buff
+                0x00001e34       0x83
+ .bss.uart_read_buff
+                0x00001e34       0x83 C:\Users\DELL\AppData\Local\Temp\ccFss0pD.o
+                0x00001e34                uart_read_buff
+
+.comment        0x00000000       0x33
+ .comment       0x00000000       0x33 C:\Users\DELL\AppData\Local\Temp\cc9br8tm.o
+                                 0x34 (size before relaxing)
+ .comment       0x00000033        0x0 C:\Users\DELL\AppData\Local\Temp\ccFss0pD.o
+                                 0x34 (size before relaxing)
+ .comment       0x00000033        0x0 C:\Users\DELL\AppData\Local\Temp\cc9Ji404.o
+                                 0x34 (size before relaxing)
+
+.note.GNU-stack
+                0x00000000        0x0
+ .note.GNU-stack
+                0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\cc9br8tm.o
+ .note.GNU-stack
+                0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\ccFss0pD.o
+ .note.GNU-stack
+                0x00000000        0x0 C:\Users\DELL\AppData\Local\Temp\cc9Ji404.o
+
+.riscv.attributes
+                0x00000000       0x38
+ .riscv.attributes
+                0x00000000       0x38 C:\Users\DELL\AppData\Local\Temp\cc9br8tm.o
+ .riscv.attributes
+                0x00000038       0x38 C:\Users\DELL\AppData\Local\Temp\ccFss0pD.o
+ .riscv.attributes
+                0x00000070       0x38 C:\Users\DELL\AppData\Local\Temp\cc9Ji404.o
