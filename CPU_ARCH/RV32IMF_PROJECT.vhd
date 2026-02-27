@@ -13,10 +13,11 @@ data_width:integer:=32;
 address_width:integer:=5;
 
 --UART USES BIT 15 as chip select
-instruction_memory_address_width:integer:=16;--bare in mind that 2 lsbs are not used to address ram(word addressable shenanigans)
+instruction_memory_address_width:integer:=17;--bare in mind that 2 lsbs are not used to address ram(word addressable shenanigans)
 
 instruction_file_directory0:string:=
-"C:\Users\DELL\Desktop\master_proj\C_python_setp\mif_0.mif"
+"C:\Users\DELL\Desktop\master_proj\C_python_setp\CoreMark_BENCHMARK\barebones\mif_0.mif"
+--"C:\Users\DELL\Desktop\master_proj\C_python_setp\mif_0.mif"
 );
 port (
 --"rd" must be '1' and "wd" must be '0'
@@ -143,20 +144,22 @@ signal special_load_store: std_logic_vector(2 downto 0);
 constant zero: std_logic_vector(31 downto 0):=(others=>'0');
 
 signal byte_en,byte_en1 : std_logic_vector(3 downto 0);
-signal uart_cs,loopback: std_logic;
+signal uart_cs: std_logic;
 signal uart_out:std_logic_vector(7 downto 0);
 signal uart_stat:std_logic_vector(1 downto 0);
 
 signal int_ack,int_uart:std_logic;
 
+
 begin
+
 ------------------------------------------__LSUs__---------------------------------------------------------------
 LSU0: load_store_unit port map(RD,WD,data_pointer(1 downto 0),special_load_store,ram_out,data_towrite,byte_en,
 data_toread,ram_in);
 
 ---------------------------------------------__RAMs__--------------------------------------------------							
 RAM0: ram_byteaddressable32 generic map(instruction_memory_address_width,instruction_file_directory0) 
-port map(clk,(WD and (uart_cs)),(RD and (uart_cs)),'1',byte_en,data_pointer,
+port map(clk,(WD and uart_cs),(RD and uart_cs),'1',byte_en,data_pointer,
 ram_in,data_pointer,instruction_pointer,ram_out,current_instruction);
 
 -------------------------------------__UART__-----------------------------------------------------------------
@@ -167,17 +170,19 @@ uart_cs,RD,WD,int_ack,data_pointer(1 downto 0),tx_done,rx_done,uart_stat(0),uart
 serial_tx,serial_rx,uart_out,int_uart);
 
 -------------------------------------__CPU CORE__-------------------------------------------------------------------
-cpu_data_in<= data_toread when uart_cs='1' else
-				x"000000"&uart_out when uart_cs='0' and data_pointer(1 downto 0)="10"else
-				x"0000000"&uart_stat&"00"  when uart_cs='0' and data_pointer(1 downto 0)="00"
-				else (others=>'0');
+-- this introduces a latch apparently
 
+cpu_data_in<= data_toread when uart_cs='1' else
+			x"0000000"&uart_stat&"00"  when uart_cs='0' and data_pointer(1 downto 0)="00" else
+			x"000000"&uart_out when uart_cs='0' and data_pointer(1 downto 0)="10"else
+			(others=>'0');
+			
 data_towrite<=cpu_data_out;
 
 --im using same memory for instructions and data,riscv compiler with custom linker script handle the addresses
 THE_CORE:RV32IMF generic map(32,address_width,instruction_memory_address_width,instruction_memory_address_width,23,8,7)
-port map(clk,rst,int or int_uart,IN_DATA,current_instruction,cpu_data_in,RD,WD,special_load_store,CPU_output,instruction_pointer,
-data_pointer,cpu_data_out,int_ack);
+port map(clk,rst,int or int_uart,IN_DATA,current_instruction,cpu_data_in,RD,WD,special_load_store,CPU_output
+,instruction_pointer,data_pointer,cpu_data_out,int_ack);
 
 instruction_address<=data_pointer(31 downto 24)&instruction_pointer(31 downto 24)&uart_out&uart_stat&current_instruction(5 downto 0);
 
@@ -199,6 +204,7 @@ reserved<=byte_en(2 downto 0)&special_load_store&RD&WD&int_ack&int_uart;
 
 
 --OUT_DATA<=zero(31 downto instruction_memory_address_width+2)&instruction_pointer(instruction_memory_address_width-1 downto 0)&"00";
-OUT_DATA<=cpu_data_out(7 downto 0)&cpu_data_in(7 downto 0)&ram_in(7 downto 0)&CPU_output(7 downto 0);
+--OUT_DATA<=cpu_data_out(7 downto 0)&cpu_data_in(7 downto 0)&ram_in(7 downto 0)&CPU_output(7 downto 0);
+OUT_DATA<=CPU_output;
 instruction<=current_instruction;
 end arch;

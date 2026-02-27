@@ -71,7 +71,7 @@ elsif clk'event and clk='1' then
 end if;
 end process;
 -- interrupt CPU on every recieved byte
-process(done_recieve,int_ack,rst)
+process(done_recieve,int_ack)
 begin 
 if (rst='1' or int_ack='1')then int<='0';
 elsif(done_recieve'event and done_recieve='0') then 
