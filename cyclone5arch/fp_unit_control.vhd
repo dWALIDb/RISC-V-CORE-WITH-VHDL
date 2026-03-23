@@ -18,7 +18,7 @@ signal output:std_logic_vector(3 downto 0);
 signal go_addition,go_multiplication,go_conversion1,go_conversion2:std_logic;
 -- op=0000 mult 
 -- op=0001 div
--- op=0010 add 
+-- op=0010 add
 -- op=0011 max
 -- op=0100 min
 -- op=0101 conversion(int to float)
@@ -61,7 +61,7 @@ if(clk'event and clk='0') then
 	elsif(op="0011") then output<="0101";
 	elsif(op="0100") then output<="0110";
 	elsif(op="0101") then output<="0111";
-	elsif(op="0000" or op="001") then output<="0000";
+	elsif(op="0000" or op="0001") then output<="0000";
 	elsif(op="0010") then output<="0001";
 	elsif(op="0110") then output<="1000";
 	elsif(op="0111") then output<="1001";

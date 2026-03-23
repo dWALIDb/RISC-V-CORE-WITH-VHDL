@@ -27,8 +27,8 @@ architecture rtl of ram_byteaddressable32 is
     signal wr_addr    : std_logic_vector(address_width-1 downto 2) := (others => '0');
     signal rd1_addr   : std_logic_vector(address_width-1 downto 2) := (others => '0');
     signal rd2_addr   : std_logic_vector(address_width-1 downto 2) := (others => '0');
-
-    component ram_block
+	 
+	 component ram_block
  	GENERIC (address_width : INTEGER;
 	INIT_FILE:STRING
 	);
@@ -50,7 +50,8 @@ begin
     rd1_addr <= addr_rd1(address_width-1 downto 2); -- what part of word is used :)
     rd2_addr <= addr_rd2(address_width-1 downto 2); -- that occurs at LSU level
  
-    -- First RAM instance: handles write + read1
+	 
+	 -- First RAM instance: handles write + read1
     ram1: ram_block
 	 generic map(address_width-2,INIT_FILE)
        PORT map
