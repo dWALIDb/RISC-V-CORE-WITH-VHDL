@@ -7,6 +7,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
+
 entity RV32IMF_PROJECT is
 generic(
 data_width:integer:=32;
@@ -151,7 +152,6 @@ signal uart_out:std_logic_vector(7 downto 0);
 signal uart_stat:std_logic_vector(1 downto 0);
 
 signal int_ack,int_uart:std_logic;
-
 
 begin
 

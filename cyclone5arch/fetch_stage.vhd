@@ -42,6 +42,7 @@ end component;
 
 constant ZERO:std_logic_vector(data_width-1 downto 0):=(others=>'0');
 signal PC_out,new_PC,chosen_pc:std_logic_vector(data_width-1 downto 0);
+
 begin
 --calculation of next PC  we add 4 because all instructions are 4 bytes and little endian
 pc_outplus4<=std_logic_vector(unsigned(PC_out)+4);
@@ -73,6 +74,7 @@ end if;
 write_address<=ram_out(11 downto 7);
 immediate_value<=ram_out(data_width-1 downto 20);
 upper_immediate_value<=ram_out(data_width-1 downto 12);
+
 end if;
 
 end process;

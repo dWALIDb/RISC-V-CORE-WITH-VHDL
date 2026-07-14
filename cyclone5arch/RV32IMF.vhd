@@ -196,7 +196,7 @@ read_address2F,write_addressF,func3F,func7F,pc_OUTPLUS4F,current_pcF,opcodeF);
 
 -- goes to ram
 instruction_pointer<=current_pcF(data_width-1 downto 0);
- special_load_store<=func3F;--this controls data size
+special_load_store<=func3F;--this controls data size
 data_pointer<=C_AluE;
 
 

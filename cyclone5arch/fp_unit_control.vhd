@@ -7,7 +7,7 @@ entity fp_unit_control is
 port(
 	clk:in std_logic;
 	op:in std_logic_vector(3 downto 0);
-	infinity1,infinity2,zero1,zero2,equal_ops:in std_logic;
+	infinity1,infinity2,zero1,zero2,equal_ops,equal_literally:in std_logic;
 	output_control:out std_logic_vector(3 downto 0);
 	div,go_add,go_mul,go_conv_int_tofloat,go_conv_float_toint:out std_logic;
 	control_done:out std_logic
@@ -25,10 +25,15 @@ signal go_addition,go_multiplication,go_conversion1,go_conversion2:std_logic;
 -- op=0110 conversion(float to int)
 -- op=0111 absolute value
 -- op=1000 negative
+-- op=1001 sub
+-- op=1010 feq
+-- op=1011 flt
+-- op=1100 lte
+
 signal equal,div_byinf,div_byzero,mul_byzero,mul_byinf,add_inf,zero_by_zero,inf_by_inf,inf_mul_zero,zero_by_number:std_logic;
 begin 
 --special cases that require special solutions (modern problems require modern solutions xD )
-equal<='1' when (op="0010" and equal_ops='1')else '0';
+equal<='1' when ((op="0010" and equal_ops='1') or (op="1001" and equal_literally='1'))else '0';
 div_byinf<='1' when (op="0001" and infinity2='1')else '0';
 div_byzero<='1' when (op="0001" and zero2='1')else '0';
 mul_byzero<='1' when (op="0000" and (zero2='1' or zero1='1'))else '0';
@@ -42,9 +47,9 @@ inf_mul_zero<='1' when (op="0000" and (zero2='1' or zero1='1') and (infinity2='1
 
 div<='1' when op="0001" else '0';
 
-control_done<='1' when op="0100" or op="0011" or op="1000" or op="0111"  else '0';--force the done signal for another unit that might be used.
+control_done<='1' when op="0100" or op="0011" or op="1000" or op="0111" or op="1010"or op="1011"or op="1100"  else '0';--force the done signal for another unit that might be used.
 
-go_addition<='1' when op="0010" else '0';--to enable only the desired unit
+go_addition<='1' when op="0010" or op="1001" else '0';--to enable only the desired unit
 
 go_conversion1<='1' when op="0101" else '0';--to enable only desired unit
 
@@ -62,11 +67,14 @@ if(clk'event and clk='0') then
 	elsif(op="0100") then output<="0110";
 	elsif(op="0101") then output<="0111";
 	elsif(op="0000" or op="0001") then output<="0000";
-	elsif(op="0010") then output<="0001";
+	elsif(op="0010" or op="1001") then output<="0001";
 	elsif(op="0110") then output<="1000";
 	elsif(op="0111") then output<="1001";
 	elsif(op="1000") then output<="1010";
-	else output<="1011";
+	elsif(op="1010") then output<="1011";
+	elsif(op="1011") then output<="1100";
+	elsif(op="1100") then output<="1101";
+	else output<="1111";
 
 --output<="000" when op="000" or op="001" else --mult or div
 --		"001" when op="010" else --add/sub

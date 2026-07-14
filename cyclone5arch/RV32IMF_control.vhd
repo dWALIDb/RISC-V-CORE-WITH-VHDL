@@ -133,6 +133,7 @@ elsif(clk'event and clk='0') then
 						if(func7="0001000") then Wfp_op<="0000";Wfp_wd<=fp_done;--mul
 						elsif(func7="0001100") then Wfp_op<="0001";Wfp_wd<=fp_done;--div
 						elsif(func7="0000000") then Wfp_op<="0010";Wfp_wd<=fp_done;--add
+						elsif(func7="0000100") then Wfp_op<="1001";Wfp_wd<=fp_done;--sub inchallah it works!-----------
 						elsif(func7="0010100" and func3="000") then Wfp_op<="0100";Wfp_wd<=fp_done;--min
 						elsif(func7="0010100" and func3="001") then Wfp_op<="0011";Wfp_wd<=fp_done;--max
 						--elsif(func7="1100000" ) then Wfp_op<="0110";Wint_wd<='1';Wfp_rd1<='1';Wfp_rd2<='0';Wfp_wd<=fp_done;--FCVT.W.S converts fp number to integer 
@@ -142,6 +143,9 @@ elsif(clk'event and clk='0') then
 						elsif(func7="0010000" and func3="000") then Wfp_enable<='0';Wfp_rd2<='0';Wram_src<="101";--FSGNJ.S to move data between registers RS2 is not used (FMV)
 						elsif(func7="0010000" and func3="001") then Wfp_op<="1000";Wfp_rd2<='0';--FSGNJN.S to get negative of data sign(FNEG)
 						elsif(func7="0010000" and func3="010") then Wfp_op<="0111";Wfp_rd2<='0';--FSGNJX.S to get absolute value of data(FABS)
+						elsif(func7="1010000" and func3="010") then Wfp_op<="1010";Wfp_wd<='0';Wint_wd<='1';--feq.s
+						elsif(func7="1010000" and func3="001") then Wfp_op<="1011";Wfp_wd<='0';Wint_wd<='1';--flt.s
+						elsif(func7="1010000" and func3="000") then Wfp_op<="1100";Wfp_wd<='0';Wint_wd<='1';--fle.s
 						end if;
 						--they follow the table in RISCV spec 2.2
 		--INSTRUCTIONS THAT AFFECT: PC JAR JARL AUPIC
