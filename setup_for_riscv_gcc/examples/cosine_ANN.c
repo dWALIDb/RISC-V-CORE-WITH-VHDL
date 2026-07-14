@@ -64,15 +64,15 @@ volatile uint32_t data=1,state=0;
 
 // just incase the needed BGEU does not work
 // it is working now, but i had some trouble with it before
-uint32_t is_greater_equal(uint32_t rs1,uint32_t rs2){
-    uint32_t res;
-    __asm__ volatile (
-        "sltu %0,%1,%2 \t\n"
-        :"=r"(res)//outputs numbered first, then inputs 0-> end :)
-        :"r"(rs1),"r"(rs2)
-    );
-    return (res ^ 0x00000001);
-}
+// uint32_t is_greater_equal(uint32_t rs1,uint32_t rs2){
+//     uint32_t res;
+//     __asm__ volatile (
+//         "sltu %0,%1,%2 \t\n"
+//         :"=r"(res)//outputs numbered first, then inputs 0-> end :)
+//         :"r"(rs1),"r"(rs2)
+//     );
+//     return (res ^ 0x00000001);
+// }
 
 // must be generated with prologue and epilogue in order to not lose addressed inside ISR
 void __attribute__((noinline)) interrupt_handler(){
@@ -80,8 +80,7 @@ void __attribute__((noinline)) interrupt_handler(){
     
     data++;
     if (data % 4==0)
-    {
-        state=1;
+    {state=1;
     }else{state=0;}
     
     *UART_CONTROLS |= (RX_ENABLE);

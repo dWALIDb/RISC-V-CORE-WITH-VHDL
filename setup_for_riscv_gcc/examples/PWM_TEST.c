@@ -80,7 +80,6 @@ int main() {
     uart_enable(TX_ENABLE|RX_ENABLE);
     enable_interrupts(interrupt_handler);
     uart_write("main\n\r",7);
-    // must not be 0, else you get weird behaviour :)
     
     while(1){
     data=0x00080080;

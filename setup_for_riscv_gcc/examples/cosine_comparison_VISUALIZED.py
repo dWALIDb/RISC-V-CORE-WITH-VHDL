@@ -12,7 +12,7 @@ PI = 3.14159
 # DATA MUST BE SENT AS BYTES AND WITHOUT NEW LINES, JUST RAW DATA
 
 DELAY_UART = 0.000001 #1 us between bytes to send(because hardware is slow ?)
-
+ 
 DELAY_PROCESSING = 0.003 # 3 ms as processing delay, while waiting for response (again slow?)
 
 
@@ -27,7 +27,7 @@ STEP = 0.01 #increment on value sent to CPU
 NUM_GRAPHS = 7 #how many float values are sent in one iteration, that correspond to 1 graph
 
 UART_BAUD = 115200
-UART_PORT = 'COM4' 
+UART_PORT = 'COM5' 
 ser=serial.Serial(UART_PORT,UART_BAUD,timeout=0)
 
 # both lists are used for the graphs
@@ -71,7 +71,7 @@ try:
             
             inputs.append(a)
             ser.reset_input_buffer(); #discard anything that came later than when we read
-            a+=STEP #move one step 
+            a+=STEP #move one step
             
             iters+=1
             # stop depending on the range specified by user

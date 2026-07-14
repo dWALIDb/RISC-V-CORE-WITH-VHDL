@@ -19,23 +19,8 @@ PI = 3.14159
 
 DELAY_UART = 0.000001 #1 us between bytes to send(because hardware is slow ?)
 
-DELAY_PROCESSING = 0.03 # 30 ms as processing delay, while waiting for response (again slow?)
+DELAY_PROCESSING = 0.003 # 3 ms as processing delay, while waiting for response (again slow?)
 
-
-INITIAL_VAL = 1 #starting value to send
-
-# F0 is the desired output analog frequency
-F0= (440.0)
-# F0 is the sampling frequency
-FS= (8000.0)
-
-# STEP : float = 2*PI*F0/FS #increment on value sent to CPU
-STEP : float = 0.01 #increment on value sent to CPU
-
-LAST_VAL = 10 #last value sent to CPU
-
-
-print(f'{STEP=}')
 # float values are counted by uart_write(<float>,4)
 # EACH WRITE OF 4 BYTES HAS A GRAPH :)
 
@@ -49,6 +34,9 @@ inputs: list[float]=[] # list that holds data that was sent to cpu
 response_delays : list[float]=[] 
 
 
+print("HELLO FELLOW USER")
+print("PRESS CTRL + C TO EXIT :)")
+
 # used to stop counting:)
 iters=0
 # measures delay between sending bytes and response of CPU
@@ -58,39 +46,33 @@ iters=0
 
 time.sleep(1) #just a delay, no real reason
 
-a=float(INITIAL_VAL) #STARTING 
 # decompose float into bytes to send them individually
-bytess = struct.pack('<f',a)
-for b in bytess:
-    ser.write(bytes([b]))
-    time.sleep(DELAY_UART)
+            
+ser.write(bytes([0]))
 
 try:
     while True:
-        if ser.in_waiting>=8:
+        if ser.in_waiting>=12:
             #READING PACKS OF 4 BYTES that correspond to response of CPU 
+            # READ INPUT TO SYSTEM THEN READ THE SYSTEM OUTPUT(RESPONSE) THEN READ SYSTEM DELAY
             line=ser.read(4)
             response1 = struct.unpack('<f',line)[0] #COMPOSING FLOATS (first elem of tuple has values)           
+            
             line=ser.read(4)
-            response2 = struct.unpack('<f',line)[0] #COMPOSING FLOATS (first elem of tuple has values)           
-            # if abs(response1)<10.0: 
-            results.append(float(response1))
-            response_delays.append(float(response2))
-            inputs.append(a)
-            #READING PACK OF 4 BYTES THAT CORRESPONDS TO # OF CYCLES TAKEN TO COMPUTE OUTPUT 
-            print(f'{iters}/{int((LAST_VAL-INITIAL_VAL)/STEP)}',end='\r')#shows last result, just to make sure something is happening
-            a+=STEP #move one step 
-            iters+=1
-            # stop depending on the range specified by user
-            if iters>int((LAST_VAL-INITIAL_VAL)/STEP) :
-                print(f"\nSTOPPED after {iters} iters...\n")
-                break
-            time.sleep(DELAY_PROCESSING) 
-            bytess = struct.pack('<f',a)
-            for b in bytess:
-                ser.write(bytes([b]))
-                time.sleep(DELAY_UART)
+            response2 = struct.unpack('<f',line)[0] #COMPOSING FLOATS (first elem of tuple has values)
+            
+            line=ser.read(4)
+            response3= struct.unpack('<f',line)[0]
+            
+            inputs.append(response1)
+            results.append(float(response2))
+            response_delays.append(float(response3))
 
+            #READING PACK OF 4 BYTES THAT CORRESPONDS TO # OF CYCLES TAKEN TO COMPUTE OUTPUT 
+            iters+=1
+            print(f'{iters}',end='\r')#shows last result, just to make sure something is happening
+            # no need to trigger multiple times 
+            # ser.write(bytes([0]))
 
 
 except KeyboardInterrupt:
@@ -99,24 +81,25 @@ except KeyboardInterrupt:
 
 finally:
     ser.close()
-   
-    # now this changes depending on application
-    # i made sure that i sent ann values last
-    #values are interleaved in the list, meaning that each graph has its values (NUM_GRAPHS example: 7) appart
-    # some more information about axes and stuff
-    fig,axs= plt.subplots(2,1)
-    axs[0].plot(inputs,results)
-    axs[0].set_xlabel("X")
-    axs[0].set_ylabel("Y")
-    axs[0].set_title("CPU RESPONSE TO DATA")
+    user_input=input("would you like to plot the output ? (y/n): ")
+    if user_input=="y":
+        # now this changes depending on application
+        # i made sure that i sent ann values last
+        #values are interleaved in the list, meaning that each graph has its values (NUM_GRAPHS example: 7) appart
+        # some more information about axes and stuff
+        fig,axs= plt.subplots(2,1)
+        axs[0].plot(inputs,results)
+        axs[0].set_xlabel("X")
+        axs[0].set_ylabel("Y")
+        axs[0].set_title("CPU RESPONSE TO DATA")
 
-    axs[1].plot(inputs,response_delays)
-    axs[1].set_xlabel("X")
-    axs[1].set_ylabel("Cycles")
-    axs[1].set_title("CPU RESPONSE TIME")
-    
-    
-    plt.show()
+        axs[1].plot(inputs,response_delays)
+        axs[1].set_xlabel("X")
+        axs[1].set_ylabel("Cycles")
+        axs[1].set_title("CPU RESPONSE TIME")
+
+
+        plt.show()
     
     
     # we get average computation time
@@ -136,5 +119,7 @@ if(user_input=="y"):
     fd=open("SAMPLES.bin","wb")
     array = np.array(results,dtype='float32')
     array.tofile(fd)
+    print("written data into file (SAMPLES.bin)")
+    print()
 else:
     print("HAVE A NICE DAY :)")

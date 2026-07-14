@@ -1,20 +1,15 @@
 #include "utils\custom_instructions.h"
 #include "utils\uart.h"
+#include "utils\gpio.h"
+#include "utils\cycle_counter.h"
 #include "utils/hex_to_ascii.h"
-#include"utils\weights_quantized.h"
-#include"utils\neural_network.h"
 #include"utils\custom_instructions.h"
+
 
 
 volatile uint32_t cycles_start=0;
 volatile uint32_t cycles_end=0;
 volatile uint32_t gp_state=0;
-volatile float cycles_delay=0.0f;
-uint8_t a[8];
-uint8_t res=0;
-float input;
-volatile uint32_t data=0,state=0;
-
 
 // delay in ms
 void delay_ms(uint32_t ms){
@@ -54,7 +49,7 @@ void __attribute__((noinline)) interrupt_handler(){
     enable_interrupts(interrupt_handler);
 }
 
-
+uint32_t time[10]={0};
 int main() {
     
     uart_enable(TX_ENABLE|RX_ENABLE);
@@ -65,58 +60,36 @@ int main() {
     // read the capture registers
     // ensure correct timing
     // write the value i wanted :)
-    data=0x00000040;
-    output_data((uint8_t*)&data,0,WORD);
+    gpio_set_capture_register_bit(0);
+    gpio_write(0);
     while(1){
-    data=0x00000140;
-    output_data((uint8_t*)&data,0,WORD);
-    delay_us(10);
-    // read pin state 
-    // test pin state
-    // wait for falling edge.
-    data=0x00000040;
-    output_data((uint8_t*)&data,0,WORD);
+        // get 10 readings and average them out to get bettere readings, this has improved it a lot
+    
+    /* code */
+        gpio_write(0x10);
+        delay_us(10);
+        gpio_write(0x00);
+        delay_us(10);
+        gpio_write(0x20);
+        delay_us(10);
+        gpio_write(0);
+        
+        
+    delay_us(200);
 
-    data=0x00000041;
-    output_data((uint8_t*)&data,0,WORD);
-    input_data((uint8_t*)&gp_state,0,WORD);
-    while ((gp_state & 0x01) != 1)
-    {
-        output_data((uint8_t*)&data,0,WORD);
-        input_data((uint8_t*)&gp_state,0,WORD);
-        /* code */
-    }
-    output_data((uint8_t*)&data,0,WORD);
-    input_data((uint8_t*)&gp_state,0,WORD);
-    while ((gp_state & 0x01) != 0)
-    {
-        output_data((uint8_t*)&data,0,WORD);
-        input_data((uint8_t*)&gp_state,0,WORD);
-        /* code */
-    }
-    data=0x00000041;
-    output_data((uint8_t*)&data,0,WORD);
-    input_data((uint8_t*)&gp_state,0,WORD);
+    uint8_t bytes[8]={0};
+    int state=gpio_read();
+    state>>=2;
+    state&=0xFF;
+    uart_write("raw reading: ",14);
+    memory_to_hex_ascii(&state,4,bytes);
+    uart_write(bytes,8);
+    uart_write("\tcorresponds to: ",18);
+    float volts=state * 5.0395f/255.0f;
+    print_float(volts);
+    uart_write(" v\n\r",4);
     
-    data=0x00000042;
-    output_data((uint8_t*)&data,0,WORD);
-    input_data((uint8_t*)&cycles_start,0,WORD);
-    
-    data=0x00000043;
-    output_data((uint8_t*)&data,0,WORD);
-    input_data((uint8_t*)&cycles_end,0,WORD);
-    
-    uint32_t time=(cycles_end-cycles_start);
-    uart_write("IT'S WORKING\n\r",15);
-    uart_write("cycles taken:\t",13);
-    print_float(time);
-    uart_write("\n\r",2);
-    float distance=(float)(time)*0.02f /(58.0f);
-    uart_write("distance measured:\t",20);
-    print_float(distance);
-    uart_write(" cm\n\r",5);
-    
-    delay_ms(1000);
+    delay_ms(2000);
     }
 return 0;
 }

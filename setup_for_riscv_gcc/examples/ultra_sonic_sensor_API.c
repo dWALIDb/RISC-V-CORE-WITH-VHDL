@@ -1,20 +1,18 @@
 #include "utils\custom_instructions.h"
 #include "utils\uart.h"
+#include "utils\gpio.h"
+#include "utils\cycle_counter.h"
 #include "utils/hex_to_ascii.h"
-#include"utils\weights_quantized.h"
-#include"utils\neural_network.h"
 #include"utils\custom_instructions.h"
 
+
+#define SOUND_SPEED 331  // (m/s) AT 0 °c
+#define ENV_TEMPERATURE 17  //(°c)
+#define CURRENT_SOUND_SPEED ((float)SOUND_SPEED+0.6f*(ENV_TEMPERATURE))
 
 volatile uint32_t cycles_start=0;
 volatile uint32_t cycles_end=0;
 volatile uint32_t gp_state=0;
-volatile float cycles_delay=0.0f;
-uint8_t a[8];
-uint8_t res=0;
-float input;
-volatile uint32_t data=0,state=0;
-
 
 // delay in ms
 void delay_ms(uint32_t ms){
@@ -54,7 +52,7 @@ void __attribute__((noinline)) interrupt_handler(){
     enable_interrupts(interrupt_handler);
 }
 
-
+uint32_t time[10]={0};
 int main() {
     
     uart_enable(TX_ENABLE|RX_ENABLE);
@@ -65,58 +63,65 @@ int main() {
     // read the capture registers
     // ensure correct timing
     // write the value i wanted :)
-    data=0x00000040;
-    output_data((uint8_t*)&data,0,WORD);
+    gpio_set_capture_register_bit(0);
+    gpio_write(0);
     while(1){
-    data=0x00000140;
-    output_data((uint8_t*)&data,0,WORD);
-    delay_us(10);
-    // read pin state 
-    // test pin state
-    // wait for falling edge.
-    data=0x00000040;
-    output_data((uint8_t*)&data,0,WORD);
-
-    data=0x00000041;
-    output_data((uint8_t*)&data,0,WORD);
-    input_data((uint8_t*)&gp_state,0,WORD);
-    while ((gp_state & 0x01) != 1)
+        // get 10 readings and average them out to get bettere readings, this has improved it a lot
+    for (uint32_t i = 0; i < 10; i++)
     {
-        output_data((uint8_t*)&data,0,WORD);
-        input_data((uint8_t*)&gp_state,0,WORD);
         /* code */
+        gpio_write(1);
+        delay_us(10);
+        gpio_write(0);
+        // read pin state 
+        // test pin state
+        // wait for falling edge.
+    
+        gp_state=gpio_read();
+        while (gpio_test_bit(gp_state,0,0)){ gp_state=gpio_read();}
+    
+        while (gpio_test_bit(gp_state,0,1)){ gp_state=gpio_read();}
+        
+       cycles_start=gpio_read_edge_capture(EDGE_STATE_RISING);
+       cycles_end=gpio_read_edge_capture(EDGE_STATE_FALLING);
+        
+        time[i]=(cycles_end-cycles_start);
+        delay_ms(50);
     }
-    output_data((uint8_t*)&data,0,WORD);
-    input_data((uint8_t*)&gp_state,0,WORD);
-    while ((gp_state & 0x01) != 0)
+    float time_avg=0.0;
+    for (uint32_t i = 0; i < 10; i++)
     {
-        output_data((uint8_t*)&data,0,WORD);
-        input_data((uint8_t*)&gp_state,0,WORD);
-        /* code */
+        time_avg+=(float)time[i];
     }
-    data=0x00000041;
-    output_data((uint8_t*)&data,0,WORD);
-    input_data((uint8_t*)&gp_state,0,WORD);
+    time_avg/=10.0;
     
-    data=0x00000042;
-    output_data((uint8_t*)&data,0,WORD);
-    input_data((uint8_t*)&cycles_start,0,WORD);
-    
-    data=0x00000043;
-    output_data((uint8_t*)&data,0,WORD);
-    input_data((uint8_t*)&cycles_end,0,WORD);
-    
-    uint32_t time=(cycles_end-cycles_start);
-    uart_write("IT'S WORKING\n\r",15);
-    uart_write("cycles taken:\t",13);
-    print_float(time);
+    uart_write("cycles start:\t",15);
+    print_float((float)cycles_start);
     uart_write("\n\r",2);
-    float distance=(float)(time)*0.02f /(58.0f);
-    uart_write("distance measured:\t",20);
+
+    uart_write("cycles end:\t",13);
+    print_float((float)cycles_end);
+    uart_write("\n\r",2);
+
+    uart_write("cycles taken:\t",13);
+    print_float(time_avg);
+    uart_write("\n\r",2);
+    
+    // fast way to check
+    float distance=(float)(time_avg)*0.02f /(58.0f);
+    // more accurate calculation (actually more accurate :) )
+    float distance2=(float)(time_avg) /(float)(CPU_FREQ);
+    distance2*= (CURRENT_SOUND_SPEED/2.0f);
+    distance2*=100.0f;
+    uart_write("distance measured shortcut:\t",29);
     print_float(distance);
     uart_write(" cm\n\r",5);
+    uart_write("distance measured more accurate:\t",34);
+    print_float(distance2);
+    uart_write(" cm\n\r",5);
+
     
-    delay_ms(1000);
+    delay_ms(2000);
     }
 return 0;
 }
