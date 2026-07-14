@@ -194,3 +194,6 @@ Maybe in the next months i can explore more into it after synthesis and uploadin
 
 # LATEST UPDATES
 I have added some RAM and UART through memory mapping, enabling serial communication with CPU, this makes it much more versatile, along with some bug fixing for instructions that were understood wrong by me, or just a wrong implementation.
+
+ADDED: PWM,UART,GPIO,CYCLE COUNTER
+ALSO MORE FPU INSTRUCTIONS : FSUB,FLT,FLE,FEQ MAKING THE FLOATING POINT OPERATIONS MUCH EASIER TO MAKE. 
