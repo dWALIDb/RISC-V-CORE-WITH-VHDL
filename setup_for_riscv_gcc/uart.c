@@ -1,5 +1,5 @@
-#include<memorymap.h>
-#include<uart.h>
+#include "utils\memorymap.h"
+#include "utils/uart.h"
 
 circular_buffer uart_read_buff;
 
