@@ -14,6 +14,7 @@ uint32_t read_cycle_counter(uint8_t HIGH_LOW){
     uint32_t opcode=HIGH_LOW;
     output_data((uint8_t*)&opcode,0,WORD);   
     input_data((uint8_t*)&opcode,0,WORD);
+  
     return opcode;
 }
 

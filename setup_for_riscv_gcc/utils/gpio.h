@@ -28,7 +28,7 @@ uint32_t gpio_read_edge_capture(uint8_t EDGE_STATE){
     return opcode;
 }
 // set what gpio bit is used to trigger the edge capture registers 
-void GPIO_set_capture_register_bit(uint8_t BIT){
+void gpio_set_capture_register_bit(uint8_t BIT){
     uint32_t opcode=(uint32_t)GPIO_SET_EDGE_CAPTURE_CLK_SOURCE;
     opcode|=(BIT<<8); 
     output_data((uint8_t*)&opcode,0,WORD);
